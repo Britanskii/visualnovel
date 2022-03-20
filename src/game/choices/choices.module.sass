@@ -1,0 +1,31 @@
+@import "../styles/constants"
+
+.choices
+	z-index: 1
+	top: 0
+	transition: .2s all ease
+	opacity: 1
+	position: absolute
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: center
+	height: 100%
+	width: 100%
+	//pointer-events: none
+	&__select
+		transition: .3s all ease
+		margin-top: 20px
+		height: 50px
+		width: 600px
+		display: flex
+		justify-content: center
+		align-items: center
+		background-color: $backgroundColor
+		color: $textColor
+		border-radius: 25px
+		outline: 1px solid $accentColor
+		outline-offset: -4px
+		cursor: pointer
+		&:hover
+			box-shadow: inset 0 0 10px $accentColor, 0 0 30px $accentColor
