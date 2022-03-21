@@ -58,3 +58,8 @@ interface choiceI {
     text: string,
     story: storyI[]
 }
+
+enum char {
+    rin = "Rin",
+    hostess = "Hostess"
+}
