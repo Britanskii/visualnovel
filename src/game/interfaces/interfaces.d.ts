@@ -35,6 +35,24 @@ interface character
     }
 }
 
+interface dataRawSpineChar {
+    [index: string]: rawChar
+}
+
+interface rawSpineChar {
+    "fullname"?: string
+    "name"?: string,
+    "color"?: string,
+    "fontFamily"?: string,
+    "res": {
+        "prefix": string,
+        "json": string,
+        "atlas": string,
+    }
+}
+
+
+
 // interface personsNamesI {
 //     Rin: string
 // }

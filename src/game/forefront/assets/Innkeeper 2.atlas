@@ -1,0 +1,47 @@
+
+Innkeeper 2.png
+size: 1804,1216
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+cup
+  rotate: true
+  xy: 641, 683
+  size: 531, 532
+  orig: 531, 532
+  offset: 0, 0
+  index: -1
+hand
+  rotate: false
+  xy: 2, 2
+  size: 929, 679
+  orig: 929, 679
+  offset: 0, 0
+  index: -1
+head
+  rotate: true
+  xy: 1175, 594
+  size: 620, 627
+  orig: 620, 628
+  offset: 0, 0
+  index: -1
+platok
+  rotate: true
+  xy: 2, 980
+  size: 234, 637
+  orig: 234, 637
+  offset: 0, 0
+  index: -1
+
+Innkeeper 22.png
+size: 1248,1599
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: false
+  xy: 2, 2
+  size: 1244, 1595
+  orig: 1244, 1595
+  offset: 0, 0
+  index: -1

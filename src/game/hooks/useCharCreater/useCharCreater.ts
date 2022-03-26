@@ -6,6 +6,7 @@ const useCharCreater = (char: string): character => {
 
     const character = data[char]
 
+
     //Emotions
 
     const onChangeEmotion = (emo: string) => {

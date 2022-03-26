@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@esotericsoftware/spine-core": "^4.1.15",
+    "@esotericsoftware/spine-canvas": "^4.1.15",
+    "@esotericsoftware/spine-player": "^4.1.15",
+    "@esotericsoftware/spine-threejs": "^4.1.15",
+    "@esotericsoftware/spine-webgl": "^4.1.15",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
