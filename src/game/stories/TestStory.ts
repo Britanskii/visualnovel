@@ -1,6 +1,7 @@
 import useCharCreater from "../hooks/useCharCreater/useCharCreater";
 import OneStory from "./OneStory";
 import TwoStory from "./TwoStory";
+import useSpineCharCreater from "../hooks/useSpineCharCreater/useSpineCharCreater";
 
 
 const TestStory = (): storyI[] => {

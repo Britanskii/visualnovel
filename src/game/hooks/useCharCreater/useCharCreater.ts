@@ -1,7 +1,6 @@
 import data from "../../../data/characters";
 // import 'animate.css'
 
-
 const useCharCreater = (char: string): character => {
 
     const character = data[char]

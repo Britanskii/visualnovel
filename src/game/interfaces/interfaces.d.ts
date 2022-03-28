@@ -51,17 +51,6 @@ interface rawSpineChar {
     }
 }
 
-
-
-// interface personsNamesI {
-//     Rin: string
-// }
-// type personsKeys = keyof personsNamesI
-//
-//
-// let key: personsKeys = "name"
-//Story
-
 interface storyI {
     id: number,
     characters?: function[],
@@ -75,4 +64,9 @@ interface storyI {
 interface choiceI {
     text: string,
     story: storyI[]
+}
+
+enum char {
+    rin = "Rin",
+    hostess = "Hostess"
 }
