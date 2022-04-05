@@ -1,7 +1,7 @@
-import data from "../../../data/characters";
+import data from "../../data/characters";
 // import 'animate.css'
 
-const useCharCreater = (char: string): character => {
+const createChar = (char: string): character => {
 
     const character = data[char]
 
@@ -53,4 +53,4 @@ const useCharCreater = (char: string): character => {
     )
 }
 
-export default useCharCreater
+export default createChar

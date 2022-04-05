@@ -1,12 +1,10 @@
-import useCharCreater from "../hooks/useCharCreater/useCharCreater";
 import OneStory from "./OneStory";
 import TwoStory from "./TwoStory";
-import useSpineCharCreater from "../hooks/useSpineCharCreater/useSpineCharCreater";
+import {Hostess} from "../chars/chars";
+
 
 
 const TestStory = (): storyI[] => {
-
-    const Hostess: character = useCharCreater("Hostess")
 
     const nameChoice: choiceI[] = [
         {
