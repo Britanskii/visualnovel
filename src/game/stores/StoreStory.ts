@@ -3,7 +3,6 @@ import {makeAutoObservable, toJS} from "mobx";
 import bg from "../../res/backgrounds/2.png"
 import char from "../../res/chars/rin/normal.png"
 import TestStory from "../stories/TestStory";
-import characters from "../../data/characters";
 
 class StoreStory {
 
@@ -15,6 +14,7 @@ class StoreStory {
     protected nochoice!: storyI[]
     protected chars!: Array<charsI>
     protected text!: string
+    protected complete!: boolean
 
     constructor() {
         makeAutoObservable(this)
@@ -28,6 +28,7 @@ class StoreStory {
         this.currentStory = this.story[this.storyPosition]
         this.choices = this.currentStory.choice
         this.background = bg
+        this.complete = false
         this.chars = [
             {
                 name: "Rin",
@@ -68,6 +69,14 @@ class StoreStory {
 
     getText = (): string => {
         return this.currentStory.text!
+    }
+
+    setComplete = (state: boolean): void => {
+        this.complete = state
+    }
+
+    getComplete = (): boolean => {
+        return this.complete
     }
 
     getSpeaker = (): string => {

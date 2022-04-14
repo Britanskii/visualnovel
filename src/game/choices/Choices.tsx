@@ -6,7 +6,7 @@ import StoreStory from "../stores/StoreStory";
 import {toJS} from "mobx";
 
 
-const Choices: FC = observer( () => {
+const Choices: FC = observer(() => {
 
     const {getChoices, setStory} = StoreStory
 
@@ -14,6 +14,8 @@ const Choices: FC = observer( () => {
     // const [choices, setChoices] = useState<[]>([])
 
     const choices = getChoices()
+
+    const visible = show && choices !== undefined && StoreStory.getComplete()
 
     useEffect(() => {
         if (choices !== undefined) {
@@ -24,7 +26,6 @@ const Choices: FC = observer( () => {
             setShow(false)
         }
     }, [choices])
-
 
     // const onChoice = (story) => {
     //     setShow(false)
@@ -46,23 +47,23 @@ const Choices: FC = observer( () => {
     //     }
     // }, [props.choice])
 
-    if (show && choices !== undefined) {
-        const html = choices.map(({text, story}, id) => {
-            return <div key={id}
-                        onClick={() => setStory(story)}
-                        className={s.choices__select}>{text}</div>
-        })
 
+    return (
+        <div className={`${s.choices} ${visible ? s.choices__visible : ""}`}>
+            {
+                visible ? choices!.map(({text, story}, id) => {
+                    return (
+                        <div key={id}
+                             onClick={() => setStory(story)}
+                             className={s.choices__select}>
+                            {text}
+                        </div>
+                    )
+                }) : null
+            }
+        </div>
+    )
 
-        return (
-            <div className={s.choices}>
-                {html}
-            </div>
-        )
-    }
-
-
-    return <></>
 })
 
 export default Choices

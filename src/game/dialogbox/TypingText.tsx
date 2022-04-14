@@ -1,29 +1,51 @@
-import {Ref, useEffect, useState} from "react";
+import {Dispatch, FC, Ref, SetStateAction, useEffect, useState} from "react";
+import StoreStory from "../stores/StoreStory";
 
 //Написать пропсы
-interface TestProps {
-    timer: Ref<NodeJS.Timer>
+interface TypingProps {
+    timer: NodeJS.Timer | undefined
+    setTimer: Dispatch<SetStateAction<NodeJS.Timer | undefined>>
+    text: string
 }
 
 //timer хранит в себе все props
-const TypingText = (timer: Ref<NodeJS.Timer>) => {
+const TypingText: FC<TypingProps> = ({timer, text, setTimer}) => {
     const [typeText, setTypeText] = useState<string>("")
 
+    // debugger
+
     useEffect(() => {
+        StoreStory.setComplete(false)
         setTypeText("")
         let i = 0
-        // @ts-ignore
-        timer.current! = setInterval(() => {
+
+        let interval = 10
+
+        const timer = setInterval(() => {
             setTypeText(typeText => typeText += text[i])
             i++
-            if (i === text.length) clearInterval(timer.current!)
-        }, 10)
+            if (i > 25) {
+                interval = 1000
+            }
+            if (i === text.length) {
+                clearInterval(timer as NodeJS.Timeout)
+                setTimer(undefined)
+                StoreStory.setComplete(true)
+            }
+        }, interval)
+        setTimer(timer)
 
         return () => {
-            clearInterval(timer.current!)
+            clearInterval(timer as NodeJS.Timeout)
         }
     }, [text])
 
+    useEffect(() => {
+        if (timer === undefined && typeText !== "") {
+            setTypeText(text)
+            StoreStory.setComplete(true)
+        }
+    }, [timer])
 
     return (
         <>

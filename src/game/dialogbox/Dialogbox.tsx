@@ -6,34 +6,39 @@ import StoreStory from "../stores/StoreStory";
 import TypingText from "./TypingText";
 
 const Dialogbox: FC = observer(() => {
-    const timer: Ref<NodeJS.Timer> = useRef(null)
+    const [timer, setTimer] = useState<NodeJS.Timer>()
 
     const {getText, incStoryPosition, getSpeaker, getNoChoice, setStory} = StoreStory
 
     const speaker = getSpeaker()
     const text: string = getText()
 
-
     const onNext = () => {
-        if (timer === null) {
+        if (timer === undefined) {
             incStoryPosition()
             if (getNoChoice() !== undefined) {
                 setStory(getNoChoice())
             }
         } else {
-            clearInterval(timer.current!)
-            //Добавить функцию выводе текста сразу
+            clearInterval(timer)
+            setTimer(undefined)
         }
     }
 
-
+    // useEffect(() => {
+    //     document.addEventListener("keydown", (e) => {
+    //         if (e.key === "Control") {
+    //             incStoryPosition()
+    //         }
+    //     })
+    // }, [])
 
     return (
         <div onClick={onNext} className={s.dialogbox}>
             <div className={s.dialogbox__header}>{speaker}</div>
             <div className={s.dialogbox__line}/>
             <div className={s.dialogbox__body}>
-                <TypingText/>
+                <TypingText text ={text} timer={timer} setTimer = {setTimer}/>
             </div>
         </div>
     )
