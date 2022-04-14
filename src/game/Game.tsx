@@ -1,25 +1,39 @@
-import {FC, useEffect, useState} from "react";
+import {FC} from "react";
 
 import s from './game.module.sass'
-import Background from "./background/Background";
+
 import {observer} from "mobx-react-lite";
+
+import Background from "./background/Background";
 import Dialogbox from "./dialogbox/Dialogbox";
 import Forefront from "./forefront/Forefront";
-import TestStory from "./stories/TestStory";
-import StoreStory from "./stores/StoreStory";
 import Choices from "./choices/Choices";
 
-const Game: FC = observer( () => {
+import {MouseParallaxContainer, MouseParallaxChild} from "react-parallax-mouse";
+
+const Game: FC = observer(() => {
 
     return (
         <div className={s.game}>
-            <Background/>
-            <Forefront/>
+            <Grafic/>
             <Dialogbox/>
             <Choices/>
         </div>
     )
 })
+
+const Grafic: FC = () => {
+    return (
+        <MouseParallaxContainer useWindowMouseEvents = {true} className={s.container}>
+            <MouseParallaxChild inverted = {true} className={s.container} factorX={0.01} >
+                <Forefront/>
+            </MouseParallaxChild>
+            <MouseParallaxChild className={s.container}  factorX={0.005}>
+                <Background/>
+            </MouseParallaxChild>
+        </MouseParallaxContainer>
+    )
+}
 
 
 export default Game

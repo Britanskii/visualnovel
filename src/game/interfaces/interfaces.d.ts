@@ -59,6 +59,7 @@ interface storyI {
     actions?: []
     choice?: choiceI[]
     nochoice?: storyI[]
+    background?: string
 }
 
 interface choiceI {

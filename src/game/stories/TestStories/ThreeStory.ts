@@ -1,4 +1,4 @@
-import useCharCreater from "../hooks/createChar";
+import useCharCreater from "../../hooks/createChar";
 
 
 const ThreeStory = (): storyI[] => {

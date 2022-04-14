@@ -25,13 +25,17 @@ const Dialogbox: FC = observer(() => {
         }
     }
 
-    // useEffect(() => {
-    //     document.addEventListener("keydown", (e) => {
-    //         if (e.key === "Control") {
-    //             incStoryPosition()
-    //         }
-    //     })
-    // }, [])
+    useEffect(() => {
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Control") {
+                incStoryPosition()
+            }
+        })
+
+        // return () => {
+        //     document.
+        // }
+    }, [])
 
     return (
         <div onClick={onNext} className={s.dialogbox}>

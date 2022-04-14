@@ -2,7 +2,7 @@ import {makeAutoObservable, toJS} from "mobx";
 
 import bg from "../../res/backgrounds/2.png"
 import char from "../../res/chars/rin/normal.png"
-import TestStory from "../stories/TestStory";
+import TestStory from "../stories/TestStories/TestStory";
 
 class StoreStory {
 
@@ -38,9 +38,23 @@ class StoreStory {
     }
 
     setStory = (story: storyI[]) => {
+        const lastCurrentStory = {...this.story[this.story.length - 1], choice: undefined, nochoice: undefined}
+
+        // console.log(toJS(lastCurrentStory))
+        // console.log(toJS(story))
+
+        story[0] = {...lastCurrentStory, ...story[0]}
+
+        // console.log(toJS(story))
+
         this.story = story
         this.storyPosition = 0
-        this.currentStory = this.story[this.storyPosition]
+        this.currentStory =
+            this.story[this.storyPosition]
+        // {
+        //     ...this.currentStory,
+        //     ...this.story[this.storyPosition]
+        // }
     }
 
     getStory = (): storyI => {
@@ -52,7 +66,7 @@ class StoreStory {
     }
 
     getBackground = (): string => {
-        return this.background
+        return this.currentStory.background!
     }
 
     setChars = (chars: Array<charsI>): void => {
@@ -94,6 +108,10 @@ class StoreStory {
     incStoryPosition = (): void => {
         if (this.storyPosition < this.story.length - 1) {
             this.storyPosition += 1
+
+            console.log(toJS(this.currentStory))
+            console.log(toJS(this.story[this.storyPosition]))
+
             this.currentStory = {...this.currentStory, ...this.story[this.storyPosition]}
         }
     }

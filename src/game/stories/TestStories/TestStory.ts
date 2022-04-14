@@ -1,6 +1,8 @@
 import OneStory from "./OneStory";
 import TwoStory from "./TwoStory";
-import {Hostess} from "../chars/chars";
+import {Hostess} from "../../chars/chars";
+
+import bg from "../../../res/backgrounds/2.png"
 
 
 
@@ -23,6 +25,7 @@ const TestStory = (): storyI[] => {
             characters: [Hostess.main],
             speaker: Hostess.name,
             text: "Не в моих правилах отговаривать людей от безрассудства, но не шёл бы ты туда. По крайней мере в одиночку. Не выглядишь ты тем человеком, который способен вернуться оттуда… целым.\n",
+            background: bg
         },
         {
             id: 2,
