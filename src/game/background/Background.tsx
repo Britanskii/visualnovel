@@ -8,6 +8,8 @@ const Background: FC = observer(() => {
 
     const bg = StoreStory.getBackground()
 
+    console.log(bg)
+
     return (
         <img src={bg} className={s.background}/>
     )

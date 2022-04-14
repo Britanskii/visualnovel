@@ -24,7 +24,7 @@ const Game: FC = observer(() => {
 
 const Grafic: FC = () => {
     return (
-        <MouseParallaxContainer useWindowMouseEvents = {true} className={s.container}>
+        <MouseParallaxContainer enabled={true} useWindowMouseEvents = {true} className={s.container}>
             <MouseParallaxChild inverted = {true} className={s.container} factorX={0.01} >
                 <Forefront/>
             </MouseParallaxChild>
