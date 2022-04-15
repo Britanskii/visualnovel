@@ -45,7 +45,7 @@ const StartStory = (): storyI[] => {
             background: black,
             speaker: "Рассказчик",
             text: "Вначале была планета",
-            characters: [Hostess.main]
+            // characters: [Hostess.main]
         },
         {
             id: 2,

@@ -24,7 +24,8 @@ class StoreStory {
     }
 
     initStory = () => {
-        this.story = TestStory()
+        // this.story = TestStory()
+        this.story = StartStory()
         this.storyPosition = 0
         this.currentStory = this.story[this.storyPosition]
         this.choices = this.currentStory.choice
