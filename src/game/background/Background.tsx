@@ -4,6 +4,7 @@ import s from './background.module.sass'
 import {observer} from "mobx-react-lite";
 import StoreStory from "../stores/StoreStory";
 import {chapter1} from "./backgrounds";
+import {log} from "util";
 
 
 const arr = [
@@ -19,7 +20,8 @@ const arr = [
 ]
 
 const Background: FC = observer(() => {
-    const [backgrounds, setBackgrounds] = useState<JSX.Element[]>([])
+    const [backgrounds, setBackgrounds] = useState<{ name: string, src: any }[]>([])
+    const [backgroundsActive, setBackgroundsActive] = useState<JSX.Element[]>([])
 
     const backgroundActive = StoreStory.getBackground()
 
@@ -33,19 +35,50 @@ const Background: FC = observer(() => {
         let bg: string
 
         for (bg in chapter) {
-            const active = bg === backgroundActive
             allBackgrounds.push(
-                <img alt={bg} key={bg} id={bg} className={`${s.background} ${active ? s.background__active : ""}`} src={chapter[bg]}/>
+                {name: bg, src: chapter[bg]}
             )
         }
 
         setBackgrounds(allBackgrounds)
+        setNewBackgrounds(allBackgrounds)
 
-    }, [chapter, backgroundActive])
+    }, [chapter])
+
+    const setNewBackgrounds = (bg: { name: any; src: any; }[] | null = null) => {
+        if (bg === null) {
+            const newBackgrounds = backgrounds.map(({name, src}) => {
+                const active = backgroundActive === name
+                return (
+                    <img className={`${s.background} ${active ? s.background__active : ""}`} key={name} id={name}
+                         src={src}
+                         alt={name}/>
+                )
+            })
+
+            setBackgroundsActive(newBackgrounds)
+        } else {
+            console.log(bg)
+            const newBackgrounds = bg.map(({name, src}) => {
+                const active = backgroundActive === name
+                return (
+                    <img className={`${s.background} ${active ? s.background__active : ""}`} key={name} id={name}
+                         src={src}
+                         alt={name}/>
+                )
+            })
+
+            setBackgroundsActive(newBackgrounds)
+        }
+    }
+
+    useEffect(() => {
+        setNewBackgrounds()
+    }, [chapter])
 
     return (
         <>
-            {backgrounds}
+            {backgroundsActive}
         </>
         // <img src={bg} className={s.background}/>
     )
