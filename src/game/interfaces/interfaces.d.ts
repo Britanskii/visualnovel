@@ -67,6 +67,14 @@ interface choiceI {
     story: storyI[]
 }
 
+interface chapter {
+    [index: string]: string
+}
+
+interface bgConstants {
+    [index: string]: string
+}
+
 enum char {
     rin = "Rin",
     hostess = "Hostess"

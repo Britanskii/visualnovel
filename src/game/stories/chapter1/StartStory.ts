@@ -1,32 +1,14 @@
-import space from "../../../res/backgrounds/space.jpg"
-import water from "../../../res/backgrounds/water.png"
-import black from "../../../res/backgrounds/black.jpg"
-import ships from "../../../res/backgrounds/ships.png"
-import parlament from "../../../res/backgrounds/parlament.png"
 
-import lavronda from "../../../res/backgrounds/lavronda.png"
-import lavronda2 from "../../../res/backgrounds/lavronda2.png"
-import lavronda3 from "../../../res/backgrounds/lavronda3.png"
-import lavronda4 from "../../../res/backgrounds/lavronda4.png"
+import {chapter1, getConstants} from "../../background/backgrounds";
 
-import ship from "../../../res/backgrounds/ship.png"
-import ship_attack from "../../../res/backgrounds/ship_attack.png"
 
-import city from "../../../res/backgrounds/sity.png"
 
-import z from "../../../res/backgrounds/z.png"
-
-import light from "../../../res/backgrounds/light.png"
-import light2 from "../../../res/backgrounds/light2.png"
-import light3 from "../../../res/backgrounds/light3.png"
-import light4 from "../../../res/backgrounds/light4.png"
-import light5 from "../../../res/backgrounds/light5.png"
-
-import attack from "../../../res/backgrounds/attack.png"
-import {Hostess} from "../../chars/chars";
 
 
 const StartStory = (): storyI[] => {
+
+    const constants = getConstants(chapter1)
+
 
     // const nameChoice: choiceI[] = [
     //     {
@@ -42,7 +24,7 @@ const StartStory = (): storyI[] => {
     return [
         {
             id: 1,
-            background: black,
+            background: constants.black,
             speaker: "Рассказчик",
             text: "Вначале была планета",
             // characters: [Hostess.main]
@@ -50,7 +32,7 @@ const StartStory = (): storyI[] => {
         {
             id: 2,
             text: "Терра",
-            background: space
+            background: constants.space
         },
         {
             id: 3,
@@ -59,12 +41,12 @@ const StartStory = (): storyI[] => {
         {
             id: 4,
             text: "От маленьких клеток до людей",
-            background: water
+            background: constants.water
         },
         {
             id: 5,
             text: "Их развитие не останавливалось ни на секунду",
-            background: black,
+            background: constants.black,
         },
         {
             id: 6,
@@ -89,7 +71,7 @@ const StartStory = (): storyI[] => {
         {
             id: 11,
             text: "Получив возможность выбраться за пределы своей планеты",
-            background: ships
+            background: constants.ships
         },
         {
             id: 12,
@@ -106,7 +88,7 @@ const StartStory = (): storyI[] => {
         {
             id: 15,
             text: " ",
-            background: parlament
+            background: constants.parlament
         },
         {
             id: 16,
@@ -119,7 +101,7 @@ const StartStory = (): storyI[] => {
         {
             id: 18,
             text: "Их было много, но самой выдающейся была и остаётся корпорация “Зодиак”.",
-            background: z
+            background: constants.z
         },
         {
             id: 18,
@@ -132,27 +114,27 @@ const StartStory = (): storyI[] => {
         {
             id: 18,
             text: " ",
-            background: light
+            background: constants.light
         },
         {
             id: 19,
             text: " ",
-            background: light2
+            background: constants.light2
         },
         {
             id: 20,
             text: " ",
-            background: light3
+            background: constants.light3
         },
         {
             id: 20,
             text: " ",
-            background: light4
+            background: constants.light4
         },
         {
             id: 20,
             text: " ",
-            background: light5
+            background: constants.light5
         },
         {
             id: 21,
@@ -173,7 +155,7 @@ const StartStory = (): storyI[] => {
         {
             id: 25,
             text: "Ливронда",
-            background: lavronda
+            background: constants.lavronda
         },
         {
             id: 26,
@@ -182,33 +164,33 @@ const StartStory = (): storyI[] => {
         {
             id: 27,
             text: "И это случилось именно тогда, когда дальняя телеметрия засекла стремительно приближающиеся ледяные метеориты. \n",
-            background: lavronda2
+            background: constants.lavronda2
         },
         {
             id: 28,
             text: "В сложившейся ситуации единственное, что успели сделать жители, это посторить ковчеги - огромные мощные корабли на которых можно было бы пережить грядущую катастрофу",
-            background: lavronda3
+            background: constants.lavronda3
         },
         {
             id: 29,
             text: "Осколки метеоритов осыпали Ливронду, но не это было самым страшным. Вода. Её стало слишком много. Уровень мирового океана поднялся, полностью покрыв всю сушу. Людям ничего не оставалось, как остаться на ковчегах и пытаться жить дальше.\n",
-            background: attack
+            background: constants.attack
         },
         {
             id: 30,
             text: "Спустя столетия планета не позволяет людям обосноваться на ней - мутировавшие в монстров животные постоянно атакуют из воды; шторма, берущиеся буквально из ниоткуда, постоянно меняющиеся течения, водовороты.\n",
-            background: ship
+            background: constants.ship
         },
         {
             id: 31,
             text: "Встать на пути хотя бы одного из этих бедствий равносильно самоубийству. А уж если они атакуют одновременно, то порою даже горда не выдерживают натиска и рассыпаются, медленно погружаясь в глубины бездны. Что остаётся жителям планеты?\n",
-            background: ship_attack
+            background: constants.ship_attack
         },
         {
             id: 32,
             speaker: " ",
             text: "Мало у кого есть билет на фрегаты Корпорации, отправляющиеся в лучшую жизнь.",
-            background: water
+            background: constants.water
         },
         {
             id: 33,
@@ -221,12 +203,12 @@ const StartStory = (): storyI[] => {
         {
             id: 35,
             text: " ",
-            background: black
+            background: constants.black
         },
         {
             id: 36,
             text: "Но что если все эти изменения обратимы?",
-            background: city
+            background: constants.city
         },
         {
             id: 37,
