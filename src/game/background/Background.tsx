@@ -40,9 +40,10 @@ const Background: FC = observer(() => {
             )
         }
 
+        console.log(allBackgrounds)
+
         setBackgrounds(allBackgrounds)
         setNewBackgrounds(allBackgrounds)
-
     }, [chapter])
 
     const setNewBackgrounds = (bg: { name: any; src: any; }[] | null = null) => {
@@ -58,7 +59,6 @@ const Background: FC = observer(() => {
 
             setBackgroundsActive(newBackgrounds)
         } else {
-            console.log(bg)
             const newBackgrounds = bg.map(({name, src}) => {
                 const active = backgroundActive === name
                 return (
@@ -73,8 +73,10 @@ const Background: FC = observer(() => {
     }
 
     useEffect(() => {
-        setNewBackgrounds()
-    }, [chapter])
+        if (!!backgrounds.length) setNewBackgrounds()
+    }, [backgroundActive])
+
+    console.log('anime')
 
     return (
         <>

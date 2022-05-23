@@ -26,15 +26,18 @@ const Dialogbox: FC = observer(() => {
     }
 
     useEffect(() => {
-        document.addEventListener("keydown", (e) => {
+        const onSkip = (e: { key: string; }) => {
             if (e.key === "Control") {
                 incStoryPosition()
             }
-        })
+        }
 
-        // return () => {
-        //     document.
-        // }
+
+        document.addEventListener("keydown", onSkip)
+
+        return () => {
+            document.removeEventListener("keydown", onSkip)
+        }
     }, [])
 
     return (
