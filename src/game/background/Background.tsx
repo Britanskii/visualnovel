@@ -6,19 +6,6 @@ import StoreStory from "../stores/StoreStory";
 import {chapter1} from "./backgrounds";
 import {log} from "util";
 
-
-const arr = [
-    "lavronda",
-    "lavronda",
-    "lavronda",
-    "lavronda",
-    "lavronda",
-    "lavronda",
-    "lavronda",
-    "lavronda",
-    "lavronda",
-]
-
 const Background: FC = observer(() => {
     const [backgrounds, setBackgrounds] = useState<{ name: string, src: any }[]>([])
     const [backgroundsActive, setBackgroundsActive] = useState<JSX.Element[]>([])
@@ -39,8 +26,6 @@ const Background: FC = observer(() => {
                 {name: bg, src: chapter[bg]}
             )
         }
-
-        console.log(allBackgrounds)
 
         setBackgrounds(allBackgrounds)
         setNewBackgrounds(allBackgrounds)
@@ -76,13 +61,10 @@ const Background: FC = observer(() => {
         if (!!backgrounds.length) setNewBackgrounds()
     }, [backgroundActive])
 
-    console.log('anime')
-
     return (
         <>
             {backgroundsActive}
         </>
-        // <img src={bg} className={s.background}/>
     )
 })
 

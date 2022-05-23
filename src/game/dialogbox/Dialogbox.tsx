@@ -40,14 +40,28 @@ const Dialogbox: FC = observer(() => {
         }
     }, [])
 
+    console.log(text.length)
+
     return (
-        <div onClick={onNext} className={s.dialogbox}>
-            <div className={s.dialogbox__header}>{speaker}</div>
-            <div className={s.dialogbox__line}/>
-            <div className={s.dialogbox__body}>
-                <TypingText text ={text} timer={timer} setTimer = {setTimer}/>
+        <>
+            <div className={s.dialogbox__next} onClick={onNext}/>
+            <div className={s.dialogbox}>
+                <div className={s.dialogbox__header}>
+                    <div className={s.dialogbox__lines}>
+                        <div className={s.dialogbox__line}/>
+                        <div className={`${s.dialogbox__line} ${s.dialogbox__line_small}`}/>
+                    </div>
+                    <div className={s.dialogbox__speaker}>{speaker}</div>
+                    <div style={{transform: "scaleX(-1)"}} className={s.dialogbox__lines}>
+                        <div className={s.dialogbox__line}/>
+                        <div className={`${s.dialogbox__line} ${s.dialogbox__line_small}`}/>
+                    </div>
+                </div>
+                <div className={s.dialogbox__body}>
+                    <TypingText text={text} timer={timer} setTimer={setTimer}/>
+                </div>
             </div>
-        </div>
+        </>
     )
 })
 

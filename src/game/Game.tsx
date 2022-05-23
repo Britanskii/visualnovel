@@ -28,7 +28,7 @@ const Grafic: FC = () => {
             <MouseParallaxChild inverted = {true} className={s.container} factorX={0.01} >
                 <Forefront/>
             </MouseParallaxChild>
-            <MouseParallaxChild className={s.container}  factorX={0.005}>
+            <MouseParallaxChild className={s.container} factorX={0.005}>
                 <Background/>
             </MouseParallaxChild>
         </MouseParallaxContainer>

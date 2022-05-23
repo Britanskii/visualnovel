@@ -113,27 +113,27 @@ const StartStory = (): storyI[] => {
         },
         {
             id: 18,
-            text: " ",
+            text: "",
             background: constants.light
         },
         {
             id: 19,
-            text: " ",
+            text: "",
             background: constants.light2
         },
         {
             id: 20,
-            text: " ",
+            text: "",
             background: constants.light3
         },
         {
             id: 20,
-            text: " ",
+            text: "",
             background: constants.light4
         },
         {
             id: 20,
-            text: " ",
+            text: "",
             background: constants.light5
         },
         {

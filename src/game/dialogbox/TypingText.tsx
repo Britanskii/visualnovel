@@ -19,21 +19,24 @@ const TypingText: FC<TypingProps> = ({timer, text, setTimer}) => {
         setTypeText("")
         let i = 0
 
-        let interval = 10
+        if (!!text[i]) {
+            let interval = 10
 
-        const timer = setInterval(() => {
-            setTypeText(typeText => typeText += text[i])
-            i++
-            if (i > 25) {
-                interval = 1000
-            }
-            if (i === text.length) {
-                clearInterval(timer as NodeJS.Timeout)
-                setTimer(undefined)
-                StoreStory.setComplete(true)
-            }
-        }, interval)
-        setTimer(timer)
+            const timer = setInterval(() => {
+                setTypeText(typeText => typeText += text[i])
+                i++
+                if (i > 25) {
+                    interval = 1000
+                }
+                if (i === text.length) {
+                    clearInterval(timer as NodeJS.Timeout)
+                    setTimer(undefined)
+                    StoreStory.setComplete(true)
+                }
+            }, interval)
+            setTimer(timer)
+        }
+
 
         return () => {
             clearInterval(timer as NodeJS.Timeout)
