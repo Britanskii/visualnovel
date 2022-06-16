@@ -8,14 +8,18 @@ import TypingText from "./TypingText";
 // @ts-ignore
 import save from "../../res/icons/save.svg"
 import ServiceSave from "../services/ServiceSave";
+import Strings from "./Views/Strings";
+import Box from "./Views/Box";
 
 const Dialogbox: FC = observer(() => {
     const [timer, setTimer] = useState<NodeJS.Timer>()
+    const [view, setView] = useState()
 
-    const {getText, incStoryPosition, getSpeaker, getNoChoice, setStory} = StoreStory
+    const {getText, getTypeDialogBox, setTypeDialogBox, incStoryPosition, getSpeaker, getNoChoice, setStory} = StoreStory
 
     const speaker = getSpeaker()
     const text: string = getText()
+    const type: string | undefined = getTypeDialogBox()
 
     const onNext = () => {
         if (timer === undefined) {
@@ -36,13 +40,28 @@ const Dialogbox: FC = observer(() => {
             }
         }
 
-
         document.addEventListener("keydown", onSkip)
 
         return () => {
             document.removeEventListener("keydown", onSkip)
         }
     }, [])
+
+    useEffect(() => {
+        const changeDialogBox = (type: string | undefined) => {
+            switch (type) {
+                case "strings": // @ts-ignore
+                    return <Strings onNext = {onNext} onSave = {onSave} speaker = {speaker} text = {text} timer = {timer} setTimer = {setTimer}/>
+                default: // @ts-ignore
+                    return <Box onNext = {onNext} onSave = {onSave} speaker = {speaker} text = {text} timer = {timer} setTimer = {setTimer}/>
+            }
+        }
+
+        const view = changeDialogBox(type)
+
+        // @ts-ignore
+        setView(view)
+    }, [text])
 
     const onSave = () => {
         const story = localStorage.getItem("story")
@@ -51,26 +70,12 @@ const Dialogbox: FC = observer(() => {
         ServiceSave.save({id, story})
     }
 
+
+
     return (
         <>
             <div className={s.dialogbox__next} onClick={onNext}/>
-            <div className={s.dialogbox}>
-                <div className={s.dialogbox__header}>
-                    <img onClick={onSave} className={s.dialogbox__save} src={save} alt="save"/>
-                    <div className={s.dialogbox__lines}>
-                        <div className={s.dialogbox__line}/>
-                        <div className={`${s.dialogbox__line} ${s.dialogbox__line_small}`}/>
-                    </div>
-                    <div className={s.dialogbox__speaker}>{speaker}</div>
-                    <div style={{transform: "scaleX(-1)"}} className={s.dialogbox__lines}>
-                        <div className={s.dialogbox__line}/>
-                        <div className={`${s.dialogbox__line} ${s.dialogbox__line_small}`}/>
-                    </div>
-                </div>
-                <div className={s.dialogbox__body}>
-                    <TypingText text={text} timer={timer} setTimer={setTimer}/>
-                </div>
-            </div>
+            {view}
         </>
     )
 })

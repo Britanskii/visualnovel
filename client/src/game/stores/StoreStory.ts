@@ -1,8 +1,8 @@
 import {makeAutoObservable, toJS} from "mobx";
 
-import bg from "../../res/backgrounds/2.png"
+import bg from "../../res/backgrounds/black.jpg"
 import char from "../../res/chars/rin/normal.png"
-import TestStory from "../stories/TestStories/TestStory";
+
 import StartStory from "../stories/chapter1/StartStory";
 
 class StoreStory {
@@ -16,6 +16,7 @@ class StoreStory {
     protected chars!: Array<charsI>
     protected text!: string
     protected complete!: boolean
+    protected typeDialogbox!: string
 
     constructor() {
         makeAutoObservable(this)
@@ -88,6 +89,14 @@ class StoreStory {
 
     getSpeaker = (): string => {
         return this.currentStory.speaker!
+    }
+
+    setTypeDialogBox = (type: string) => {
+        this.currentStory.dialogbox = type
+    }
+
+    getTypeDialogBox = (): string | undefined => {
+        return this.currentStory.dialogbox
     }
 
     getChoices = (): choiceI[] | undefined => {

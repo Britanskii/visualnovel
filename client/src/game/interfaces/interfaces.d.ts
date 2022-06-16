@@ -60,6 +60,7 @@ interface storyI {
     choice?: choiceI[]
     nochoice?: storyI[]
     background?: string
+    dialogbox?: string
 }
 
 interface choiceI {
