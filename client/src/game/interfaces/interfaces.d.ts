@@ -1,5 +1,3 @@
-//Chars
-
 interface charsI {
     name: string
     src: string
@@ -22,17 +20,14 @@ interface dataRawCharI {
     [index: string]: rawCharI
 }
 
-interface character
-{
+interface character {
     main: function,
     happy: function,
     angry: function,
     horny: function,
     name: string | undefined,
     fullname: string | undefined,
-    actions: {
-
-    }
+    actions: {}
 }
 
 interface dataRawSpineChar {
@@ -51,6 +46,11 @@ interface rawSpineChar {
     }
 }
 
+interface initStoryI {
+    backgrounds: any
+    history: storyI[]
+}
+
 interface storyI {
     id: number,
     characters?: function[],
@@ -59,8 +59,8 @@ interface storyI {
     actions?: []
     choice?: choiceI[]
     nochoice?: storyI[]
-    background?: string
-    dialogbox?: string
+    background?: any
+    dialogbox?: typeDialogbox
 }
 
 interface choiceI {
@@ -68,15 +68,12 @@ interface choiceI {
     story: storyI[]
 }
 
-interface chapter {
-    [index: string]: string
+interface save {
+    story: initStoryI,
+    currentStory: storyI,
+    id: number
 }
 
 interface bgConstants {
     [index: string]: string
-}
-
-enum char {
-    rin = "Rin",
-    hostess = "Hostess"
 }

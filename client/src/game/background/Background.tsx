@@ -3,8 +3,6 @@ import {FC, useEffect, useState} from "react";
 import s from './background.module.sass'
 import {observer} from "mobx-react-lite";
 import StoreStory from "../stores/StoreStory";
-import {chapter1} from "./backgrounds";
-import {log} from "util";
 
 const Background: FC = observer(() => {
     const [backgrounds, setBackgrounds] = useState<{ name: string, src: any }[]>([])
@@ -12,24 +10,31 @@ const Background: FC = observer(() => {
 
     const backgroundActive = StoreStory.getBackground()
 
-
-    const chapter: any = chapter1
-
     useEffect(() => {
+
+        console.log('back')
+
+        const chapter = StoreStory.getBackgrounds()
 
         const allBackgrounds = []
 
         let bg: string
 
+        let i = 0
+
+        // @ts-ignore
         for (bg in chapter) {
+            if (i % 2 === 0)
             allBackgrounds.push(
-                {name: bg, src: chapter[bg]}
+                // @ts-ignore
+                {name: bg, src: bg}
             )
         }
 
         setBackgrounds(allBackgrounds)
         setNewBackgrounds(allBackgrounds)
-    }, [chapter])
+    }, [StoreStory.getBackgrounds()])
+
 
     const setNewBackgrounds = (bg: { name: any; src: any; }[] | null = null) => {
         if (bg === null) {
@@ -58,6 +63,7 @@ const Background: FC = observer(() => {
     }
 
     useEffect(() => {
+        console.log(backgroundActive)
         if (!!backgrounds.length) setNewBackgrounds()
     }, [backgroundActive])
 

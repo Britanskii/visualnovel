@@ -30,7 +30,6 @@ const Parallax: FC = (props) => {
             })
 
             if (parallaxItems !== undefined && parallaxItems !== null) {
-                console.log('anime')
                 setParallaxItems(parallaxItems)
             }
 

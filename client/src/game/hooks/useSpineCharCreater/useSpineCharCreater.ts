@@ -34,8 +34,6 @@ const spineCharCreater = (char: string, animation: string) => {
     assetManager.loadTexture(require("../../forefront/assets/spineboy-pma.png"))
     // assetManager.loadAll()
 
-    console.log(assetManager)
-
     let atlas = assetManager.require(require("../../forefront/assets/spineboy-pma.atlas"))
 
     // const assetManager = new AssetManager(character.res.prefix)

@@ -1,25 +1,32 @@
-import {FC, Ref, useEffect, useRef, useState} from "react";
+import {FC, useEffect, useState} from "react";
 
 import s from './dialogbox.module.sass'
 import {observer} from "mobx-react-lite";
 import StoreStory from "../stores/StoreStory";
-import TypingText from "./TypingText";
 
 // @ts-ignore
 import save from "../../res/icons/save.svg"
 import ServiceSave from "../services/ServiceSave";
 import Strings from "./Views/Strings";
 import Box from "./Views/Box";
+import {typeDialogbox} from "../interfaces/enums";
 
 const Dialogbox: FC = observer(() => {
     const [timer, setTimer] = useState<NodeJS.Timer>()
-    const [view, setView] = useState()
 
-    const {getText, getTypeDialogBox, setTypeDialogBox, incStoryPosition, getSpeaker, getNoChoice, setStory} = StoreStory
+    const {
+        getText,
+        getTypeDialogBox,
+        setTypeDialogBox,
+        incStoryPosition,
+        getSpeaker,
+        getNoChoice,
+        setStory
+    } = StoreStory
 
     const speaker = getSpeaker()
     const text: string = getText()
-    const type: string | undefined = getTypeDialogBox()
+    const type: typeDialogbox = getTypeDialogBox()
 
     const onNext = () => {
         if (timer === undefined) {
@@ -47,21 +54,23 @@ const Dialogbox: FC = observer(() => {
         }
     }, [])
 
-    useEffect(() => {
-        const changeDialogBox = (type: string | undefined) => {
-            switch (type) {
-                case "strings": // @ts-ignore
-                    return <Strings onNext = {onNext} onSave = {onSave} speaker = {speaker} text = {text} timer = {timer} setTimer = {setTimer}/>
-                default: // @ts-ignore
-                    return <Box onNext = {onNext} onSave = {onSave} speaker = {speaker} text = {text} timer = {timer} setTimer = {setTimer}/>
-            }
-        }
-
-        const view = changeDialogBox(type)
-
-        // @ts-ignore
-        setView(view)
-    }, [text])
+    // useEffect(() => {
+    //     console.log('change!')
+    //     const changeDialogBox = (type: typeDialogbox) => {
+    //         switch (type) {
+    //             case typeDialogbox.STRINGS: // @ts-ignore
+    //                 return <Strings onNext={onNext} onSave={onSave} speaker={speaker} text={text} timer={timer}
+    //                                 setTimer={setTimer}/>
+    //             default: // @ts-ignore
+    //                 return <Box onNext={onNext} onSave={onSave} speaker={speaker} text={text} timer={timer}
+    //                             setTimer={setTimer}/>
+    //         }
+    //     }
+    //
+    //     const view = changeDialogBox(type)
+    //
+    //     setView(view)
+    // }, [text])
 
     const onSave = () => {
         const story = localStorage.getItem("story")
@@ -71,11 +80,17 @@ const Dialogbox: FC = observer(() => {
     }
 
 
-
     return (
         <>
             <div className={s.dialogbox__next} onClick={onNext}/>
-            {view}
+
+            {type === typeDialogbox.BOX ?
+                // @ts-ignore
+                <Box onNext={onNext} onSave={onSave} speaker={speaker} text={text} timer={timer} setTimer={setTimer}/>
+                // @ts-ignore
+                : <Strings onNext={onNext} onSave={onSave} speaker={speaker} text={text} timer={timer}
+                           setTimer={setTimer}/>
+            }
         </>
     )
 })
