@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.330739ba.css",
-    "main.js": "./static/js/main.e69fc264.js",
+    "main.js": "./static/js/main.40deb659.js",
     "static/media/ship_attack.png": "./static/media/ship_attack.c42ea1a4f1c885f3e858.png",
     "static/media/ship.png": "./static/media/ship.8d91b9e59913f88a3f14.png",
     "static/media/light4.png": "./static/media/light4.1e9a8faa221ed75dcfee.png",
@@ -37,10 +37,10 @@
     "static/media/normal.png": "./static/media/normal.c56a8a344f1dd4675d9b.png",
     "index.html": "./index.html",
     "main.330739ba.css.map": "./static/css/main.330739ba.css.map",
-    "main.e69fc264.js.map": "./static/js/main.e69fc264.js.map"
+    "main.40deb659.js.map": "./static/js/main.40deb659.js.map"
   },
   "entrypoints": [
     "static/css/main.330739ba.css",
-    "static/js/main.e69fc264.js"
+    "static/js/main.40deb659.js"
   ]
 }
