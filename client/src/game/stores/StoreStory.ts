@@ -2,6 +2,7 @@ import {makeAutoObservable, toJS} from "mobx";
 
 import StartStory from "../stories/chapter1/StartStory";
 import {backgroundsChapter1, typeDialogbox} from "../interfaces/enums";
+import Scene3 from "../stories/chapter2/Scene3";
 
 class StoreStory {
 
@@ -21,10 +22,15 @@ class StoreStory {
 
         this.isSave = this.getLocalSave() !== null
 
-        this.isSave ? this.initStorySave() : this.initStoryDefault()
+        !this.isSave ? this.initStorySave() : this.initStoryDefault()
     }
 
-    initStoryDefault = () => this.initStory(StartStory(), 0, StartStory().history[0])
+    initStoryDefault = () => {
+        // const storyDefault = StartStory()
+        const storyDefault = Scene3()
+
+        return this.initStory(storyDefault, 0, storyDefault.history[0])
+    }
 
     initStorySave = () => {
         const {story, id, currentStory} = this.getLocalSave()
@@ -42,15 +48,16 @@ class StoreStory {
         this.complete = false
     }
 
-    setStory = (story: storyI[]) => {
+    setStory = (story: initStoryI) => {
+        story.history[0] = {background: this.getBackground(), characters: this.getChars(), ...story.history[0]}
 
-        story[0] = {background: this.getBackground(), characters: this.getChars(), ...story[0]}
-
-        this.story.history = [...this.story.history, ...story]
+        this.story.history = [...this.story.history, ...story.history]
 
         this.incStoryPosition()
 
         this.currentStory = this.story.history[this.storyPosition]
+
+        this.backgrounds = story.backgrounds
     }
 
     setSaveStory = (story: storyI[]) => {
@@ -68,6 +75,7 @@ class StoreStory {
     }
 
     setBackgorunds = (backgrounds: backgroundsChapter1): void => {
+        console.log(backgrounds)
         this.backgrounds = backgrounds
     }
 
@@ -110,6 +118,7 @@ class StoreStory {
     }
 
     getTypeDialogBox = (): typeDialogbox => {
+        if (this.currentStory.dialogbox === undefined) return typeDialogbox.BOX
         return this.currentStory.dialogbox
     }
 
@@ -117,8 +126,8 @@ class StoreStory {
         return this.currentStory.choice
     }
 
-    getNoChoice = (): storyI[] => {
-        return this.currentStory.nochoice!
+    getNoChoice = (): initStoryI => {
+        return <initStoryI>this.currentStory.nochoice!
     }
 
     getLocalSave = (): save => {

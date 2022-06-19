@@ -1,0 +1,35 @@
+
+import { backgroundsScene3} from "../../../interfaces/enums";
+import {Mark} from "../../../chars/chars";
+import Ph2 from "./Ph2";
+import Ph1_2_1 from "./Ph1_2_1";
+
+const Ph1_2 = (): initStoryI => {
+
+    const backgrounds = backgroundsScene3
+
+    const photoChoice: choiceI[] = [
+        {
+            text: "Ладно-ладно, я уже понял, что я зажравшийся буржуй. А сфотографировать их можно?",
+            story: Ph1_2_1()
+        },
+        {
+            text: "И то верно. Тогда возьму эти. Через сколько их вернуть?",
+            story: Ph2()
+        }
+    ]
+
+    return {
+        backgrounds,
+        history:  [
+            {
+                id: 1,
+                characters: [Mark.main],
+                text: "Ну у зажиточных, которые в космос летают и на Корпорацию работают, может и есть, но остальным то это скорее ни к чему. Удовольствие дорогое, ещё из строя выйдет из-за очередной бури, или и вовсе в воду упадёт. Да и связь только в районах, где Корпорация полезные ископаемые добывает, да в Зероне. ",
+                choice: photoChoice
+            }
+        ]
+    }
+}
+
+export default Ph1_2

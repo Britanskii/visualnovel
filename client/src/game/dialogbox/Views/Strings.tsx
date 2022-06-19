@@ -1,11 +1,13 @@
 import {FC} from "react";
 
 import s from "../dialogbox.module.sass"
-import {observer} from "mobx-react-lite";
+import StoreStory from "../../stores/StoreStory";
 
 
 // @ts-ignore
 const Strings: FC = ({onNext, text, center}) => {
+
+    StoreStory.setComplete(true)
 
     return (
         <>

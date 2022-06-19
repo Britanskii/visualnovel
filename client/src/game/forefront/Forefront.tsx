@@ -9,10 +9,13 @@ const Forefront: FC = observer(() => {
     const arrChars = StoreStory.getChars()
 
     const chars = arrChars?.map((src, id) => {
+
+
         return (
-            <img src={src} key = {id}/>
+            <img className={s.forefront__character} src={src} key = {id}/>
         )
     })
+
 
     return (
         <div id ={"front"} className={s.forefront}>

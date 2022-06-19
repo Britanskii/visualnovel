@@ -11,10 +11,12 @@ const TestStory = (): storyI[] => {
     const nameChoice: choiceI[] = [
         {
             text: 'Красивое имя.',
+            // @ts-ignore
             story: OneStory()
         },
         {
             text: 'Как ту деваху из евангелиона?.',
+            // @ts-ignore
             story: TwoStory()
         },
     ]

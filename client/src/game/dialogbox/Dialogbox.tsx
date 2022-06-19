@@ -10,6 +10,7 @@ import Strings from "./Views/Strings";
 import Box from "./Views/Box";
 import {adaptive, typeDialogbox} from "../interfaces/enums";
 import useGetAdaptive from "../hooks/useGetAdaptive";
+import {keyboardKey} from "@testing-library/user-event";
 
 const Dialogbox: FC = observer(() => {
     const [timer, setTimer] = useState<NodeJS.Timer>()
@@ -21,7 +22,8 @@ const Dialogbox: FC = observer(() => {
         incStoryPosition,
         getSpeaker,
         getNoChoice,
-        setStory
+        setStory,
+        setBackgorunds
     } = StoreStory
 
     const speaker = getSpeaker()
@@ -35,7 +37,7 @@ const Dialogbox: FC = observer(() => {
                 setStory(getNoChoice())
             }
         } else {
-            clearInterval(timer)
+            clearInterval(timer as NodeJS.Timeout)
             setTimer(undefined)
         }
     }
@@ -43,14 +45,19 @@ const Dialogbox: FC = observer(() => {
     useEffect(() => {
         const onSkip = (e: { key: string; }) => {
             if (e.key === "Control") {
-                incStoryPosition()
+                onNext()
             }
         }
 
+        const onNextSay = ((e: keyboardKey) => {
+            if (e.keyCode === 32) {
+                onNext()
+            }
+        })
+
         document.addEventListener("keydown", onSkip)
 
-        console.log(adaptive)
-
+        document.addEventListener("keyup", onNextSay)
 
         return () => {
             document.removeEventListener("keydown", onSkip)

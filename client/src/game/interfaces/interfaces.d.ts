@@ -12,6 +12,9 @@ interface rawCharI {
         "main"?: string,
         "happy"?: string,
         "angry"?: string,
+        "shy"?: string,
+        "surprised"?: string,
+        "think"?: string,
         "horny"?: string,
     }
 }
@@ -58,14 +61,14 @@ interface storyI {
     text?: string,
     actions?: []
     choice?: choiceI[]
-    nochoice?: storyI[]
+    nochoice?: storyI[] | initStoryI
     background?: any
     dialogbox?: typeDialogbox
 }
 
 interface choiceI {
     text: string,
-    story: storyI[]
+    story: initStoryI
 }
 
 interface save {
