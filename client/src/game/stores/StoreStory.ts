@@ -21,7 +21,7 @@ class StoreStory {
 
         this.isSave = this.getLocalSave() !== null
 
-        !this.isSave ? this.initStorySave() : this.initStoryDefault()
+        this.isSave ? this.initStorySave() : this.initStoryDefault()
     }
 
     initStoryDefault = () => this.initStory(StartStory(), 0, StartStory().history[0])

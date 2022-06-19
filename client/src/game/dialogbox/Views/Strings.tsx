@@ -5,14 +5,14 @@ import {observer} from "mobx-react-lite";
 
 
 // @ts-ignore
-const Strings: FC = ({onNext, text}) => {
+const Strings: FC = ({onNext, text, center}) => {
 
     return (
         <>
-            <div onClick = {onNext} className={s.strings}>
+            <pre onClick = {onNext} className={`${s.strings} ${center ? s.strings__center : ""}`}>
                 {text}
-            </div>
-            <div className={s.strings__shadow}/>
+            </pre>
+            {!center && <div className={s.strings__shadow}/>}
         </>
     )
 }

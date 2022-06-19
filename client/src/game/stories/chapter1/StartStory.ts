@@ -1,5 +1,4 @@
 import {backgroundsChapter1, typeDialogbox} from "../../interfaces/enums";
-import StoreStory from "../../stores/StoreStory";
 
 
 const StartStory = (): initStoryI => {
@@ -11,40 +10,49 @@ const StartStory = (): initStoryI => {
         history: [
             {
                 id: 1,
-                background: backgrounds.prolouge1,
-                dialogbox: typeDialogbox.STRINGS,
+                background: backgrounds.black,
+                text: "Вначале была планета",
+                dialogbox: typeDialogbox.CENTER,
             },
             {
                 id: 2,
-                background: backgrounds.prolouge2
+                text: "Терра",
             },
             {
                 id: 2,
+                text: "",
                 background: backgrounds.prolouge3
             },
             {
                 id: 4,
-                background: backgrounds.prolouge4
+                text: "Жизнь на ней развивалась своим чередом",
+                background: backgrounds.black
 
             },
             {
                 id: 5,
-                background: backgrounds.water
+                text: "От маленьких клеток до людей",
 
             },
             {
                 id: 6,
-                background: backgrounds.prolouge6
-
+                text: "",
+                background: backgrounds.water
             },
             {
                 id: 7,
-                background: backgrounds.prolouge7
+                text: "Первобытное общество\n" +
+                    "Основание и падение империй\n" +
+                    "Феодализм\n" +
+                    "Эра географических открытий\n" +
+                    "Научно-технический прогресс",
+                background: backgrounds.black
 
             },
             {
                 id: 12,
                 text: "Терране начали активную экспансию космоса",
+                dialogbox: typeDialogbox.STRINGS,
                 background: backgrounds.ships
             },
             {
@@ -71,15 +79,17 @@ const StartStory = (): initStoryI => {
             },
             {
                 id: 18,
+                text: "И всё было хорошо...",
+                dialogbox: typeDialogbox.CENTER,
+                background: backgrounds.black
+            },
+            {
+                id: 18,
+                text: "Пока не случилось это...",
+            },
+            {
+                id: 18,
                 text: "",
-                background: backgrounds.prolouge8
-            },
-            {
-                id: 18,
-                background: backgrounds.prolouge9
-            },
-            {
-                id: 18,
                 background: backgrounds.light
             },
             {
@@ -100,24 +110,37 @@ const StartStory = (): initStoryI => {
             },
             {
                 id: 21,
-                background: backgrounds.prolouge10
+                text: "Никто доподлинно не знает, что это было.\n" +
+                    "Вдруг совершенно неожиданно вся связь в галактике пропала.",
+                background: backgrounds.black
             },
             {
                 id: 21,
-                background: backgrounds.prolouge11
+                text: "Все планеты стали отрезаны друг от друга.\n" +
+                    "Ни один корабль по неизвестной причине\n" +
+                    "не мог вылететь в открытый космос."
             },
             {
                 id: 22,
-                background: backgrounds.prolouge12
+                text: "",
+                background: backgrounds.water
             },
             {
                 id: 25,
-                background: backgrounds.prolouge13
+                text: "Ужас\n" +
+                    "Хаос\n" +
+                    "Паника",
+                background: backgrounds.black
+            },
+            {
+                id: 23,
+                text: "Ливронда",
             },
             {
                 id: 26,
                 text: "Наша планета, как и все остальные, оказалась отрезана от всего мира. ",
-                background: backgrounds.lavronda2
+                background: backgrounds.lavronda2,
+                dialogbox: typeDialogbox.STRINGS
             },
             {
                 id: 27,
@@ -167,11 +190,11 @@ const StartStory = (): initStoryI => {
             {
                 id: 36,
                 text: "Но что если все эти изменения обратимы?",
-                background: backgrounds.city
             },
             {
                 id: 37,
                 text: "Что если можно отменить апокалипсис и вернуть людям хотя бы часть суши, а? Звучит сказочно, я понимаю.",
+                background: backgrounds.city
             },
             {
                 id: 38,

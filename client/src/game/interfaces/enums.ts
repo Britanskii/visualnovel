@@ -41,7 +41,15 @@ export enum stateGame {
 
 export enum typeDialogbox {
     STRINGS,
-    BOX
+    BOX,
+    CENTER
+}
+
+export enum adaptive {
+    TWOK,
+    FULLHD,
+    HD,
+    MOBILE
 }
 
 export enum char {

@@ -12,8 +12,6 @@ const Background: FC = observer(() => {
 
     useEffect(() => {
 
-        console.log('back')
-
         const chapter = StoreStory.getBackgrounds()
 
         const allBackgrounds = []
@@ -63,7 +61,6 @@ const Background: FC = observer(() => {
     }
 
     useEffect(() => {
-        console.log(backgroundActive)
         if (!!backgrounds.length) setNewBackgrounds()
     }, [backgroundActive])
 

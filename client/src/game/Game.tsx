@@ -14,11 +14,14 @@ import StoreGame from "./stores/StoreGame";
 import {stateGame} from "./interfaces/enums";
 import StoreStory from "./stores/StoreStory";
 import {toJS} from "mobx";
+import useGetAdaptiveClass from "./hooks/useGetAdaptiveClass";
 
 const Game: FC = observer(() => {
 
+    const classAdaptive = useGetAdaptiveClass(s, "game")
+
     return (
-        <div className={s.game}>
+        <div className={`${s.game} ${classAdaptive}`}>
             <Grafic/>
             <Dialogbox/>
             <Choices/>

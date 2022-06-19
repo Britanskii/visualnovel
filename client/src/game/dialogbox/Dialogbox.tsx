@@ -6,10 +6,10 @@ import StoreStory from "../stores/StoreStory";
 
 // @ts-ignore
 import save from "../../res/icons/save.svg"
-import ServiceSave from "../services/ServiceSave";
 import Strings from "./Views/Strings";
 import Box from "./Views/Box";
-import {typeDialogbox} from "../interfaces/enums";
+import {adaptive, typeDialogbox} from "../interfaces/enums";
+import useGetAdaptive from "../hooks/useGetAdaptive";
 
 const Dialogbox: FC = observer(() => {
     const [timer, setTimer] = useState<NodeJS.Timer>()
@@ -49,36 +49,14 @@ const Dialogbox: FC = observer(() => {
 
         document.addEventListener("keydown", onSkip)
 
+        console.log(adaptive)
+
+
         return () => {
             document.removeEventListener("keydown", onSkip)
         }
+
     }, [])
-
-    // useEffect(() => {
-    //     console.log('change!')
-    //     const changeDialogBox = (type: typeDialogbox) => {
-    //         switch (type) {
-    //             case typeDialogbox.STRINGS: // @ts-ignore
-    //                 return <Strings onNext={onNext} onSave={onSave} speaker={speaker} text={text} timer={timer}
-    //                                 setTimer={setTimer}/>
-    //             default: // @ts-ignore
-    //                 return <Box onNext={onNext} onSave={onSave} speaker={speaker} text={text} timer={timer}
-    //                             setTimer={setTimer}/>
-    //         }
-    //     }
-    //
-    //     const view = changeDialogBox(type)
-    //
-    //     setView(view)
-    // }, [text])
-
-    const onSave = () => {
-        const story = localStorage.getItem("story")
-        const id = "1"
-
-        ServiceSave.save({id, story})
-    }
-
 
     return (
         <>
@@ -86,10 +64,10 @@ const Dialogbox: FC = observer(() => {
 
             {type === typeDialogbox.BOX ?
                 // @ts-ignore
-                <Box onNext={onNext} onSave={onSave} speaker={speaker} text={text} timer={timer} setTimer={setTimer}/>
+                <Box onNext={onNext} speaker={speaker} text={text} timer={timer} setTimer={setTimer}/>
                 // @ts-ignore
-                : <Strings onNext={onNext} onSave={onSave} speaker={speaker} text={text} timer={timer}
-                           setTimer={setTimer}/>
+                : <Strings onNext={onNext}  speaker={speaker} text={text} timer={timer}
+                           setTimer={setTimer} center = {typeDialogbox.CENTER === type}/>
             }
         </>
     )
