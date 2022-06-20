@@ -73,15 +73,15 @@ interface choiceI {
     story: storyI[]
 }
 
-interface save {
+interface localSave {
     story: storyI[],
     currentStory: storyI,
     id: number
 }
 
-interface saveGame {
-    gameState: stateGame,
-    saves: save[]
+interface save {
+    state: localSave
+    saves: localSave[]
 }
 
 interface bgConstants {

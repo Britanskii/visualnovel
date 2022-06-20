@@ -4,7 +4,7 @@ import s from './forefront.module.sass'
 import {observer} from "mobx-react-lite";
 import StoreStory from "../stores/StoreStory";
 import {Simna} from "../chars/chars";
-import getCharacterNameByImg from "../functions/getCharacterNameByImg";
+import getCharacterIdByIamge from "../functions/getCharacterIdByIamge";
 
 const Forefront: FC = observer(() => {
 
@@ -12,7 +12,7 @@ const Forefront: FC = observer(() => {
 
     const chars = arrChars?.map((src) => {
 
-        const id = getCharacterNameByImg(src).toLocaleLowerCase()
+        const id = getCharacterIdByIamge(src).toLocaleLowerCase()
 
         return (
             <img className={id == "character" ? s.forefront__character : `${s.forefront__character} ${s["forefront__" + id]}`} src={src}/>

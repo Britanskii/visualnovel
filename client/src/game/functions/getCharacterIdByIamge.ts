@@ -1,7 +1,7 @@
 import {Archivist, Mark, Simna} from "../chars/chars";
 
 
-const getCharacterNameByImg = (image: string): string => {
+const getCharacterIdByIamge = (image: string): string => {
     switch (image) {
         case Simna.main:
             return Simna.id
@@ -20,4 +20,4 @@ const getCharacterNameByImg = (image: string): string => {
 
 }
 
-export default getCharacterNameByImg
+export default getCharacterIdByIamge
