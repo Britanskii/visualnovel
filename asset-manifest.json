@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.8c458b29.css",
-    "main.js": "./static/js/main.d2473099.js",
+    "main.js": "./static/js/main.3579b93c.js",
     "static/media/ship_attack.png": "./static/media/ship_attack.c42ea1a4f1c885f3e858.png",
     "static/media/ship.png": "./static/media/ship.8d91b9e59913f88a3f14.png",
     "static/media/light4.png": "./static/media/light4.1e9a8faa221ed75dcfee.png",
@@ -15,6 +15,7 @@
     "static/media/lavronda3.png": "./static/media/lavronda3.a608d7e3e09e66d4a3af.png",
     "static/media/light2.png": "./static/media/light2.cfd44fb1acb4002e16ac.png",
     "static/media/lavronda.png": "./static/media/lavronda.8d13e3582809e84b1da9.png",
+    "static/media/archive_angry.jpg": "./static/media/archive_angry.d5b8778420eae659d6d3.jpg",
     "static/media/lavronda4.png": "./static/media/lavronda4.613054405f0c9be5517b.png",
     "static/media/light.png": "./static/media/light.c69f861cad42f9ab943d.png",
     "static/media/z.png": "./static/media/z.977d3d9dc5293c436e11.png",
@@ -26,8 +27,11 @@
     "static/media/main.webp": "./static/media/main.deee150969069f99ecd7.webp",
     "static/media/surprised.webp": "./static/media/surprised.7e890741b3eeb1287494.webp",
     "static/media/angry.webp": "./static/media/angry.e57a5f3c16b32d6d47ce.webp",
+    "static/media/archive_outside_security.jpg": "./static/media/archive_outside_security.83373372eeafb0a47d4a.jpg",
+    "static/media/archive_out.jpg": "./static/media/archive_out.0cd305f3670bc3b93110.jpg",
     "static/media/think.webp": "./static/media/think.1e2e8d70e0f9b13cc92f.webp",
     "static/media/tavern.jpg": "./static/media/tavern.8f8a4276f1b8afc47f93.jpg",
+    "static/media/archive_outside.jpg": "./static/media/archive_outside.c6a8101fffe5eb0869d5.jpg",
     "static/media/attack_2.jpg": "./static/media/attack_2.947c93e6e4c23d31a143.jpg",
     "static/media/water_2.jpg": "./static/media/water_2.a1d13df64c96a04d4bc3.jpg",
     "static/media/water_3.jpg": "./static/media/water_3.050fecf7b4d92ce5058c.jpg",
@@ -39,10 +43,10 @@
     "static/media/logo.svg": "./static/media/logo.b865815227e5074439388b7fe78f64a7.svg",
     "index.html": "./index.html",
     "main.8c458b29.css.map": "./static/css/main.8c458b29.css.map",
-    "main.d2473099.js.map": "./static/js/main.d2473099.js.map"
+    "main.3579b93c.js.map": "./static/js/main.3579b93c.js.map"
   },
   "entrypoints": [
     "static/css/main.8c458b29.css",
-    "static/js/main.d2473099.js"
+    "static/js/main.3579b93c.js"
   ]
 }
