@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.a70af5b5.css",
-    "main.js": "./static/js/main.8ae41bd6.js",
+    "main.js": "./static/js/main.8ced4c48.js",
     "static/media/ship_attack.png": "./static/media/ship_attack.c42ea1a4f1c885f3e858.png",
     "static/media/ship.png": "./static/media/ship.8d91b9e59913f88a3f14.png",
     "static/media/light4.png": "./static/media/light4.1e9a8faa221ed75dcfee.png",
@@ -22,7 +22,7 @@
     "static/media/archive.jpg": "./static/media/archive.a6d1499787e9e7c1c6da.jpg",
     "static/media/shy.webp": "./static/media/shy.df3a646f13f3401f373f.webp",
     "static/media/happy.webp": "./static/media/happy.efb3d2981e4d66c305dc.webp",
-    "static/media/main.webp": "./static/media/main.e2343daab4a44359efc1.webp",
+    "static/media/main.webp": "./static/media/main.deee150969069f99ecd7.webp",
     "static/media/surprised.webp": "./static/media/surprised.7e890741b3eeb1287494.webp",
     "static/media/angry.webp": "./static/media/angry.e57a5f3c16b32d6d47ce.webp",
     "static/media/think.webp": "./static/media/think.1e2e8d70e0f9b13cc92f.webp",
@@ -37,10 +37,10 @@
     "static/media/normal.png": "./static/media/normal.c56a8a344f1dd4675d9b.png",
     "index.html": "./index.html",
     "main.a70af5b5.css.map": "./static/css/main.a70af5b5.css.map",
-    "main.8ae41bd6.js.map": "./static/js/main.8ae41bd6.js.map"
+    "main.8ced4c48.js.map": "./static/js/main.8ced4c48.js.map"
   },
   "entrypoints": [
     "static/css/main.a70af5b5.css",
-    "static/js/main.8ae41bd6.js"
+    "static/js/main.8ced4c48.js"
   ]
 }
