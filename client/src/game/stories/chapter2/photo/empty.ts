@@ -3,6 +3,7 @@ import { backgroundsScene3} from "../../../interfaces/enums";
 import {Mark, Player} from "../../../chars/chars";
 import Ph1 from "./Ph1";
 import Ph1_2 from "./Ph1_2.ts";
+import {initStoryI} from "../../../interfaces/interfaces";
 
 const empty = (): initStoryI => {
 

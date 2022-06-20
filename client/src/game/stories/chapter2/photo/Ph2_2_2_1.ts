@@ -6,6 +6,7 @@ import Ph1_2 from "./Ph1_2.ts";
 import Ph2_1 from "./Ph2_1";
 import Ph2_2_2_1_1 from "./Ph2_2_2_1_1";
 import Ph2_2_2_1_2 from "./Ph2_2_2_1_2";
+import {choiceI, initStoryI} from "../../../interfaces/interfaces";
 
 const Ph2_2_2_1 = (): initStoryI => {
 

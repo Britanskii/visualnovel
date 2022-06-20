@@ -3,6 +3,8 @@ import {makeAutoObservable, toJS} from "mobx";
 import StartStory from "../stories/chapter1/StartStory";
 import {backgroundsChapter1, typeDialogbox} from "../interfaces/enums";
 import Scene3 from "../stories/chapter2/Scene3";
+import {choiceI, initStoryI, save, saveGame, storyI} from "../interfaces/interfaces";
+import StoreGame from "./StoreGame";
 
 class StoreStory {
 
@@ -19,15 +21,14 @@ class StoreStory {
 
     constructor() {
         makeAutoObservable(this)
-
         this.isSave = this.getLocalSave() !== null
 
-        !this.isSave ? this.initStorySave() : this.initStoryDefault()
+        this.isSave ? this.initStorySave() : this.initStoryDefault()
     }
 
     initStoryDefault = () => {
-        // const storyDefault = StartStory()
-        const storyDefault = Scene3()
+        const storyDefault = StartStory()
+        // const storyDefault = Scene3()
 
         return this.initStory(storyDefault, 0, storyDefault.history[0])
     }
@@ -58,6 +59,7 @@ class StoreStory {
         this.currentStory = this.story.history[this.storyPosition]
 
         this.backgrounds = story.backgrounds
+        this.story.backgrounds = story.backgrounds
     }
 
     setSaveStory = (story: storyI[]) => {
@@ -136,6 +138,11 @@ class StoreStory {
 
     setLocalSave = () => {
         const localSave: save = {story: this.getStory(), id: this.getStoryPosition(), currentStory: this.currentStory}
+
+        // const save = localStorage.getItem("gameState")
+        // console.log(save)
+        // const saveGame: saveGame = {gameState: StoreGame.getStateGame(), saves: }
+        // localStorage.setItem("gameState", JSON.stringify(localSave))
 
         localStorage.setItem("story", JSON.stringify(localSave))
     }

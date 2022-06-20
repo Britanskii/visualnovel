@@ -6,6 +6,7 @@ import Ph1_2 from "./Ph1_2.ts";
 import Ph2_1 from "./Ph2_1";
 import Ph2_2_2_3 from "./Ph2_2_2_3";
 import Ph2_2_2_2_2 from "./Ph2_2_2_2_2";
+import {choiceI, initStoryI} from "../../../interfaces/interfaces";
 
 const Ph2_2_2_2 = (): initStoryI => {
 
@@ -27,6 +28,7 @@ const Ph2_2_2_2 = (): initStoryI => {
         history:  [
             {
                 id: 1,
+                speaker: Mark.name,
                 text: "Ты не мог бы… сказать ей об этом?",
                 choice: photoChoice
             }

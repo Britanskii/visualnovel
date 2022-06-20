@@ -1,7 +1,8 @@
 import {backgroundsScene3, typeDialogbox} from "../../interfaces/enums";
 import {Archivist, Mark, Player, Simna} from "../../chars/chars";
-import First from "./shieldChoice/First";
-import Second from "./shieldChoice/Second";
+import Sc_1 from "./shieldChoice/Sc_1";
+import Sc_2 from "./shieldChoice/Sc_2";
+import {choiceI, initStoryI} from "../../interfaces/interfaces";
 
 const Scene3 = (): initStoryI => {
 
@@ -10,24 +11,13 @@ const Scene3 = (): initStoryI => {
     const shieldChoice: choiceI[] = [
         {
             text: 'Игнорировать',
-            story: First()
+            story: Sc_1()
         },
         {
             text: 'Вступиться за Симну',
-            story: Second()
+            story: Sc_2()
         }
     ]
-
-    // const shieldChoice: choiceI[] = [
-    //     {
-    //         text: 'Игнорировать',
-    //         story: Ph1()
-    //     },
-    //     {
-    //         text: 'Вступиться за Симну',
-    //         story: Ph2()
-    //     }
-    // ]
 
     return {
         backgrounds,
@@ -69,7 +59,8 @@ const Scene3 = (): initStoryI => {
                 id: 2,
                 speaker: Simna.name,
                 characters: [Archivist.main, Simna.main],
-                text: "Домогательства остаются домогательствами, как бы вы их не называли. Так что оставьте свою “милость” себе.\n",
+                //Заменить на домогательства
+                text: "Приставания остаются приставания, как бы вы их не называли. Так что оставьте свою “милость” себе.",
             },
             {
                 id: 2,

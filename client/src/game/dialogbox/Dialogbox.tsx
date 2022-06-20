@@ -8,9 +8,9 @@ import StoreStory from "../stores/StoreStory";
 import save from "../../res/icons/save.svg"
 import Strings from "./Views/Strings";
 import Box from "./Views/Box";
-import {adaptive, typeDialogbox} from "../interfaces/enums";
-import useGetAdaptive from "../hooks/useGetAdaptive";
+import {stateGame, typeDialogbox} from "../interfaces/enums";
 import {keyboardKey} from "@testing-library/user-event";
+import StoreGame from "../stores/StoreGame";
 
 const Dialogbox: FC = observer(() => {
     const [timer, setTimer] = useState<NodeJS.Timer>()
@@ -31,7 +31,7 @@ const Dialogbox: FC = observer(() => {
     const type: typeDialogbox = getTypeDialogBox()
 
     const onNext = () => {
-        if (timer === undefined) {
+        if (timer === undefined && StoreGame.getStateGame() !== stateGame.MENU) {
             incStoryPosition()
             if (getNoChoice() !== undefined) {
                 setStory(getNoChoice())

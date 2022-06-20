@@ -1,8 +1,9 @@
 import {Mark} from "../../../chars/chars";
 import { backgroundsScene3} from "../../../interfaces/enums";
 import Scene3_1 from "../Scene3_1";
+import {initStoryI} from "../../../interfaces/interfaces";
 
-const First = (): initStoryI => {
+const Sc_1 = (): initStoryI => {
 
     const backgrounds = backgroundsScene3
 
@@ -19,4 +20,4 @@ const First = (): initStoryI => {
     }
 }
 
-export default First
+export default Sc_1

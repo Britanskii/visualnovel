@@ -5,6 +5,7 @@ import TwoStory from "../TestStories/TwoStory";
 import First from "./nameChoice/First";
 import Second from "./nameChoice/Second";
 import Third from "./nameChoice/Third";
+import {choiceI, initStoryI} from "../../interfaces/interfaces";
 
 
 const StartStory = (): initStoryI => {

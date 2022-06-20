@@ -1,4 +1,4 @@
-import {FC, useEffect, useState} from "react";
+import {FC} from "react";
 
 import s from './game.module.sass'
 
@@ -12,13 +12,20 @@ import Choices from "./choices/Choices";
 import {MouseParallaxChild, MouseParallaxContainer} from "react-parallax-mouse";
 import StoreGame from "./stores/StoreGame";
 import {stateGame} from "./interfaces/enums";
-import StoreStory from "./stores/StoreStory";
-import {toJS} from "mobx";
 import useGetAdaptiveClass from "./hooks/useGetAdaptiveClass";
+import Menu from "./menu/Menu";
 
 const Game: FC = observer(() => {
 
     const classAdaptive = useGetAdaptiveClass(s, "game")
+
+    if (StoreGame.getStateGame() === stateGame.MENU) {
+        return (
+            <div className={`${s.game} ${classAdaptive}`}>
+                <Menu/>
+            </div>
+        )
+    }
 
     return (
         <div className={`${s.game} ${classAdaptive}`}>

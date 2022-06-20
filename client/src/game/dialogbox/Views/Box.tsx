@@ -1,12 +1,11 @@
-import {FC, useEffect, useState} from "react";
-import {observer} from "mobx-react-lite";
+import {FC} from "react";
 import s from "../dialogbox.module.sass";
 // @ts-ignore
 import save from "../../../../res/icons/save.svg";
 import TypingText from "../TypingText";
-import {adaptive} from "../../interfaces/enums";
-import useGetAdaptive from "../../hooks/useGetAdaptive";
+import {stateGame} from "../../interfaces/enums";
 import useGetAdaptiveClass from "../../hooks/useGetAdaptiveClass";
+import StoreGame from "../../stores/StoreGame";
 
 
 // @ts-ignore
@@ -14,9 +13,17 @@ const Box: FC = ({onNext, speaker, text, timer, setTimer}) => {
 
     const classAdaptive = useGetAdaptiveClass(s, "dialogbox")
 
+    const onOpenMenu = () => {
+        StoreGame.setStateGame(stateGame.MENU)
+    }
+
     return (
         <div onClick={onNext} className={`${s.dialogbox} ${classAdaptive} ${text.length === 0 ? s.dialogbox__hide : ""}`}>
             <div className={s.dialogbox__header}>
+                <div className={s.dialogbox__navigation}>
+                    <div onClick={onOpenMenu} className={s.dialogbox__menu}>МЕНЮ</div>
+                    {/*<div className={s.dialogbox__menu}>СОХРАНИТЬ</div>*/}
+                </div>
                 {/*<img onClick={onSave} className={s.dialogbox__save} src={save} alt="save"/>*/}
                 <div className={s.dialogbox__lines}>
                     <div className={s.dialogbox__line}/>

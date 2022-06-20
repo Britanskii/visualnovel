@@ -1,6 +1,7 @@
 import {Mark} from "../../../chars/chars";
 import StartStory2 from "../StartStory2";
 import {backgroundsChapter1} from "../../../interfaces/enums";
+import {initStoryI} from "../../../interfaces/interfaces";
 
 const First = (): initStoryI => {
 

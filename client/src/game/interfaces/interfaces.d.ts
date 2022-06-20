@@ -1,3 +1,6 @@
+import {stateGame} from "./enums";
+
+
 interface charsI {
     name: string
     src: string
@@ -75,6 +78,11 @@ interface save {
     story: initStoryI,
     currentStory: storyI,
     id: number
+}
+
+interface saveGame {
+    gameState: stateGame,
+    saves: save[]
 }
 
 interface bgConstants {

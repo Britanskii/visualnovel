@@ -25,6 +25,10 @@ import tavernImg from "../../res/backgrounds/tavern.jpg";
 
 import archiveImg from "../../res/backgrounds/scene3/archive.jpg"
 import archive_markImg from "../../res/backgrounds/scene3/archive_mark.jpg"
+import archive_angryImg from "../../res/backgrounds/scene3/archive_angry.jpg"
+import archive_outImg from "../../res/backgrounds/scene3/archive_out.jpg"
+import archive_outsideImg from "../../res/backgrounds/scene3/archive_outside.jpg"
+import archive_securityImg from "../../res/backgrounds/scene3/archive_outside_security.jpg"
 
 export enum stateGame {
     MENU,
@@ -58,7 +62,12 @@ export enum backgroundsScene3 {
     black = blackImg,
 
     archive = archiveImg,
-    archive_mark = archive_markImg
+    archive_mark = archive_markImg,
+
+    archive_angry = archive_angryImg,
+    archive_out = archive_outImg,
+    archive_outside = archive_outsideImg,
+    archive_security = archive_securityImg
 }
 
 export enum backgroundsChapter1 {
