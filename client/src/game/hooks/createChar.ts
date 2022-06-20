@@ -1,4 +1,5 @@
 import data from "../../data/characters";
+import {character} from "../interfaces/interfaces";
 // import 'animate.css'
 
 const createChar = (char: string): character => {

@@ -52,11 +52,6 @@ interface rawSpineChar {
     }
 }
 
-interface initStoryI {
-    backgrounds: any
-    history: storyI[]
-}
-
 interface storyI {
     id: number,
     characters?: function[],
@@ -64,18 +59,18 @@ interface storyI {
     text?: string,
     actions?: []
     choice?: choiceI[]
-    nochoice?: storyI[] | initStoryI
+    nochoice?: storyI[] | storyI
     background?: any
     dialogbox?: typeDialogbox
 }
 
 interface choiceI {
     text: string,
-    story: initStoryI
+    story: storyI[]
 }
 
 interface save {
-    story: initStoryI,
+    story: storyI[],
     currentStory: storyI,
     id: number
 }

@@ -12,6 +12,7 @@ import markThink from "../res/chars/mark/think.webp"
 import simnaMain from "../res/chars/simna/main.webp"
 
 import archivistMain from "../res/chars/archivist/main.webp"
+import {dataRawCharI} from "../game/interfaces/interfaces";
 
 
 const data: dataRawCharI = {

@@ -1,4 +1,5 @@
 import createChar from "../hooks/createChar";
+import {character} from "../interfaces/interfaces";
 
 
 export const Hostess: character = createChar("Hostess")

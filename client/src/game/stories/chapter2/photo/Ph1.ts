@@ -1,11 +1,10 @@
-
-import { backgroundsScene3} from "../../../interfaces/enums";
+import {backgroundsScene3} from "../../../interfaces/enums";
 import {Mark} from "../../../chars/chars";
 import Ph2 from "./Ph2";
 import Ph1_2 from "./Ph1_2.ts";
-import {choiceI, initStoryI} from "../../../interfaces/interfaces";
+import {choiceI, storyI} from "../../../interfaces/interfaces";
 
-const Ph1 = (): initStoryI => {
+const Ph1 = (): storyI[] => {
 
     const backgrounds = backgroundsScene3
 
@@ -20,17 +19,14 @@ const Ph1 = (): initStoryI => {
         }
     ]
 
-    return {
-        backgrounds,
-        history:  [
-            {
-                speaker: Mark.name,
-                id: 1,
-                text: " Нет, конечно. Ты что, думал, в архив Терры зашёл что-ли? Сразу видно, что ты не с Ливронды. Круто, что тебе есть на чём смотреть цифровые копии, но тут у большинства населения нет таких устройств.",
-                choice: photoChoice
-            }
-        ]
-    }
+    return [
+        {
+            speaker: Mark.name,
+            id: 1,
+            text: " Нет, конечно. Ты что, думал, в архив Терры зашёл что-ли? Сразу видно, что ты не с Ливронды. Круто, что тебе есть на чём смотреть цифровые копии, но тут у большинства населения нет таких устройств.",
+            choice: photoChoice
+        }
+    ]
 }
 
 export default Ph1

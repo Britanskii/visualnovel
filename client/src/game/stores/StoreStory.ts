@@ -3,7 +3,7 @@ import {makeAutoObservable, toJS} from "mobx";
 import StartStory from "../stories/chapter1/StartStory";
 import {backgroundsChapter1, typeDialogbox} from "../interfaces/enums";
 import Scene3 from "../stories/chapter2/Scene3";
-import {choiceI, initStoryI, save, saveGame, storyI} from "../interfaces/interfaces";
+import {choiceI, storyI, save, saveGame} from "../interfaces/interfaces";
 import StoreGame from "./StoreGame";
 
 class StoreStory {
@@ -11,7 +11,7 @@ class StoreStory {
     protected storyPosition!: number
     protected background!: string | undefined
     protected backgrounds!: backgroundsChapter1
-    protected story!: initStoryI
+    protected story!: storyI[]
     protected currentStory!: storyI
     protected choices!: choiceI[] | undefined
     protected nochoice!: storyI[]
@@ -30,7 +30,7 @@ class StoreStory {
         const storyDefault = StartStory()
         // const storyDefault = Scene3()
 
-        return this.initStory(storyDefault, 0, storyDefault.history[0])
+        return this.initStory(storyDefault, 0, storyDefault[0])
     }
 
     initStorySave = () => {
@@ -39,41 +39,38 @@ class StoreStory {
         this.initStory(story, id, currentStory)
     }
 
-    initStory = (story: initStoryI, id: number, currentStory: storyI) => {
+    initStory = (story: storyI[], id: number, currentStory: storyI) => {
         this.story = story
         this.storyPosition = id
-        this.backgrounds = this.story.backgrounds
         this.currentStory = currentStory
         this.choices = this.currentStory.choice
         this.background = this.currentStory.background
         this.complete = false
     }
 
-    setStory = (story: initStoryI) => {
-        story.history[0] = {background: this.getBackground(), characters: this.getChars(), ...story.history[0]}
+    setStory = (story: storyI[]) => {
+        story[0] = {background: this.getBackground(), characters: this.getChars(), ...story[0]}
 
-        this.story.history = [...this.story.history, ...story.history]
+        this.story = [...this.story, ...story]
 
         this.incStoryPosition()
 
-        this.currentStory = this.story.history[this.storyPosition]
+        this.currentStory = this.story[this.storyPosition]
 
-        this.backgrounds = story.backgrounds
-        this.story.backgrounds = story.backgrounds
     }
 
     setSaveStory = (story: storyI[]) => {
-        this.story.history = story
+        this.story = story
     }
 
-    getStory = (): initStoryI => this.story
+    getStory = (): storyI[] => this.story
 
     getCurrentStory = (): storyI => {
         return this.currentStory
     }
 
     setCurrentStory = (storyPosition: number) => {
-        this.currentStory = {...this.currentStory, ...this.story.history[storyPosition]}
+        this.currentStory = {...this.currentStory, ...this.story[storyPosition]}
     }
 
     setBackgorunds = (backgrounds: backgroundsChapter1): void => {
@@ -128,8 +125,8 @@ class StoreStory {
         return this.currentStory.choice
     }
 
-    getNoChoice = (): initStoryI => {
-        return <initStoryI>this.currentStory.nochoice!
+    getNoChoice = (): storyI[] => {
+        return <storyI[]>this.currentStory.nochoice!
     }
 
     getLocalSave = (): save => {
@@ -148,14 +145,14 @@ class StoreStory {
     }
 
     setStoryPosition = (position: number): void => {
-        if (position >= 0 && position < this.story.history.length) {
+        if (position >= 0 && position < this.story.length) {
             this.storyPosition = position
             this.setCurrentStory(this.storyPosition)
         }
     }
 
     incStoryPosition = (): void => {
-        if (this.storyPosition < this.story.history.length - 1) {
+        if (this.storyPosition < this.story.length - 1) {
 
             // console.log(toJS(this.currentStory))
             // console.log(toJS(this.story[this.storyPosition]))
@@ -171,7 +168,7 @@ class StoreStory {
     decStoryPosition = (): void => {
         if (this.storyPosition > 0) {
             this.storyPosition -= 1
-            this.currentStory = {...this.currentStory, ...this.story.history[this.storyPosition]}
+            this.currentStory = {...this.currentStory, ...this.story[this.storyPosition]}
         }
     }
 

@@ -16,7 +16,6 @@ const Forefront: FC = observer(() => {
         )
     })
 
-
     return (
         <div id ={"front"} className={s.forefront}>
             {chars}

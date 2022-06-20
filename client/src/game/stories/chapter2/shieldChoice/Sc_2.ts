@@ -1,14 +1,12 @@
 import {Archivist, Mark, Player, Simna} from "../../../chars/chars";
 import { backgroundsScene3} from "../../../interfaces/enums";
-import {initStoryI} from "../../../interfaces/interfaces";
+import {storyI} from "../../../interfaces/interfaces";
 
-const Sc_2 = (): initStoryI => {
+const Sc_2 = (): storyI[] => {
 
     const backgrounds = backgroundsScene3
 
-    return {
-        backgrounds,
-        history:  [
+    return [
             {
                 id: 1,
                 speaker: Player.name,
@@ -86,7 +84,6 @@ const Sc_2 = (): initStoryI => {
                 text: "Не здесь. Приходи сегодня вечером в трактир “Морской Гусь”. Я там сейчас остановился. Там и поговорим.",
             },
         ]
-    }
 }
 
 export default Sc_2
