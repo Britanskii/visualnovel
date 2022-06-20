@@ -23,9 +23,7 @@ const TypingText: FC<TypingProps> = ({timer, text, setTimer}) => {
             const timer = setInterval(() => {
                 setTypeText(typeText => typeText += text[i])
                 i++
-                if (i > 25) {
-                    interval = 1000
-                }
+
                 if (i === text.length) {
                     clearInterval(timer as NodeJS.Timeout)
                     setTimer(undefined)

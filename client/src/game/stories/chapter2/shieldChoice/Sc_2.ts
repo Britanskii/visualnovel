@@ -1,6 +1,8 @@
 import {Archivist, Mark, Player, Simna} from "../../../chars/chars";
 import { backgroundsScene3} from "../../../interfaces/enums";
 import {storyI} from "../../../interfaces/interfaces";
+import Scene3_1 from "../Scene3_1";
+import Scene4 from "../../scene4/Scene4";
 
 const Sc_2 = (): storyI[] => {
 
@@ -82,6 +84,7 @@ const Sc_2 = (): storyI[] => {
                 id: 1,
                 speaker: Player.name,
                 text: "Не здесь. Приходи сегодня вечером в трактир “Морской Гусь”. Я там сейчас остановился. Там и поговорим.",
+                nochoice: Scene4()
             },
         ]
 }

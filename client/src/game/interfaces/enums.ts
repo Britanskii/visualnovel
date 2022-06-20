@@ -30,6 +30,8 @@ import archive_outImg from "../../res/backgrounds/scene3/archive_out.jpg"
 import archive_outsideImg from "../../res/backgrounds/scene3/archive_outside.jpg"
 import archive_securityImg from "../../res/backgrounds/scene3/archive_outside_security.jpg"
 
+import tavern_emptyImg from "../../res/backgrounds/scene4/tavern_empty.jpg"
+
 export enum stateGame {
     MENU,
     SETTINGS,
@@ -68,6 +70,12 @@ export enum backgroundsScene3 {
     archive_out = archive_outImg,
     archive_outside = archive_outsideImg,
     archive_security = archive_securityImg
+}
+
+export enum backgroundsScene4 {
+    black = blackImg,
+
+    tavern_empty = tavern_emptyImg
 }
 
 export enum backgroundsChapter1 {

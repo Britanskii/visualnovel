@@ -4,6 +4,7 @@ import Ph2 from "./Ph2";
 import Ph1_2 from "./Ph1_2.ts";
 import Ph2_1 from "./Ph2_1";
 import {storyI} from "../../../interfaces/interfaces";
+import Scene4 from "../../scene4/Scene4";
 
 const Ph2_2_2_3 = (): storyI[] => {
 
@@ -19,6 +20,7 @@ const Ph2_2_2_3 = (): storyI[] => {
             id: 1,
             speaker: Player.name,
             text: "Замётано, дружище!  [Ещё некоторое время мы с Марком побеседовали и договорились, что я встречусь с Симной (та самая?) завтра.]",
+            nochoice: Scene4()
         }
     ]
 }

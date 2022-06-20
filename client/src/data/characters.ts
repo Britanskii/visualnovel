@@ -14,6 +14,8 @@ import simnaMain from "../res/chars/simna/main.webp"
 import archivistMain from "../res/chars/archivist/main.webp"
 import {dataRawCharI} from "../game/interfaces/interfaces";
 
+import stickMain from "../res/chars/stick/main.webp"
+
 
 const data: dataRawCharI = {
     Player: {
@@ -60,6 +62,14 @@ const data: dataRawCharI = {
         fontFamily: "Times New Roman",
         images: {
             main: archivistMain
+        }
+    },
+    Stick: {
+        name: "Стик",
+        color: "#FFF",
+        fontFamily: "Times New Roman",
+        images: {
+            main: stickMain
         }
     }
 }
