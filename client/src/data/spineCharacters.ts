@@ -1,3 +1,5 @@
+import {dataRawSpineChar} from "../game/interfaces/interfaces";
+
 const resPath = "../res/chars"
 
 const data: dataRawSpineChar = {

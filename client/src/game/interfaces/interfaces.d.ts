@@ -76,6 +76,8 @@ interface choiceI {
 interface localSave {
     story: storyI[],
     currentStory: storyI,
+    date: date,
+    storyPosition: number,
     id: number
 }
 

@@ -31,7 +31,7 @@ const Dialogbox: FC = observer(() => {
     const type: typeDialogbox = getTypeDialogBox()
 
     const onNext = () => {
-        if (timer === undefined && StoreGame.getStateGame() !== stateGame.MENU) {
+        if (timer === undefined && StoreGame.getStateGame() !== stateGame.MENU && !StoreStory.getIsChoice()) {
             incStoryPosition()
             if (getNoChoice() !== undefined) {
                 setStory(getNoChoice())

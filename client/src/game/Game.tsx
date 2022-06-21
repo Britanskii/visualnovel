@@ -19,16 +19,9 @@ const Game: FC = observer(() => {
 
     const classAdaptive = useGetAdaptiveClass(s, "game")
 
-    if (StoreGame.getStateGame() === stateGame.MENU) {
-        return (
-            <div className={`${s.game} ${classAdaptive}`}>
-                <Menu/>
-            </div>
-        )
-    }
-
     return (
         <div className={`${s.game} ${classAdaptive}`}>
+            <Menu/>
             <Grafic/>
             <Dialogbox/>
             <Choices/>

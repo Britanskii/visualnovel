@@ -8,6 +8,7 @@ import {
     SkeletonJson,
     SkeletonRenderer
 } from "@esotericsoftware/spine-canvas"
+import {rawSpineChar} from "../../interfaces/interfaces";
 
 // import 'animate.css'
 

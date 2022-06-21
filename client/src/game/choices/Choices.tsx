@@ -21,32 +21,13 @@ const Choices: FC = observer(() => {
         if (choices !== undefined) {
             if (choices.length > 0) {
                 setShow(true)
+                StoreStory.setIsChoice(!!choices)
             }
         } else {
             setShow(false)
+            StoreStory.setIsChoice(false)
         }
     }, [choices])
-
-    // const onChoice = (story) => {
-    //     setShow(false)
-    //
-    //     props.setStoryPosition(0)
-    //     props.setMainStory(story)
-    // }
-    //
-    // useEffect(() => {
-    //     if (props.choice) {
-    //
-    //         if (props.choice.length) setShow(true)
-    //
-    //         console.log(props.choice)
-    //
-    //         setChoices(props.choice.map(({text, story}, id) => {
-    //             return <div key={id} onClick={() => onChoice(story)} className={s.choices__select}>{text}</div>
-    //         }))
-    //     }
-    // }, [props.choice])
-
 
     return (
         <div className={`${s.choices} ${visible ? s.choices__visible : ""}`}>

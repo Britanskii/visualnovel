@@ -10,6 +10,8 @@ const Background: FC = observer(() => {
     const backgroundActive = StoreStory.getBackground()
 
     useEffect(() => {
+        console.log(backgroundActive)
+
         const background = <img className={`${s.background}`}
                                 src={backgroundActive}/>
 

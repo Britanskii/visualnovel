@@ -3,8 +3,9 @@ import {makeAutoObservable, toJS} from "mobx";
 import StartStory from "../stories/chapter1/StartStory";
 import {backgroundsChapter1, typeDialogbox} from "../interfaces/enums";
 import Scene3 from "../stories/chapter2/Scene3";
-import {choiceI, storyI, save} from "../interfaces/interfaces";
+import {choiceI, storyI, save, localSave} from "../interfaces/interfaces";
 import StoreGame from "./StoreGame";
+import getDateObj from "../functions/getDateObj";
 
 class StoreStory {
 
@@ -17,6 +18,7 @@ class StoreStory {
     protected nochoice!: storyI[]
     protected text!: string
     protected complete!: boolean
+    protected isChoice!: boolean
     protected isSave: boolean
 
     constructor() {
@@ -57,7 +59,13 @@ class StoreStory {
         this.incStoryPosition()
 
         this.currentStory = this.story[this.storyPosition]
+    }
 
+    loadStory = (story: storyI[], currentStory: storyI, position: number) => {
+        this.story = story
+        this.currentStory = currentStory
+        this.storyPosition = position
+        this.background = currentStory.background
     }
 
     setSaveStory = (story: storyI[]) => {
@@ -71,6 +79,9 @@ class StoreStory {
     }
 
     setCurrentStory = (storyPosition: number) => {
+        console.log(this.currentStory)
+        console.log(this.story[storyPosition])
+        // debugger
         this.currentStory = {...this.currentStory, ...this.story[storyPosition]}
     }
 
@@ -82,6 +93,8 @@ class StoreStory {
     getBackgrounds = (): backgroundsChapter1 => this.backgrounds
 
     setBackgorund = (src: string): void => {
+        debugger
+        console.log(src)
         this.background = src
     }
 
@@ -122,6 +135,12 @@ class StoreStory {
         return this.currentStory.dialogbox
     }
 
+    getIsChoice = () => this.isChoice
+
+    setIsChoice = (isChoice: boolean) => {
+        this.isChoice = isChoice
+    }
+
     getChoices = (): choiceI[] | undefined => {
         return this.currentStory.choice
     }
@@ -132,12 +151,42 @@ class StoreStory {
 
     getLocalSave = () => JSON.parse(<string>localStorage.getItem("story"))
 
+    getLocalAllSaves = () => {
+        const save = this.getLocalSave()
+
+        if (!!save) {
+            return save.saves
+        } else {
+            return []
+        }
+    }
+
+    getLocalSaveState = () => {
+        const save = this.getLocalSave()
+
+        if (!!save) {
+            return save.saves
+        } else {
+            return false
+        }
+    }
+
     setLocalSave = (fastSave: boolean) => {
-        const state = {story: this.getStory(), id: this.getStoryPosition(), currentStory: this.currentStory}
+        const {month, day, year, hours, minutes, seconds} = getDateObj(new Date())
 
-        const saves = !this.getLocalSave() ? this.getLocalSave().saves : []
+        const date = day + "." + month + "." + year + " " + hours + ":" + minutes + ":" + seconds
 
-        const localSave: save = fastSave ?  {state, saves: [...saves, state]} : {state, saves}
+        const state: localSave = {
+            story: this.getStory(),
+            id: this.getStoryPosition(),
+            currentStory: this.currentStory,
+            date,
+            storyPosition: this.getStoryPosition()
+        }
+
+        const saves = this.getLocalSave() ? this.getLocalSave().saves : []
+
+        const localSave: save = fastSave ? {state, saves: [...saves, state]} : {state, saves}
 
         localStorage.setItem("story", JSON.stringify(localSave))
     }
