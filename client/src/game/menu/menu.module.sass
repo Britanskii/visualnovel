@@ -1,3 +1,5 @@
+@import "../styles/constants"
+
 .menu
     transition: .2s all ease
     visibility: hidden
@@ -39,7 +41,7 @@
         text-align: center
         justify-content: center
         align-items: center
-        font-size: 22px
+        font-size: $fontSizeHD
         background: linear-gradient(90deg, rgba(0,0,0,0) 0%, #003A75 15%, #003A75 85%, rgba(255,255,255,0) 100%)
         cursor: pointer
         user-select: none
@@ -47,9 +49,18 @@
         padding: 12px
         &:not(:first-child)
             margin-top: 15px
-
-
         &:hover
             //box-shadow:  0 0 25px $accentColor
             transform: scale(1.05)
             background: linear-gradient(90deg, rgba(0,0,0,0) 0%, #008550 15%, #008550 85%, rgba(255,255,255,0) 100%)
+
+.menu__mobile
+    .menu
+        &__logo
+            width: 60%
+        &__navigation
+            margin-top: 25px
+            width: 80%
+        &__button
+            font-size: $fontSizeMOBILE
+            padding: 8px

@@ -4,6 +4,7 @@ import s from './choices.module.sass'
 import {observer} from "mobx-react-lite";
 import StoreStory from "../stores/StoreStory";
 import {toJS} from "mobx";
+import useGetAdaptiveClass from "../hooks/useGetAdaptiveClass";
 
 
 const Choices: FC = observer(() => {
@@ -16,6 +17,8 @@ const Choices: FC = observer(() => {
     const choices = getChoices()
 
     const visible = show && choices !== undefined && StoreStory.getComplete()
+
+    const classAdaptive = useGetAdaptiveClass(s, "choices")
 
     useEffect(() => {
         if (choices !== undefined) {
@@ -30,7 +33,7 @@ const Choices: FC = observer(() => {
     }, [choices])
 
     return (
-        <div className={`${s.choices} ${visible ? s.choices__visible : ""}`}>
+        <div className={`${s.choices} ${visible ? s.choices__visible : ""} ${classAdaptive}`}>
             {
                 visible ? choices!.map(({text, story}, id) => {
                     return (
