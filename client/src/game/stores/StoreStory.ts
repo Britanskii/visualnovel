@@ -79,22 +79,16 @@ class StoreStory {
     }
 
     setCurrentStory = (storyPosition: number) => {
-        console.log(this.currentStory)
-        console.log(this.story[storyPosition])
-        // debugger
         this.currentStory = {...this.currentStory, ...this.story[storyPosition]}
     }
 
     setBackgorunds = (backgrounds: backgroundsChapter1): void => {
-        console.log(backgrounds)
         this.backgrounds = backgrounds
     }
 
     getBackgrounds = (): backgroundsChapter1 => this.backgrounds
 
     setBackgorund = (src: string): void => {
-        debugger
-        console.log(src)
         this.background = src
     }
 

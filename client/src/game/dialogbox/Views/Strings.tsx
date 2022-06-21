@@ -12,8 +12,6 @@ const Strings: FC = ({onNext, text, center}) => {
 
     const classAdaptive = useGetAdaptiveClass(s, "strings")
 
-    console.log(classAdaptive)
-
     return (
         <>
             <pre onClick = {onNext} className={`${s.strings} ${center ? s.strings__center : ""} ${classAdaptive}`}>
