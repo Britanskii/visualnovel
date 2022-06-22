@@ -8,8 +8,9 @@ import {stateGame} from "../interfaces/enums";
 import StoreGame from "../stores/StoreGame";
 import StoreStory from "../stores/StoreStory";
 import {observer} from "mobx-react-lite";
-import {localSave, storyI} from "../interfaces/interfaces";
+import {legend, localSave, storyI} from "../interfaces/interfaces";
 import useGetAdaptiveClass from "../hooks/useGetAdaptiveClass";
+import useImagesOnLoad from "../hooks/useImagesOnLoad";
 
 enum stateWindow {
     MENU,
@@ -17,12 +18,13 @@ enum stateWindow {
 }
 
 const Menu: FC = observer(() => {
-
     const isMenu = StoreGame.getStateGame() === stateGame.MENU
 
     const classAdaptive = useGetAdaptiveClass(s, "menu")
 
     const [menuWindow, setWindow] = useState<stateWindow>(stateWindow.MENU)
+
+    useImagesOnLoad([logo, bg])
 
     return (
         <div className={`${s.menu} ${isMenu ? s.menu__active : ""} ${classAdaptive}`}>
@@ -50,7 +52,7 @@ const Saves = ({setWindow}: SavesProps) => {
         setWindow(stateWindow.MENU)
     }
 
-    const onLoad = (story: storyI[], currentStory: storyI, storyPosition: number) => {
+    const onLoad = (story: storyI, currentStory: legend, storyPosition: number) => {
         StoreStory.loadStory(story, currentStory, storyPosition)
     }
 

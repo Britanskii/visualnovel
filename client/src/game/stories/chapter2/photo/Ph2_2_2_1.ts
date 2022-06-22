@@ -5,9 +5,10 @@ import Ph1_2 from "./Ph1_2.ts";
 import Ph2_1 from "./Ph2_1";
 import Ph2_2_2_1_1 from "./Ph2_2_2_1_1";
 import Ph2_2_2_1_2 from "./Ph2_2_2_1_2";
-import {choiceI, storyI} from "../../../interfaces/interfaces";
+import {choiceI, legend, storyI} from "../../../interfaces/interfaces";
+import toStory from "../../../functions/toStory";
 
-const Ph2_2_2_1 = (): storyI[] => {
+const Ph2_2_2_1 = toStory((): legend[] => {
 
     const backgrounds = backgroundsScene3
 
@@ -29,6 +30,6 @@ const Ph2_2_2_1 = (): storyI[] => {
             choice: photoChoice
         }
     ]
-}
+})
 
 export default Ph2_2_2_1

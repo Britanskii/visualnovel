@@ -3,9 +3,10 @@ import {Mark, Player} from "../../../chars/chars";
 import Ph2 from "./Ph2";
 import Ph1_2 from "./Ph1_2.ts";
 import Ph2_1 from "./Ph2_1";
-import {storyI} from "../../../interfaces/interfaces";
+import {legend, storyI} from "../../../interfaces/interfaces";
+import toStory from "../../../functions/toStory";
 
-const Ph2_2_2_1_1 = (): storyI[] => {
+const Ph2_2_2_1_1 = toStory((): legend[] => {
 
     const backgrounds = backgroundsScene3
 
@@ -30,6 +31,6 @@ const Ph2_2_2_1_1 = (): storyI[] => {
             text: "[Марк не стал больше слушать каких бы то ни было объяснений и молча указал на дверь.]",
         },
     ]
-}
+})
 
 export default Ph2_2_2_1_1

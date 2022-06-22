@@ -29,6 +29,13 @@ import archive_angryImg from "../../res/backgrounds/scene3/archive_angry.jpg"
 import archive_outImg from "../../res/backgrounds/scene3/archive_out.jpg"
 import archive_outsideImg from "../../res/backgrounds/scene3/archive_outside.jpg"
 import archive_securityImg from "../../res/backgrounds/scene3/archive_outside_security.jpg"
+import StartStory from "../stories/chapter1/StartStory";
+import StartStory2 from "../stories/chapter1/StartStory2";
+
+// export const stories = {
+//     StartStory,
+//     StartStory2
+// }
 
 export enum stateGame {
     MENU,
@@ -47,6 +54,13 @@ export enum adaptive {
     FULLHD,
     HD,
     MOBILE
+}
+
+export enum stateLoad {
+    INITIAL,
+    LOADING,
+    COMPLETE,
+    ERROR
 }
 
 export enum char {

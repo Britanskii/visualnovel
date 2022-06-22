@@ -1,21 +1,23 @@
 import {backgroundsScene3, typeDialogbox} from "../../interfaces/enums";
 import {Archivist, Mark, Player, Simna} from "../../chars/chars";
-import Sc_1 from "./shieldChoice/Sc_1";
-import Sc_2 from "./shieldChoice/Sc_2";
-import {choiceI, storyI} from "../../interfaces/interfaces";
+import Sc1 from "./shieldChoice/Sc1";
+import Sc2 from "./shieldChoice/Sc2";
+import {choiceI, legend, storyI} from "../../interfaces/interfaces";
+import StoreStory from "../../stores/StoreStory";
+import toStory from "../../functions/toStory";
 
-const Scene3 = (): storyI[] => {
+const backgrounds = backgroundsScene3
 
-    const backgrounds = backgroundsScene3
+const Scene3 = toStory((): legend[] => {
 
     const shieldChoice: choiceI[] = [
         {
             text: 'Игнорировать',
-            story: Sc_1()
+            story: Sc1()
         },
         {
             text: 'Вступиться за Симну',
-            story: Sc_2()
+            story: Sc2()
         }
     ]
 
@@ -57,8 +59,7 @@ const Scene3 = (): storyI[] => {
             id: 2,
             speaker: Simna.name,
             characters: [Archivist.main, Simna.main],
-            //Заменить на домогательства
-            text: "Приставания остаются приставаниями, как бы вы их не называли. Так что оставьте свою “милость” себе.",
+            text: "Домогательства остаются домогательствами, как бы вы их не называли. Так что оставьте свою “милость” себе.",
         },
         {
             id: 2,
@@ -78,6 +79,6 @@ const Scene3 = (): storyI[] => {
         }
 
     ]
-}
+}, backgrounds)
 
 export default Scene3

@@ -2,9 +2,10 @@ import {backgroundsScene3} from "../../interfaces/enums";
 import {Mark} from "../../chars/chars";
 import Ph1 from "./photo/Ph1";
 import Ph2 from "./photo/Ph2";
-import {choiceI, storyI} from "../../interfaces/interfaces";
+import {choiceI, legend, storyI} from "../../interfaces/interfaces";
+import toStory from "../../functions/toStory";
 
-const Scene3_1 = (): storyI[] => {
+const Scene3_1 = toStory((): legend[] => {
 
     const backgrounds = backgroundsScene3
 
@@ -28,6 +29,6 @@ const Scene3_1 = (): storyI[] => {
             choice: photoChoice
         }
     ]
-}
+})
 
 export default Scene3_1

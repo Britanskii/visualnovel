@@ -1,11 +1,10 @@
 import {Mark} from "../../../chars/chars";
 import StartStory2 from "../StartStory2";
 import {backgroundsChapter1} from "../../../interfaces/enums";
-import {storyI} from "../../../interfaces/interfaces";
+import {legend, storyI} from "../../../interfaces/interfaces";
+import toStory from "../../../functions/toStory";
 
-const Second = (): storyI[] => {
-
-    const backgrounds = backgroundsChapter1
+const Nc2 = toStory((): legend[] => {
 
     return [
         {
@@ -15,7 +14,7 @@ const Second = (): storyI[] => {
             nochoice: StartStory2()
         }
     ]
-}
+})
 
 
-export default Second
+export default Nc2

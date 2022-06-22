@@ -3,9 +3,10 @@ import {Mark, Player} from "../../../chars/chars";
 import Ph2 from "./Ph2";
 import Ph1_2 from "./Ph1_2.ts";
 import Ph2_1 from "./Ph2_1";
-import {storyI} from "../../../interfaces/interfaces";
+import {legend, storyI} from "../../../interfaces/interfaces";
+import toStory from "../../../functions/toStory";
 
-const Ph2_2_2_3 = (): storyI[] => {
+const Ph2_2_2_3 = toStory((): legend[] => {
 
     const backgrounds = backgroundsScene3
 
@@ -21,6 +22,6 @@ const Ph2_2_2_3 = (): storyI[] => {
             text: "Замётано, дружище!  [Ещё некоторое время мы с Марком побеседовали и договорились, что я встречусь с Симной (та самая?) завтра.]",
         }
     ]
-}
+})
 
 export default Ph2_2_2_3

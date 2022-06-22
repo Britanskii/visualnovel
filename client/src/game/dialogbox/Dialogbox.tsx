@@ -13,8 +13,6 @@ import {keyboardKey} from "@testing-library/user-event";
 import StoreGame from "../stores/StoreGame";
 
 const Dialogbox: FC = observer(() => {
-    const [timer, setTimer] = useState<NodeJS.Timer>()
-
     const {
         getText,
         getTypeDialogBox,
@@ -22,8 +20,9 @@ const Dialogbox: FC = observer(() => {
         incStoryPosition,
         getSpeaker,
         getNoChoice,
-        setStory,
-        setBackgorunds
+        setBackgrounds,
+        setNextLegend,
+        setStory
     } = StoreStory
 
     const speaker = getSpeaker()
@@ -31,14 +30,13 @@ const Dialogbox: FC = observer(() => {
     const type: typeDialogbox = getTypeDialogBox()
 
     const onNext = () => {
-        if (timer === undefined && StoreGame.getStateGame() !== stateGame.MENU && !StoreStory.getIsChoice()) {
-            incStoryPosition()
+        if (StoreStory.getComplete() && !StoreStory.getIsChoice()) {
+            setNextLegend()
             if (getNoChoice() !== undefined) {
                 setStory(getNoChoice())
             }
         } else {
-            clearInterval(timer as NodeJS.Timeout)
-            setTimer(undefined)
+            StoreStory.setComplete(true)
         }
     }
 
@@ -71,10 +69,9 @@ const Dialogbox: FC = observer(() => {
 
             {type === typeDialogbox.BOX ?
                 // @ts-ignore
-                <Box onNext={onNext} speaker={speaker} text={text} timer={timer} setTimer={setTimer}/>
+                <Box onNext={onNext} speaker={speaker} text={text}/>
                 // @ts-ignore
-                : <Strings onNext={onNext}  speaker={speaker} text={text} timer={timer}
-                           setTimer={setTimer} center = {typeDialogbox.CENTER === type}/>
+                : <Strings onNext={onNext}  speaker={speaker} text={text} center = {typeDialogbox.CENTER === type}/>
             }
         </>
     )

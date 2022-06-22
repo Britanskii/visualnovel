@@ -11,7 +11,7 @@ import events from "node:events";
 
 
 // @ts-ignore
-const Box: FC = ({onNext, speaker, text, timer, setTimer}) => {
+const Box: FC = ({onNext, speaker, text}) => {
 
     const classAdaptive = useGetAdaptiveClass(s, "dialogbox")
 
@@ -43,7 +43,7 @@ const Box: FC = ({onNext, speaker, text, timer, setTimer}) => {
                 </div>
             </div>
             <pre className={s.dialogbox__body}>
-                <TypingText text={text} timer={timer} setTimer={setTimer}/>
+                <TypingText text={text}/>
             </pre>
         </div>
     )

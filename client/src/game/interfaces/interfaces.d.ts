@@ -57,25 +57,30 @@ interface rawSpineChar {
 }
 
 interface storyI {
+    backgrounds: string[]
+    legend: legend[]
+}
+
+interface legend {
     id: number,
-    characters?: function[],
+    characters?: string[],
     speaker?: string,
     text?: string,
     actions?: []
     choice?: choiceI[]
-    nochoice?: storyI[] | storyI
+    nochoice?: storyI
     background?: any
     dialogbox?: typeDialogbox
 }
 
 interface choiceI {
     text: string,
-    story: storyI[]
+    story: storyI
 }
 
 interface localSave {
-    story: storyI[],
-    currentStory: storyI,
+    story: storyI,
+    currentStory: legend,
     date: date,
     storyPosition: number,
     id: number

@@ -1,24 +1,35 @@
-import {FC, useEffect, useState} from "react";
+import React, {FC, useEffect, useState} from "react";
 
 import s from './background.module.sass'
 import {observer} from "mobx-react-lite";
 import StoreStory from "../stores/StoreStory";
+import useImagesOnLoad from "../hooks/useImagesOnLoad";
 
 const Background: FC = observer(() => {
-    const [backgroundsActive, setBackgroundsActive] = useState<JSX.Element>()
+    const [backgroundNext, setBackgroundNext] = useState<string>()
 
+    const allBackgrounds = StoreStory.getBackgrounds()
     const backgroundActive = StoreStory.getBackground()
 
-    useEffect(() => {
-        const background = <img className={`${s.background}`}
-                                src={backgroundActive}/>
+    useImagesOnLoad(allBackgrounds)
 
-        setBackgroundsActive(background)
+    useEffect(() => {
+        const story = StoreStory.getStory()
+
+        for (let index = StoreStory.getStoryPosition() + 1; story.legend.length > index; index++) {
+            if ("background" in story.legend[index]) {
+                setBackgroundNext(story.legend[index].background)
+                break
+            }
+        }
     }, [backgroundActive])
 
     return (
         <>
-            {backgroundsActive}
+            <img className={`${s.background}`}
+                 src={backgroundActive}/>
+            <img style={{visibility: "hidden"}}
+                 src={backgroundNext}/>
         </>
     )
 })

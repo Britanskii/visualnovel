@@ -25,6 +25,7 @@
     "react-parallax-mouse": "^1.6.1",
     "react-scripts": "5.0.0",
     "sass": "^1.49.9",
+    "screen-orientation-2": "^1.0.1",
     "typescript": "^4.6.2",
     "web-vitals": "^2.1.4"
   },

@@ -11,34 +11,22 @@ const Choices: FC = observer(() => {
 
     const {getChoices, setStory} = StoreStory
 
-    const [show, setShow] = useState<boolean>(false)
-    // const [choices, setChoices] = useState<[]>([])
-
     const choices = getChoices()
 
-    const visible = show && choices !== undefined && StoreStory.getComplete()
+    const visible = choices.length > 0 && StoreStory.getComplete()
 
     const classAdaptive = useGetAdaptiveClass(s, "choices")
-
-    useEffect(() => {
-        if (choices !== undefined) {
-            if (choices.length > 0) {
-                setShow(true)
-                StoreStory.setIsChoice(!!choices)
-            }
-        } else {
-            setShow(false)
-            StoreStory.setIsChoice(false)
-        }
-    }, [choices])
 
     return (
         <div className={`${s.choices} ${visible ? s.choices__visible : ""} ${classAdaptive}`}>
             {
                 visible ? choices!.map(({text, story}, id) => {
+
+                    const onChoice = () => setStory(story)
+
                     return (
                         <div key={id}
-                             onClick={() => setStory(story)}
+                             onClick={onChoice}
                              className={s.choices__select}>
                             {text}
                         </div>

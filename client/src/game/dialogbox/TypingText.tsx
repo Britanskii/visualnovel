@@ -1,52 +1,44 @@
 import {Dispatch, FC, Ref, SetStateAction, useEffect, useState} from "react";
 import StoreStory from "../stores/StoreStory";
+import getIntervalTimeBySymbol from "../functions/getIntervalTimeBySymbol";
 
 //Написать пропсы
 interface TypingProps {
-    timer: NodeJS.Timer | undefined
-    setTimer: Dispatch<SetStateAction<NodeJS.Timer | undefined>>
     text: string
 }
 
 //timer хранит в себе все props
-const TypingText: FC<TypingProps> = ({timer, text, setTimer}) => {
+const TypingText: FC<TypingProps> = ({text}) => {
     const [typeText, setTypeText] = useState<string>("")
+    const [index, setIndex] = useState<number>(-1)
 
     useEffect(() => {
         StoreStory.setComplete(false)
         setTypeText("")
-        let i = 0
-
-        if (!!text[i]) {
-            let interval = 10
-
-            const timer = setInterval(() => {
-                setTypeText(typeText => typeText += text[i])
-                i++
-                if (i > 25) {
-                    interval = 1000
-                }
-                if (i === text.length) {
-                    clearInterval(timer as NodeJS.Timeout)
-                    setTimer(undefined)
-                    StoreStory.setComplete(true)
-                }
-            }, interval)
-            setTimer(timer)
-        }
-
-
-        return () => {
-            clearInterval(timer as NodeJS.Timeout)
-        }
+        setIndex(0)
     }, [text])
 
     useEffect(() => {
-        if (timer === undefined && typeText !== "") {
+        if ((typeText.length < text.length || typeText !== text) && text !== "") {
+            if (!!text[index]) {
+                const interval = getIntervalTimeBySymbol(text[index - 1])
+                setTimeout(() => {
+                    setTypeText(typeText => typeText += text[index])
+                    setIndex(index => index += 1)
+                }, interval)
+            }
+        } else {
+            setIndex(0)
             setTypeText(text)
             StoreStory.setComplete(true)
         }
-    }, [timer])
+    }, [text, index])
+
+    useEffect(() => {
+        if (StoreStory.getComplete()) {
+            setTypeText(text)
+        }
+    }, [StoreStory.getComplete()])
 
     return (
         <>

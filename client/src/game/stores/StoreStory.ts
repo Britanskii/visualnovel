@@ -3,18 +3,18 @@ import {makeAutoObservable, toJS} from "mobx";
 import StartStory from "../stories/chapter1/StartStory";
 import {backgroundsChapter1, typeDialogbox} from "../interfaces/enums";
 import Scene3 from "../stories/chapter2/Scene3";
-import {choiceI, storyI, save, localSave} from "../interfaces/interfaces";
+import {choiceI, storyI, save, localSave, legend} from "../interfaces/interfaces";
 import StoreGame from "./StoreGame";
 import getDateObj from "../functions/getDateObj";
+import {log} from "util";
 
 class StoreStory {
 
     protected storyPosition!: number
     protected background!: string | undefined
-    protected backgrounds!: backgroundsChapter1
-    protected story!: storyI[]
-    protected currentStory!: storyI
-    protected choices!: choiceI[] | undefined
+    protected backgrounds!: string[]
+    protected story!: storyI
+    protected currentStory!: legend
     protected nochoice!: storyI[]
     protected text!: string
     protected complete!: boolean
@@ -32,7 +32,7 @@ class StoreStory {
         const storyDefault = StartStory()
         // const storyDefault = Scene3()
 
-        return this.initStory(storyDefault, 0, storyDefault[0])
+        return this.initStory(storyDefault, 0, storyDefault.legend[0])
     }
 
     initStorySave = () => {
@@ -42,51 +42,42 @@ class StoreStory {
         this.initStory(story, id, currentStory)
     }
 
-    initStory = (story: storyI[], id: number, currentStory: storyI) => {
+    initStory = (story: storyI, id: number, currentStory: legend) => {
         this.story = story
         this.storyPosition = id
         this.currentStory = currentStory
-        this.choices = this.currentStory.choice
         this.background = this.currentStory.background
+        this.backgrounds = this.story.backgrounds
         this.complete = false
     }
 
-    setStory = (story: storyI[]) => {
-        story[0] = {background: this.getBackground(), characters: this.getChars(), ...story[0]}
-
-        this.story = [...this.story, ...story]
-
-        this.incStoryPosition()
-
-        this.currentStory = this.story[this.storyPosition]
-    }
-
-    loadStory = (story: storyI[], currentStory: storyI, position: number) => {
+    loadStory = (story: storyI, currentStory: legend, position: number) => {
         this.story = story
         this.currentStory = currentStory
         this.storyPosition = position
         this.background = currentStory.background
     }
 
-    setSaveStory = (story: storyI[]) => {
-        this.story = story
-    }
+    getStory = (): storyI => this.story
 
-    getStory = (): storyI[] => this.story
-
-    getCurrentStory = (): storyI => {
+    getCurrentStory = (): legend => {
         return this.currentStory
     }
 
     setCurrentStory = (storyPosition: number) => {
-        this.currentStory = {...this.currentStory, ...this.story[storyPosition]}
+
+        const {background, dialogbox, speaker, characters, text} = this.currentStory
+
+        this.currentStory = {choice: [], background, dialogbox, speaker, characters, text, ...this.story.legend[storyPosition]}
     }
 
-    setBackgorunds = (backgrounds: backgroundsChapter1): void => {
-        this.backgrounds = backgrounds
+    setBackgrounds = (backgrounds: string[]): void => {
+        if (backgrounds.length > 0) {
+            this.backgrounds = backgrounds
+        }
     }
 
-    getBackgrounds = (): backgroundsChapter1 => this.backgrounds
+    getBackgrounds = (): string[] => this.backgrounds
 
     setBackgorund = (src: string): void => {
         this.background = src
@@ -135,12 +126,12 @@ class StoreStory {
         this.isChoice = isChoice
     }
 
-    getChoices = (): choiceI[] | undefined => {
-        return this.currentStory.choice
+    getChoices = (): choiceI[] => {
+        return this.currentStory.choice!
     }
 
-    getNoChoice = (): storyI[] => {
-        return <storyI[]>this.currentStory.nochoice!
+    getNoChoice = (): storyI => {
+        return this.currentStory.nochoice!
     }
 
     getLocalSave = () => JSON.parse(<string>localStorage.getItem("story"))
@@ -149,6 +140,28 @@ class StoreStory {
         const save = this.getLocalSave()
 
         if (!!save) {
+            // const checkAndSetKey = (key: string, localSave: localSave) => {
+            //     if (key in localSave) {
+            //         // @ts-ignore
+            //         localSave.currentStory[key] = localSave.story[localSave.storyPosition][key]
+            //
+            //         // @ts-ignore
+            //         localSave.currentStory = null
+            //     }
+            // }
+
+            // const saves = save.saves.map(({currentStory, story, storyPosition}: localSave) => {
+            // console.log(save)
+            // if ("choice" in currentStory) {
+            //     console.log(story[storyPosition].choice)
+            //     currentStory.choice = story[storyPosition].choice
+            // }
+            // checkAndSetKey("nochoice", save)
+            // checkAndSetKey("choice", save)
+
+            // return save
+            // })
+
             return save.saves
         } else {
             return []
@@ -186,35 +199,56 @@ class StoreStory {
     }
 
     setStoryPosition = (position: number): void => {
-        if (position >= 0 && position < this.story.length) {
+        if (position >= 0 && position < this.story.legend.length) {
             this.storyPosition = position
             this.setCurrentStory(this.storyPosition)
         }
     }
 
     incStoryPosition = (): void => {
-        if (this.storyPosition < this.story.length - 1) {
-
-            // console.log(toJS(this.currentStory))
-            // console.log(toJS(this.story[this.storyPosition]))
-            // console.log(toJS({...this.currentStory, ...this.story[this.storyPosition]}))
-
+        if (this.storyPosition < this.story.legend.length - 1) {
             this.storyPosition += 1
-
-            this.setCurrentStory(this.storyPosition)
-            this.setLocalSave(false)
         }
     }
 
     decStoryPosition = (): void => {
         if (this.storyPosition > 0) {
             this.storyPosition -= 1
-            this.currentStory = {...this.currentStory, ...this.story[this.storyPosition]}
+            this.currentStory = {...this.currentStory, ...this.story.legend[this.storyPosition]}
         }
     }
 
     getStoryPosition = (): number => {
         return this.storyPosition
+    }
+
+    setStory = (story: storyI) => {
+        // console.log('set')
+        //Установка новой истории
+        this.story = story
+
+        //Обнуление позиции
+        this.storyPosition = 0
+
+        //Установка новых картинок
+        this.setBackgrounds(story.backgrounds)
+
+        //Идём дальше по сюжету
+        this.setNextLegend()
+    }
+
+    setNextLegend = () => {
+        // console.log('next')
+        //Следующая легенда
+        this.incStoryPosition()
+        this.setCurrentStory(this.storyPosition)
+
+        // console.log(toJS(this.story.legend))
+        // console.log(this.storyPosition)
+        // console.log(toJS(this.currentStory))
+
+        //Сохранение
+        this.setLocalSave(false)
     }
 }
 
