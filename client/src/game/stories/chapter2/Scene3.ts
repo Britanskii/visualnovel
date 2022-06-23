@@ -3,7 +3,7 @@ import {Archivist, Mark, Player, Simna} from "../../chars/chars";
 import Sc1 from "./shieldChoice/Sc1";
 import Sc2 from "./shieldChoice/Sc2";
 import {choiceI, legend, storyI} from "../../interfaces/interfaces";
-import StoreStory from "../../stores/StoreStory";
+import StoreStory from "../../mobX/stores/StoreStory";
 import toStory from "../../functions/toStory";
 import {backgroundsScene3} from "../../../data/backgrounds";
 

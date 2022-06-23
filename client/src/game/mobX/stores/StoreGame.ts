@@ -1,5 +1,5 @@
 import {makeAutoObservable} from "mobx";
-import {stateGame, stateLoad} from "../interfaces/enums";
+import {stateGame, stateLoad} from "../../interfaces/enums";
 
 class StoreGame {
 

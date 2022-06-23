@@ -10,7 +10,7 @@ import Forefront from "./forefront/Forefront";
 import Choices from "./choices/Choices";
 
 import {MouseParallaxChild, MouseParallaxContainer} from "react-parallax-mouse";
-import StoreGame from "./stores/StoreGame";
+import StoreGame from "./mobX/stores/StoreGame";
 import {stateGame, stateLoad} from "./interfaces/enums";
 import useGetAdaptiveClass from "./hooks/useGetAdaptiveClass";
 import Menu from "./menu/Menu";
@@ -31,10 +31,8 @@ const Game: FC = observer(() => {
         <>
             {isPortrait && <Portrait/>}
             <div className={`${s.game} ${classAdaptive}`}>
-                {!loadingComplete
-                    ? <Preloader/>
-                    : <Control/>
-                }
+                <Preloader loadingComplete = {loadingComplete} />
+                <Control/>
                 <Grafic/>
             </div>
         </>

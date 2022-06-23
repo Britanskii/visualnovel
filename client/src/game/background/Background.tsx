@@ -2,7 +2,7 @@ import React, {FC, useEffect, useState} from "react";
 
 import s from './background.module.sass'
 import {observer} from "mobx-react-lite";
-import StoreStory from "../stores/StoreStory";
+import StoreStory from "../mobX/stores/StoreStory";
 import useImagesOnLoad from "../hooks/useImagesOnLoad";
 
 const Background: FC = observer(() => {

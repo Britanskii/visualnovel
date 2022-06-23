@@ -2,7 +2,7 @@ import {FC, useEffect, useState} from "react";
 
 import s from './dialogbox.module.sass'
 import {observer} from "mobx-react-lite";
-import StoreStory from "../stores/StoreStory";
+import StoreStory from "../mobX/stores/StoreStory";
 
 // @ts-ignore
 import save from "../../res/icons/save.svg"
@@ -10,7 +10,7 @@ import Strings from "./Views/Strings";
 import Box from "./Views/Box";
 import {stateGame, typeDialogbox} from "../interfaces/enums";
 import {keyboardKey} from "@testing-library/user-event";
-import StoreGame from "../stores/StoreGame";
+import StoreGame from "../mobX/stores/StoreGame";
 
 const Dialogbox: FC = observer(() => {
     const {

@@ -4,7 +4,7 @@ import Nc1 from "./nameChoice/Nc1";
 import Nc2 from "./nameChoice/Nc2";
 import Nc3 from "./nameChoice/Nc3";
 import {choiceI, legend, storyI} from "../../interfaces/interfaces";
-import StoreStory from "../../stores/StoreStory";
+import StoreStory from "../../mobX/stores/StoreStory";
 import toStory from "../../functions/toStory";
 import {backgroundsChapter1} from "../../../data/backgrounds";
 

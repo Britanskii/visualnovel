@@ -4,13 +4,16 @@ import s from "./menu.module.sass"
 
 import bg from "../../res/backgrounds/menu/main.jpg"
 import logo from "../../res/backgrounds/menu/logo.svg"
+import garbage from "../../res/icons/garbage.svg"
 import {stateGame} from "../interfaces/enums";
-import StoreGame from "../stores/StoreGame";
-import StoreStory from "../stores/StoreStory";
+import StoreGame from "../mobX/stores/StoreGame";
+import StoreStory from "../mobX/stores/StoreStory";
 import {observer} from "mobx-react-lite";
 import {legend, localSave, storyI} from "../interfaces/interfaces";
 import useGetAdaptiveClass from "../hooks/useGetAdaptiveClass";
 import useImagesOnLoad from "../hooks/useImagesOnLoad";
+import LocalSave from "../mobX/entities/LocalSave";
+import {toJS} from "mobx";
 
 enum stateWindow {
     MENU,
@@ -46,43 +49,12 @@ type SavesProps = {
     setWindow: (state: stateWindow) => void
 }
 
-const Saves = ({setWindow}: SavesProps) => {
-
-    const onBack = () => {
-        setWindow(stateWindow.MENU)
-    }
-
-    const onLoad = (story: storyI, currentStory: legend, storyPosition: number) => {
-        StoreStory.loadStory(story, currentStory, storyPosition)
-    }
-
-    const saves: localSave[] = StoreStory.getLocalAllSaves().map((save: localSave, index: number) => {
-        const onLoadSave = () => {
-            onLoad(save.story, save.currentStory, save.storyPosition)
-            StoreGame.setStateGame(stateGame.GAME)
-        }
-
-        return (
-            <div key={index} onClick={onLoadSave} className={s.menu__button}>
-                {save.date}
-            </div>
-        )
-    })
-
-    return (
-        <>
-            <div onClick={onBack} className={s.menu__button}>
-                Вернуться назад
-            </div>
-            {saves}
-        </>
-    )
-}
-
 const Main = ({setWindow}: SavesProps) => {
 
-    const isContinue: boolean = !!StoreStory.getLocalSaveState()
-    const isSaves: boolean = StoreStory.getLocalAllSaves().length > 0
+    const isContinue: boolean = LocalSave.isSaveStateHave()
+    const isSaves: boolean = LocalSave.isSavesHave()
+
+    console.log(isContinue)
 
     const onNewGame = () => {
         StoreStory.initStoryDefault()
@@ -116,5 +88,47 @@ const Main = ({setWindow}: SavesProps) => {
         </>
     )
 }
+
+const Saves = observer(({setWindow}: SavesProps) => {
+
+    const onBack = () => {
+        setWindow(stateWindow.MENU)
+    }
+
+    const onLoad = (story: storyI, currentStory: legend, storyPosition: number) => {
+        StoreStory.loadStory(story, currentStory, storyPosition)
+    }
+
+    const saves = StoreStory.getSaves().map((save: localSave) => {
+
+        const onLoadSave = () => {
+            onLoad(save.story, save.currentStory, save.storyPosition)
+            StoreGame.setStateGame(stateGame.GAME)
+        }
+
+        const onDelete = (event: React.MouseEvent<HTMLImageElement>) => {
+            event.stopPropagation()
+            LocalSave.deleteSave(save.id)
+        }
+
+        return (
+            <div key={save.id} onClick={onLoadSave} className={s.menu__button}>
+                <div className={s.menu__save}>
+                    {save.date}
+                    <img onClick={onDelete} className={s.menu__garbage} src={garbage} alt="Удалить"/>
+                </div>
+            </div>
+        )
+    })
+
+    return (
+        <>
+            <div onClick={onBack} className={s.menu__button}>
+                Вернуться назад
+            </div>
+            {saves}
+        </>
+    )
+})
 
 export default Menu

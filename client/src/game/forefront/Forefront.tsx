@@ -2,7 +2,7 @@ import {FC, useEffect, useState} from "react";
 
 import s from './forefront.module.sass'
 import {observer} from "mobx-react-lite";
-import StoreStory from "../stores/StoreStory";
+import StoreStory from "../mobX/stores/StoreStory";
 import getCharacterIdByIamge from "../functions/getCharacterIdByIamge";
 import {toJS} from "mobx";
 import useImagesOnLoad from "../hooks/useImagesOnLoad";

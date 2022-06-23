@@ -1,7 +1,7 @@
 import {useEffect} from "react";
 import {stateLoad} from "../interfaces/enums";
 import parseImagesEnum from "../functions/parseImagesEnum";
-import StoreGame from "../stores/StoreGame";
+import StoreGame from "../mobX/stores/StoreGame";
 
 
 const useImagesOnLoad = (paths: string[]) => {

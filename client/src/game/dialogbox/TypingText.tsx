@@ -1,5 +1,5 @@
 import {Dispatch, FC, Ref, SetStateAction, useEffect, useState} from "react";
-import StoreStory from "../stores/StoreStory";
+import StoreStory from "../mobX/stores/StoreStory";
 import getIntervalTimeBySymbol from "../functions/getIntervalTimeBySymbol";
 
 //Написать пропсы

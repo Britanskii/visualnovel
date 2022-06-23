@@ -1,9 +1,9 @@
 import {makeAutoObservable} from "mobx";
 
-import StartStory from "../stories/chapter1/StartStory";
-import {typeDialogbox} from "../interfaces/enums";
-import {choiceI, legend, localSave, save, storyI} from "../interfaces/interfaces";
-import getDateObj from "../functions/getDateObj";
+import StartStory from "../../stories/chapter1/StartStory";
+import {typeDialogbox} from "../../interfaces/enums";
+import {choiceI, legend, localSave, storyI, save} from "../../interfaces/interfaces";
+import LocalSave from "../entities/LocalSave";
 
 class StoreStory {
 
@@ -17,12 +17,17 @@ class StoreStory {
     protected complete!: boolean
     protected isChoice!: boolean
     protected isSave: boolean
+    protected save: save
+    protected saves: localSave[]
 
     constructor() {
         makeAutoObservable(this)
-        this.isSave = this.getLocalSave() !== null
+        this.isSave = LocalSave.getSave() !== null
 
         this.isSave ? this.initStorySave() : this.initStoryDefault()
+
+        this.save = LocalSave.getSave()
+        this.saves = LocalSave.getSavesAll()
     }
 
     initStoryDefault = () => {
@@ -33,7 +38,7 @@ class StoreStory {
     }
 
     initStorySave = () => {
-        const save = this.getLocalSave().state
+        const save = LocalSave.getSave().state
         const {story, id, currentStory} = save
 
         this.initStory(story, id, currentStory)
@@ -131,69 +136,7 @@ class StoreStory {
         return this.currentStory.nochoice!
     }
 
-    getLocalSave = () => JSON.parse(<string>localStorage.getItem("story"))
 
-    getLocalAllSaves = () => {
-        const save = this.getLocalSave()
-
-        if (!!save) {
-            // const checkAndSetKey = (key: string, localSave: localSave) => {
-            //     if (key in localSave) {
-            //         // @ts-ignore
-            //         localSave.currentStory[key] = localSave.story[localSave.storyPosition][key]
-            //
-            //         // @ts-ignore
-            //         localSave.currentStory = null
-            //     }
-            // }
-
-            // const saves = save.saves.map(({currentStory, story, storyPosition}: localSave) => {
-            // console.log(save)
-            // if ("choice" in currentStory) {
-            //     console.log(story[storyPosition].choice)
-            //     currentStory.choice = story[storyPosition].choice
-            // }
-            // checkAndSetKey("nochoice", save)
-            // checkAndSetKey("choice", save)
-
-            // return save
-            // })
-
-            return save.saves
-        } else {
-            return []
-        }
-    }
-
-    getLocalSaveState = () => {
-        const save = this.getLocalSave()
-
-        if (!!save) {
-            return save.saves
-        } else {
-            return false
-        }
-    }
-
-    setLocalSave = (fastSave: boolean) => {
-        const {month, day, year, hours, minutes, seconds} = getDateObj(new Date())
-
-        const date = day + "." + month + "." + year + " " + hours + ":" + minutes + ":" + seconds
-
-        const state: localSave = {
-            story: this.getStory(),
-            id: this.getStoryPosition(),
-            currentStory: this.currentStory,
-            date,
-            storyPosition: this.getStoryPosition()
-        }
-
-        const saves = this.getLocalSave() ? this.getLocalSave().saves : []
-
-        const localSave: save = fastSave ? {state, saves: [...saves, state]} : {state, saves}
-
-        localStorage.setItem("story", JSON.stringify(localSave))
-    }
 
     setStoryPosition = (position: number): void => {
         if (position >= 0 && position < this.story.legend.length) {
@@ -218,6 +161,18 @@ class StoreStory {
     getStoryPosition = (): number => {
         return this.storyPosition
     }
+
+    setSaves = (saves: localSave[]) => {
+        this.saves = saves
+    }
+
+    getSaves = (): localSave[] => this.saves
+
+    setSave = (save: save) => {
+        this.save = save
+    }
+
+    getSave = (): save => this.save
 
     setStory = (story: storyI) => {
         // console.log('set')
@@ -245,7 +200,7 @@ class StoreStory {
         // console.log(toJS(this.currentStory))
 
         //Сохранение
-        this.setLocalSave(false)
+        LocalSave.setSave(false)
     }
 }
 

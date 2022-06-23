@@ -2,7 +2,7 @@ import {FC, useEffect, useState} from "react";
 
 import s from './choices.module.sass'
 import {observer} from "mobx-react-lite";
-import StoreStory from "../stores/StoreStory";
+import StoreStory from "../mobX/stores/StoreStory";
 import {toJS} from "mobx";
 import useGetAdaptiveClass from "../hooks/useGetAdaptiveClass";
 

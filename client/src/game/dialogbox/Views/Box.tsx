@@ -5,9 +5,10 @@ import save from "../../../../res/icons/save.svg";
 import TypingText from "../TypingText";
 import {stateGame} from "../../interfaces/enums";
 import useGetAdaptiveClass from "../../hooks/useGetAdaptiveClass";
-import StoreGame from "../../stores/StoreGame";
-import StoreStory from "../../stores/StoreStory";
+import StoreGame from "../../mobX/stores/StoreGame";
+import StoreStory from "../../mobX/stores/StoreStory";
 import events from "node:events";
+import LocalSave from "../../mobX/entities/LocalSave";
 
 
 // @ts-ignore
@@ -21,7 +22,7 @@ const Box: FC = ({onNext, speaker, text}) => {
 
     const onFastSave = (event: React.MouseEvent<HTMLDivElement>) => {
         event.stopPropagation()
-        StoreStory.setLocalSave(true)
+        StoreStory.setSave(LocalSave.getSaveState())
     }
 
     return (
