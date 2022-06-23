@@ -11,26 +11,34 @@ import Choices from "./choices/Choices";
 
 import {MouseParallaxChild, MouseParallaxContainer} from "react-parallax-mouse";
 import StoreGame from "./mobX/stores/StoreGame";
-import {stateGame, stateLoad} from "./interfaces/enums";
+import {game, load} from "./interfaces/enums";
 import useGetAdaptiveClass from "./hooks/useGetAdaptiveClass";
 import Menu from "./menu/Menu";
 import Preloader from "./preloader/Preloader";
 import screenOrientationModule from "./functions/getScreenOrientation";
 import Portrait from "./portrait/Portrait";
 import StartStory from "./stories/chapter1/StartStory";
+import StoreSettings from "./mobX/stores/StoreSettings";
 
 const Game: FC = observer(() => {
 
-    const loadingComplete = StoreGame.getImagesLoad() === stateLoad.COMPLETE
+    const loadingComplete = StoreGame.getImagesLoad() === load.COMPLETE
 
     const classAdaptive = useGetAdaptiveClass(s, "game")
 
     const isPortrait = screenOrientationModule().direction === "portrait"
 
+    const isFullscreen = StoreSettings.getIsFullscreen()
+
+    const width = window.innerWidth
+    const height = width / 16 * 9
+
+    const styleFullscreen =  isFullscreen ? {width, height} : {}
+
     return (
         <>
             {isPortrait && <Portrait/>}
-            <div className={`${s.game} ${classAdaptive}`}>
+            <div style={styleFullscreen} className={`${s.game} ${classAdaptive} ${isFullscreen ? s.game__fullscreen : ""}`}>
                 <Preloader loadingComplete = {loadingComplete} />
                 <Control/>
                 <Grafic/>
@@ -61,7 +69,7 @@ const Control: FC = observer(() => {
 
     return (
         <>
-            {StoreGame.getStateGame() === stateGame.GAME &&
+            {StoreGame.getStateGame() === game.GAME &&
             <>
                 <Dialogbox/>
                 <Choices/>

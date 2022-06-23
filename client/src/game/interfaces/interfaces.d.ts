@@ -1,4 +1,4 @@
-import {stateGame} from "./enums";
+import {game} from "./enums";
 
 
 interface charsI {

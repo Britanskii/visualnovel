@@ -1,6 +1,7 @@
 import {Dispatch, FC, Ref, SetStateAction, useEffect, useState} from "react";
 import StoreStory from "../mobX/stores/StoreStory";
 import getIntervalTimeBySymbol from "../functions/getIntervalTimeBySymbol";
+import StoreSettings from "../mobX/stores/StoreSettings";
 
 //Написать пропсы
 interface TypingProps {

@@ -3,7 +3,7 @@ import s from "../dialogbox.module.sass";
 // @ts-ignore
 import save from "../../../../res/icons/save.svg";
 import TypingText from "../TypingText";
-import {stateGame} from "../../interfaces/enums";
+import {game} from "../../interfaces/enums";
 import useGetAdaptiveClass from "../../hooks/useGetAdaptiveClass";
 import StoreGame from "../../mobX/stores/StoreGame";
 import StoreStory from "../../mobX/stores/StoreStory";
@@ -17,7 +17,7 @@ const Box: FC = ({onNext, speaker, text}) => {
     const classAdaptive = useGetAdaptiveClass(s, "dialogbox")
 
     const onOpenMenu = () => {
-        StoreGame.setStateGame(stateGame.MENU)
+        StoreGame.setStateGame(game.MENU)
     }
 
     const onFastSave = (event: React.MouseEvent<HTMLDivElement>) => {

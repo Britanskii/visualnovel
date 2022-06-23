@@ -1,20 +1,20 @@
 import {makeAutoObservable} from "mobx";
-import {stateGame, stateLoad} from "../../interfaces/enums";
+import {game, load} from "../../interfaces/enums";
 
 class StoreGame {
 
     protected  _parallax: boolean = true
-    protected _stateGame: stateGame = stateGame.MENU
-    protected _imagesLoad: stateLoad = stateLoad.INITIAL
+    protected _stateGame: game = game.MENU
+    protected _imagesLoad: load = load.INITIAL
 
     constructor() {
         makeAutoObservable(this)
     }
 
-    getStateGame = (): stateGame => this._stateGame
+    getStateGame = (): game => this._stateGame
 
 
-    setStateGame(stateGame: stateGame) {
+    setStateGame(stateGame: game) {
         this._stateGame = stateGame
     }
 
@@ -26,7 +26,7 @@ class StoreGame {
 
     getImagesLoad = () => this._imagesLoad
 
-    setImagesLoad = (state: stateLoad) => {
+    setImagesLoad = (state: load) => {
         this._imagesLoad = state
     }
 }

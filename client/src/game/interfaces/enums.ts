@@ -1,6 +1,5 @@
-export enum stateGame {
+export enum game {
     MENU,
-    SETTINGS,
     GAME
 }
 
@@ -17,9 +16,16 @@ export enum adaptive {
     MOBILE
 }
 
-export enum stateLoad {
+export enum load {
     INITIAL,
     LOADING,
     COMPLETE,
     ERROR
+}
+
+export enum textSpeedState {
+    SLOW,
+    MEDIUM,
+    FAST,
+    MOMENT
 }

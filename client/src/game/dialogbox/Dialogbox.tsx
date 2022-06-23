@@ -8,7 +8,7 @@ import StoreStory from "../mobX/stores/StoreStory";
 import save from "../../res/icons/save.svg"
 import Strings from "./Views/Strings";
 import Box from "./Views/Box";
-import {stateGame, typeDialogbox} from "../interfaces/enums";
+import {game, typeDialogbox} from "../interfaces/enums";
 import {keyboardKey} from "@testing-library/user-event";
 import StoreGame from "../mobX/stores/StoreGame";
 

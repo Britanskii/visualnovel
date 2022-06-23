@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {stateLoad} from "../interfaces/enums";
+import {load} from "../interfaces/enums";
 import parseImagesEnum from "../functions/parseImagesEnum";
 import StoreGame from "../mobX/stores/StoreGame";
 
@@ -18,7 +18,7 @@ const useImagesOnLoad = (paths: string[]) => {
         })
 
     const allPromises = (paths: string[]) => {
-        setImagesLoad(stateLoad.LOADING)
+        setImagesLoad(load.LOADING)
         return paths.map(path => loadImage(path))
     }
 
@@ -27,10 +27,10 @@ const useImagesOnLoad = (paths: string[]) => {
 
         Promise.all(allPromises(parsedPaths)).then((message) => {
             // console.log(message);
-            setImagesLoad(stateLoad.COMPLETE)
+            setImagesLoad(load.COMPLETE)
         }, reason => {
             // console.log(reason)
-            setImagesLoad(stateLoad.ERROR)
+            setImagesLoad(load.ERROR)
         })
     }, [paths])
 }

@@ -5,7 +5,8 @@ import s from "./menu.module.sass"
 import bg from "../../res/backgrounds/menu/main.jpg"
 import logo from "../../res/backgrounds/menu/logo.svg"
 import garbage from "../../res/icons/garbage.svg"
-import {stateGame} from "../interfaces/enums";
+import arrow from "../../res/icons/arrow.svg"
+import {game, textSpeedState} from "../interfaces/enums";
 import StoreGame from "../mobX/stores/StoreGame";
 import StoreStory from "../mobX/stores/StoreStory";
 import {observer} from "mobx-react-lite";
@@ -14,14 +15,16 @@ import useGetAdaptiveClass from "../hooks/useGetAdaptiveClass";
 import useImagesOnLoad from "../hooks/useImagesOnLoad";
 import LocalSave from "../mobX/entities/LocalSave";
 import {toJS} from "mobx";
+import StoreSettings from "../mobX/stores/StoreSettings";
 
 enum stateWindow {
     MENU,
-    SAVES
+    SAVES,
+    SETTINGS
 }
 
 const Menu: FC = observer(() => {
-    const isMenu = StoreGame.getStateGame() === stateGame.MENU
+    const isMenu = StoreGame.getStateGame() === game.MENU
 
     const classAdaptive = useGetAdaptiveClass(s, "menu")
 
@@ -37,7 +40,9 @@ const Menu: FC = observer(() => {
                 <div className={s.menu__navigation}>
                     {menuWindow === stateWindow.MENU
                         ? <Main setWindow={setWindow}/>
-                        : <Saves setWindow={setWindow}/>
+                        : menuWindow === stateWindow.SETTINGS
+                            ? <Settings setWindow={setWindow}/>
+                            : <Saves setWindow={setWindow}/>
                     }
                 </div>
             </div>
@@ -58,15 +63,19 @@ const Main = ({setWindow}: SavesProps) => {
 
     const onNewGame = () => {
         StoreStory.initStoryDefault()
-        StoreGame.setStateGame(stateGame.GAME)
+        StoreGame.setStateGame(game.GAME)
     }
 
     const onStart = () => {
-        StoreGame.setStateGame(stateGame.GAME)
+        StoreGame.setStateGame(game.GAME)
     }
 
     const onNavigationSaves = () => {
         setWindow(stateWindow.SAVES)
+    }
+
+    const onNavigationSettings = () => {
+        setWindow(stateWindow.SETTINGS)
     }
 
     return (
@@ -82,6 +91,9 @@ const Main = ({setWindow}: SavesProps) => {
             <div onClick={onNavigationSaves} className={s.menu__button}>
                 Загрузка
             </div>}
+            <div onClick={onNavigationSettings} className={s.menu__button}>
+                Настройки
+            </div>
             <div onClick={window.close} className={s.menu__button}>
                 Выход
             </div>
@@ -103,7 +115,7 @@ const Saves = observer(({setWindow}: SavesProps) => {
 
         const onLoadSave = () => {
             onLoad(save.story, save.currentStory, save.storyPosition)
-            StoreGame.setStateGame(stateGame.GAME)
+            StoreGame.setStateGame(game.GAME)
         }
 
         const onDelete = (event: React.MouseEvent<HTMLImageElement>) => {
@@ -129,6 +141,62 @@ const Saves = observer(({setWindow}: SavesProps) => {
                 Вернуться назад
             </div>
             {saves}
+        </>
+    )
+})
+
+const Settings = observer(({setWindow}: SavesProps) => {
+
+    const {getIsFullscreen, getIsPunctuationMode, toggleIsFullscreen, toggleIsPunctuationMode} = StoreSettings
+
+    const isFullscreen = getIsFullscreen()
+
+    const isPunctuationMode = getIsPunctuationMode()
+
+    const onBack = () => {
+        setWindow(stateWindow.MENU)
+    }
+
+    const arraySpeeds = [{name: "Медленно", state: textSpeedState.SLOW}, {name: "Умеренно", state: textSpeedState.MEDIUM}, {name: "Быстро", state: textSpeedState.FAST}]
+
+    const speeds = arraySpeeds.map(({name, state}) => {
+
+        const active = state === StoreSettings.getTextSpeedState() ? s.menu__naked_active : ""
+
+        const setSpeedTextState = () => {
+            StoreSettings.setTextSpeedState(state)
+        }
+
+        return (
+            <div onClick={setSpeedTextState} className={`${s.menu__naked} ${active}`}>
+                {name}
+            </div>
+        )
+    })
+
+    return (
+        <>
+            <div onClick={onBack} className={s.menu__button}>
+                Вернуться назад
+            </div>
+            <div className={s.menu__list}>
+                <div className={`${s.menu__button} ${s.menu__button_disabled}`}>
+                    Скорость текста
+                </div>
+                {speeds}
+            </div>
+            <div onClick={toggleIsPunctuationMode} className={s.menu__button}>
+                <div>Режим пунктуации</div>
+                <div className={`${s.menu__checkbox} ${s.menu__checkbox_active}`}>
+                    {isPunctuationMode ? <img className={s.menu__arrow} src={arrow}/> : ""}
+                </div>
+            </div>
+            <div onClick={toggleIsFullscreen} className={s.menu__button}>
+                <div>Режим Full Screen</div>
+                <div className={`${s.menu__checkbox} ${s.menu__checkbox_active}`}>
+                    {isFullscreen ? <img className={s.menu__arrow} src={arrow}/> : ""}
+                </div>
+            </div>
         </>
     )
 })
