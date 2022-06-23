@@ -30,6 +30,7 @@ const Game: FC = observer(() => {
 
     const isFullscreen = StoreSettings.getIsFullscreen()
 
+    //Вынести в отдельную логику
     const width = window.innerWidth
     const height = width / 16 * 9
 
