@@ -57,8 +57,6 @@ class LocalSave {
     }
 
     static setSave = (fastSave: boolean = false) => {
-        console.log("save")
-
         const state: localSave = {
             story: StoreStory.getStory(),
             id: this.makeSaveId(),

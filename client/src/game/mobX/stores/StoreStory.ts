@@ -164,7 +164,6 @@ class StoreStory {
     }
 
     setSaves = (saves: localSave[]) => {
-        console.log('change!')
         this.saves = saves
     }
 

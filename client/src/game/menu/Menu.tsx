@@ -16,6 +16,9 @@ import useImagesOnLoad from "../hooks/useImagesOnLoad";
 import LocalSave from "../mobX/entities/LocalSave";
 import {toJS} from "mobx";
 import StoreSettings from "../mobX/stores/StoreSettings";
+import {MouseParallaxChild, MouseParallaxContainer} from "react-parallax-mouse";
+import Forefront from "../forefront/Forefront";
+import Background from "../background/Background";
 
 enum stateWindow {
     MENU,
@@ -34,7 +37,11 @@ const Menu: FC = observer(() => {
 
     return (
         <div className={`${s.menu} ${isMenu ? s.menu__active : ""} ${classAdaptive}`}>
-            <img className={s.menu__background} src={bg}/>
+            {/*<MouseParallaxContainer enabled={true} useWindowMouseEvents={true} className={s.container}>*/}
+            {/*    <MouseParallaxChild factorX={0.005}>*/}
+                    <img className={s.menu__background} src={bg}/>
+            {/*    </MouseParallaxChild>*/}
+            {/*</MouseParallaxContainer>*/}
             <div className={s.menu__center}>
                 <img className={s.menu__logo} src={logo}/>
                 <div className={s.menu__navigation}>
@@ -58,8 +65,6 @@ const Main = ({setWindow}: SavesProps) => {
 
     const isContinue: boolean = LocalSave.isSaveStateHave()
     const isSaves: boolean = LocalSave.isSavesHave()
-
-    console.log(isContinue)
 
     const onNewGame = () => {
         StoreStory.initStoryDefault()
