@@ -1,6 +1,5 @@
 import {Mark, Player} from "../../chars/chars";
 import Scene3 from "../chapter2/Scene3";
-import {backgroundsChapter1} from "../../interfaces/enums";
 import {legend, storyI} from "../../interfaces/interfaces";
 import toStory from "../../functions/toStory";
 

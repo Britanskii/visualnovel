@@ -1,4 +1,4 @@
-import {backgroundsChapter1, typeDialogbox} from "../../interfaces/enums";
+import {typeDialogbox} from "../../interfaces/enums";
 import {Mark, Player} from "../../chars/chars";
 import Nc1 from "./nameChoice/Nc1";
 import Nc2 from "./nameChoice/Nc2";
@@ -6,6 +6,7 @@ import Nc3 from "./nameChoice/Nc3";
 import {choiceI, legend, storyI} from "../../interfaces/interfaces";
 import StoreStory from "../../stores/StoreStory";
 import toStory from "../../functions/toStory";
+import {backgroundsChapter1} from "../../../data/backgrounds";
 
 const backgrounds = backgroundsChapter1
 

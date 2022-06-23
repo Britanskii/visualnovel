@@ -1,10 +1,11 @@
-import {backgroundsScene3, typeDialogbox} from "../../interfaces/enums";
+import {typeDialogbox} from "../../interfaces/enums";
 import {Archivist, Mark, Player, Simna} from "../../chars/chars";
 import Sc1 from "./shieldChoice/Sc1";
 import Sc2 from "./shieldChoice/Sc2";
 import {choiceI, legend, storyI} from "../../interfaces/interfaces";
 import StoreStory from "../../stores/StoreStory";
 import toStory from "../../functions/toStory";
+import {backgroundsScene3} from "../../../data/backgrounds";
 
 const backgrounds = backgroundsScene3
 

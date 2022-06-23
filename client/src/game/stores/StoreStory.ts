@@ -1,12 +1,9 @@
-import {makeAutoObservable, toJS} from "mobx";
+import {makeAutoObservable} from "mobx";
 
 import StartStory from "../stories/chapter1/StartStory";
-import {backgroundsChapter1, typeDialogbox} from "../interfaces/enums";
-import Scene3 from "../stories/chapter2/Scene3";
-import {choiceI, storyI, save, localSave, legend} from "../interfaces/interfaces";
-import StoreGame from "./StoreGame";
+import {typeDialogbox} from "../interfaces/enums";
+import {choiceI, legend, localSave, save, storyI} from "../interfaces/interfaces";
 import getDateObj from "../functions/getDateObj";
-import {log} from "util";
 
 class StoreStory {
 

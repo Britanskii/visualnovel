@@ -28,14 +28,16 @@ const Game: FC = observer(() => {
     const isPortrait = screenOrientationModule().direction === "portrait"
 
     return (
-        <div className={`${s.game} ${classAdaptive}`}>
+        <>
             {isPortrait && <Portrait/>}
-            {!loadingComplete
-                ? <Preloader/>
-                : <Control/>
-            }
-            <Grafic/>
-        </div>
+            <div className={`${s.game} ${classAdaptive}`}>
+                {!loadingComplete
+                    ? <Preloader/>
+                    : <Control/>
+                }
+                <Grafic/>
+            </div>
+        </>
     )
 })
 

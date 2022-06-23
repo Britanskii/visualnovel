@@ -1,7 +1,6 @@
 import {Mark} from "../../../chars/chars";
-import {backgroundsScene3} from "../../../interfaces/enums";
 import Scene3_1 from "../Scene3_1";
-import {legend, storyI} from "../../../interfaces/interfaces";
+import {legend} from "../../../interfaces/interfaces";
 import toStory from "../../../functions/toStory";
 
 const Sc1 = toStory((): legend[] => {
