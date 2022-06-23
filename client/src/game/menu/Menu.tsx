@@ -109,6 +109,8 @@ const Saves = observer(({setWindow}: SavesProps) => {
         const onDelete = (event: React.MouseEvent<HTMLImageElement>) => {
             event.stopPropagation()
             LocalSave.deleteSave(save.id)
+
+            if (StoreStory.getSaves().length === 0) onBack()
         }
 
         return (

@@ -1,9 +1,10 @@
-import {makeAutoObservable} from "mobx";
+import {makeAutoObservable, toJS} from "mobx";
 
 import StartStory from "../../stories/chapter1/StartStory";
 import {typeDialogbox} from "../../interfaces/enums";
 import {choiceI, legend, localSave, storyI, save} from "../../interfaces/interfaces";
 import LocalSave from "../entities/LocalSave";
+import {log} from "util";
 
 class StoreStory {
 
@@ -163,13 +164,14 @@ class StoreStory {
     }
 
     setSaves = (saves: localSave[]) => {
+        console.log('change!')
         this.saves = saves
     }
 
     getSaves = (): localSave[] => this.saves
 
-    setSave = (save: save) => {
-        this.save = save
+    setSave = (fastSave: boolean = false) => {
+        LocalSave.setSave(fastSave)
     }
 
     getSave = (): save => this.save
@@ -200,7 +202,7 @@ class StoreStory {
         // console.log(toJS(this.currentStory))
 
         //Сохранение
-        LocalSave.setSave(false)
+        this.setSave()
     }
 }
 

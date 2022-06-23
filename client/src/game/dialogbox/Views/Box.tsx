@@ -22,7 +22,7 @@ const Box: FC = ({onNext, speaker, text}) => {
 
     const onFastSave = (event: React.MouseEvent<HTMLDivElement>) => {
         event.stopPropagation()
-        StoreStory.setSave(LocalSave.getSaveState())
+        StoreStory.setSave(true)
     }
 
     return (

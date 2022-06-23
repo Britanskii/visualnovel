@@ -53,10 +53,11 @@ class LocalSave {
     static isSavesHave = () => {
         const save = this.getSave()
 
-        return save.saves.length > 0;
+        return save?.saves.length > 0;
     }
 
     static setSave = (fastSave: boolean = false) => {
+        console.log("save")
 
         const state: localSave = {
             story: StoreStory.getStory(),
@@ -66,13 +67,13 @@ class LocalSave {
             storyPosition: StoreStory.getStoryPosition()
         }
 
-        const saves = this.getSave() ? this.getSave().saves : []
+        const saves = this.getSavesAll().length !== 0 ? this.getSave().saves : []
 
         const localSave: save = fastSave ? {state, saves: [...saves, state]} : {state, saves}
 
         localStorage.setItem("story", JSON.stringify(localSave))
 
-        StoreStory.setSave(localSave)
+        StoreStory.setSaves(localSave.saves)
     }
 
     static deleteSave = (id: number) => {
