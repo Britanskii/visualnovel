@@ -68,7 +68,7 @@ class StoreStory {
         return this.currentStory
     }
 
-    setCurrentStory = (storyPosition: number) => {
+    setCurrentStory = () => {
         const {background, dialogbox, speaker, characters, text} = this.currentStory
 
         this.currentStory = {
@@ -77,7 +77,7 @@ class StoreStory {
             dialogbox,
             speaker,
             characters,
-            text, ...this.story.legend[storyPosition]
+            text, ...this.story.legend[this.storyPosition]
         }
     }
 
@@ -152,14 +152,6 @@ class StoreStory {
         return "nochoice" in this.currentStory
     }
 
-
-    setStoryPosition = (position: number): void => {
-        if (position >= 0 && position < this.story.legend.length) {
-            this.storyPosition = position
-            this.setCurrentStory(this.storyPosition)
-        }
-    }
-
     incStoryPosition = (): void => {
         if (this.storyPosition < this.story.legend.length - 1) {
             this.storyPosition += 1
@@ -190,29 +182,28 @@ class StoreStory {
     getSave = (): save => this.save
 
     setStory = (story: storyI) => {
-        console.log(this.storyPosition)
-        //Установка новой истории
-        this.story = story
 
         //Обнуление позиции
         this.storyPosition = 0
 
-        console.log(this.storyPosition)
-
+        //Установка новой истории
+        this.story = story
 
         //Установка новых картинок
         this.setBackgrounds(story.backgrounds)
 
-        //Идём дальше по сюжету
-        this.setNextLegend()
+        //Установка новой карент истории
+        this.setCurrentStory()
+
+        //Сохранение
+        this.setSave()
     }
 
     setNextLegend = () => {
-        console.log(this.storyPosition)
         // console.log('next')
         //Следующая легенда
         this.incStoryPosition()
-        this.setCurrentStory(this.storyPosition)
+        this.setCurrentStory()
 
         // console.log(toJS(this.story.legend))
         // console.log(this.storyPosition)

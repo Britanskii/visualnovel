@@ -36,6 +36,7 @@ const Dialogbox: FC = observer(() => {
         if (StoreStory.getComplete() && !StoreStory.getIsChoice()) {
             setNextLegend()
             if (isNoChoice) {
+                console.log('NOCHOICE')
                 setStory(getNoChoice())
             }
         } else {

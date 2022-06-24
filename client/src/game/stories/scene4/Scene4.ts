@@ -16,12 +16,14 @@ const Scene4 = toStory((): legend[] => {
     return [
         {
             id: 1,
-            text: ``,
+            text: "",
+            characters: [],
             background: backgrounds.black
         },
         {
             id: 1,
-            text: `Эгей! Привет, ${Player.name}!`
+            text: `Эгей! Привет, ${Player.name}!`,
+            background: backgrounds.tavern
         },
         {
             id: 1,
@@ -29,7 +31,7 @@ const Scene4 = toStory((): legend[] => {
         },
         {
             id: 1,
-            text: `Я Стик! Тоже живу здесь. Вчера вечером подслушал твой разговор с… Марком кажется. Это правда, что ты ${name}`
+            text: `Я Стик! Тоже живу здесь. Вчера вечером подслушал твой разговор с… Марком кажется. Это правда, что ты ${name}?`
         }
     ]
 })
