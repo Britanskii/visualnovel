@@ -5,6 +5,7 @@ import {typeDialogbox} from "../../interfaces/enums";
 import {choiceI, legend, localSave, storyI, save} from "../../interfaces/interfaces";
 import LocalSave from "../entities/LocalSave";
 import {log} from "util";
+import allStories from "../../../data/allStories";
 
 class StoreStory {
 
@@ -54,11 +55,11 @@ class StoreStory {
         this.complete = false
     }
 
-    loadStory = (story: storyI, currentStory: legend, position: number) => {
-        this.story = story
-        this.currentStory = currentStory
-        this.storyPosition = position
-        this.background = currentStory.background
+    loadStory = (story: localSave) => {
+        this.story = story.story
+        this.currentStory = story.currentStory
+        this.storyPosition = story.storyPosition
+        this.background = story.currentStory.background
     }
 
     getStory = (): storyI => this.story
@@ -68,10 +69,16 @@ class StoreStory {
     }
 
     setCurrentStory = (storyPosition: number) => {
-
         const {background, dialogbox, speaker, characters, text} = this.currentStory
 
-        this.currentStory = {choice: [], background, dialogbox, speaker, characters, text, ...this.story.legend[storyPosition]}
+        this.currentStory = {
+            choice: [],
+            background,
+            dialogbox,
+            speaker,
+            characters,
+            text, ...this.story.legend[storyPosition]
+        }
     }
 
     setBackgrounds = (backgrounds: string[]): void => {
@@ -134,9 +141,16 @@ class StoreStory {
     }
 
     getNoChoice = (): storyI => {
-        return this.currentStory.nochoice!
+        if (this.getIsNoChoice()) {
+            //@ts-ignore
+            return allStories[this.currentStory.nochoice!]()
+        }
+        return {backgrounds: [], legend: []}
     }
 
+    getIsNoChoice = (): boolean => {
+        return "nochoice" in this.currentStory
+    }
 
 
     setStoryPosition = (position: number): void => {
@@ -176,12 +190,15 @@ class StoreStory {
     getSave = (): save => this.save
 
     setStory = (story: storyI) => {
-        // console.log('set')
+        console.log(this.storyPosition)
         //Установка новой истории
         this.story = story
 
         //Обнуление позиции
         this.storyPosition = 0
+
+        console.log(this.storyPosition)
+
 
         //Установка новых картинок
         this.setBackgrounds(story.backgrounds)
@@ -191,6 +208,7 @@ class StoreStory {
     }
 
     setNextLegend = () => {
+        console.log(this.storyPosition)
         // console.log('next')
         //Следующая легенда
         this.incStoryPosition()

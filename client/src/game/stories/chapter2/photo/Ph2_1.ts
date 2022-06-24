@@ -7,6 +7,7 @@ const Ph2_1 = toStory((): legend[] => {
         {
             id: 1,
             text: " Тогда жду тебя завтра.",
+            nochoice: "Scene4"
         }
     ]
 })

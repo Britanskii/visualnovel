@@ -1,12 +1,15 @@
 import {makeAutoObservable} from "mobx";
 import {textSpeedState} from "../../interfaces/enums";
+import {FullScreenHandle} from "react-full-screen";
 
 
 class StoreSettings {
 
-    protected  _textSpeedState: textSpeedState = textSpeedState.MEDIUM
-    protected  _isPunctuationMode: boolean = true
-    protected  _isFullscreen: boolean = false
+    protected _textSpeedState: textSpeedState = textSpeedState.MEDIUM
+    protected _isPunctuationMode: boolean = true
+    protected _isFullscreen: boolean = false
+    protected _fullscreenHandle!: FullScreenHandle
+    protected _momentPrinting: boolean = false
 
     constructor() {
         makeAutoObservable(this)
@@ -14,9 +17,12 @@ class StoreSettings {
 
     getTextSpeed = () => {
         switch (this._textSpeedState) {
-            case textSpeedState.SLOW: return 100
-            case textSpeedState.MEDIUM: return 50
-            case textSpeedState.FAST: return 10
+            case textSpeedState.SLOW:
+                return 100
+            case textSpeedState.MEDIUM:
+                return 50
+            case textSpeedState.FAST:
+                return 10
             default:
                 console.error("Wrong speed state")
         }
@@ -37,9 +43,26 @@ class StoreSettings {
 
     toggleIsFullscreen = () => {
         this._isFullscreen = !this._isFullscreen
-    }
+        this._isFullscreen ? this._fullscreenHandle.enter() : this._fullscreenHandle.exit()
+     }
 
     getIsFullscreen = () => this._isFullscreen
+
+    toggleMomentPrinting = () => {
+        this._momentPrinting = !this._momentPrinting
+    }
+
+    setMomentPrinting = (momentPrinting: boolean) => {
+        this._momentPrinting = momentPrinting
+    }
+
+    getMomentPrinting = () => this._momentPrinting
+
+    setFullscreenHandle = (handle: FullScreenHandle) => {
+        this._fullscreenHandle = handle
+    }
+
+    getFullscreenHandle = () => this._fullscreenHandle
 
 }
 

@@ -1,14 +1,15 @@
 import {FC} from "react";
 import s from "../dialogbox.module.sass";
-// @ts-ignore
-import save from "../../../../res/icons/save.svg";
+
+import save from "../../../res/icons/save.svg"
+import load from "../../../res/icons/load.svg"
+import menu from "../../../res/icons/menu.svg"
+
 import TypingText from "../TypingText";
 import {game} from "../../interfaces/enums";
 import useGetAdaptiveClass from "../../hooks/useGetAdaptiveClass";
 import StoreGame from "../../mobX/stores/StoreGame";
 import StoreStory from "../../mobX/stores/StoreStory";
-import events from "node:events";
-import LocalSave from "../../mobX/entities/LocalSave";
 
 
 // @ts-ignore
@@ -16,7 +17,8 @@ const Box: FC = ({onNext, speaker, text}) => {
 
     const classAdaptive = useGetAdaptiveClass(s, "dialogbox")
 
-    const onOpenMenu = () => {
+    const onOpenMenu = (event: React.MouseEvent<HTMLDivElement>) => {
+        event.stopPropagation()
         StoreGame.setStateGame(game.MENU)
     }
 
@@ -25,14 +27,22 @@ const Box: FC = ({onNext, speaker, text}) => {
         StoreStory.setSave(true)
     }
 
+    const onFastLoad = () => {
+        const allSaves = StoreStory.getSaves()
+        const lastSave = allSaves[allSaves.length - 1]
+
+        if (!!lastSave) StoreStory.loadStory(lastSave)
+    }
+
+
     return (
         <div onClick={onNext} className={`${s.dialogbox} ${classAdaptive} ${text.length === 0 ? s.dialogbox__hide : ""}`}>
             <div className={s.dialogbox__header}>
                 <div className={s.dialogbox__navigation}>
-                    <div onClick={onOpenMenu} className={s.dialogbox__menu}>МЕНЮ</div>
-                    <div onClick={onFastSave} className={s.dialogbox__menu}>СОХРАНИТЬ</div>
+                    <img onClick={onFastSave} className={s.dialogbox__icon} src={save} alt="Сохранить"/>
+                    <img onClick={onFastLoad} className={s.dialogbox__icon} src={load} alt="Загрузить"/>
+                    <img onClick={onOpenMenu} className={s.dialogbox__icon} src={menu} alt="Меню"/>
                 </div>
-                {/*<img onClick={onSave} className={s.dialogbox__save} src={save} alt="save"/>*/}
                 <div className={s.dialogbox__lines}>
                     <div className={s.dialogbox__line}/>
                     <div className={`${s.dialogbox__line} ${s.dialogbox__line_small}`}/>

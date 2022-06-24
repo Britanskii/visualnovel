@@ -19,8 +19,9 @@ const Dialogbox: FC = observer(() => {
         setTypeDialogBox,
         incStoryPosition,
         getSpeaker,
-        getNoChoice,
+        getIsNoChoice,
         setBackgrounds,
+        getNoChoice,
         setNextLegend,
         setStory
     } = StoreStory
@@ -30,9 +31,11 @@ const Dialogbox: FC = observer(() => {
     const type: typeDialogbox = getTypeDialogBox()
 
     const onNext = () => {
+        const isNoChoice = getIsNoChoice()
+
         if (StoreStory.getComplete() && !StoreStory.getIsChoice()) {
             setNextLegend()
-            if (getNoChoice() !== undefined) {
+            if (isNoChoice) {
                 setStory(getNoChoice())
             }
         } else {

@@ -1,4 +1,4 @@
-import {Mark} from "../../../chars/chars";
+import {Mark} from "../../../characters/chars";
 import Ph2 from "./Ph2";
 import Ph1_2 from "./Ph1_2.ts";
 import {choiceI, legend, storyI} from "../../../interfaces/interfaces";
@@ -9,11 +9,11 @@ const Ph1 = toStory((): legend[] => {
     const photoChoice: choiceI[] = [
         {
             text: "И то верно. Смотреть цифру мне не начем. Тогда возьму эти. Через сколько их вернуть?",
-            story: Ph2()
+            story: "Ph2"
         },
         {
             text: "Уж где-нибудь нашёл бы. Неужели Ливорна настолько отсталая планета, что здесь даже [смартфонов] нету?",
-            story: Ph1_2()
+            story: "Ph1_2"
         }
     ]
 

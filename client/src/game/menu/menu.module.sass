@@ -26,7 +26,7 @@
         flex-direction: column
         justify-content: center
         align-items: center
-        top: 22%
+        top: 14%
         left: 50%
         color: white
         transform: translateX(-50%)
@@ -35,31 +35,8 @@
     &__navigation
         margin-top: 50px
         width: 100%
-    &__button
-        position: relative
-        transition: .3s transform ease
-        display: flex
-        text-align: center
-        justify-content: center
-        align-items: center
-        font-size: $fontSizeHD
-        background: linear-gradient(90deg, rgba(0,0,0,0) 0%, #003A75 15%, #003A75 85%, rgba(255,255,255,0) 100%)
-        cursor: pointer
-        user-select: none
-        line-height: 1
-        padding: 10px
-
-        &:not(:first-child)
-            margin-top: 15px
-        &:hover
-            //box-shadow:  0 0 25px $accentColor
-            transform: scale(1.05)
-            background: linear-gradient(90deg, rgba(0,0,0,0) 0%, #008550 15%, #008550 85%, rgba(255,255,255,0) 100%)
-        &_disabled
-            &:hover
-                transform: initial
-                background: linear-gradient(90deg, rgba(0,0,0,0) 0%, #003A75 15%, #003A75 85%, rgba(255,255,255,0) 100%)
-                cursor: default
+        & > *:not(:first-child)
+            margin-top: 10px
     &__save
         position: relative
     &__garbage
@@ -69,50 +46,37 @@
         top: 50%
         transform: translateY(-50%)
         right: -15%
-    &__list
-        margin-top: 15px
-        display: flex
-        flex-direction: column
-        height: 30%
-    &__naked
-        font-size: $fontSizeHD
-        transition: .3s all ease
-        margin-top: 20px
-        cursor: pointer
-        &:hover, &_active
-            text-shadow: 0 0 10px #007EFF, 0 0 10px #007EFF,0 0 10px #007EFF
-            transform: scale(1.15)
     &__checkbox
+        transition: $transitionFast
         margin-left: 15px
         position: relative
-        width: 15px
-        height: 15px
+        width: 18px
+        height: 18px
         border-radius: 5px
         border: 2px solid white
         &_active
             border: 2px solid #44C0FF
             box-shadow:  0 0 10px #44C0FF
     &__arrow
+        transition: $transitionFast
+        opacity: 0
+        visibility: hidden
         top: 50%
         left: 50%
         transform: translateX(-50%) translateY(-50%)
         position: absolute
         width: 70%
+        &_active
+            visibility: visible
+            opacity: 1
 
 
 
 .menu__mobile
     .menu
         &__logo
-            width: 60%
+            width: 64%
         &__navigation
-            margin-top: 15px
-            width: 80%
+            margin-top: 20px
             & > *:not(:first-child)
-                    margin-top: 15px
-        &__button
-            font-size: $fontSizeMOBILE
-            padding: 8px
-        &__naked
-            margin-top: 10px
-            font-size: $fontSizeMOBILE
+                    margin-top: 12px

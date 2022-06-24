@@ -1,4 +1,4 @@
-import {Archivist, Mark, Player, Simna} from "../../../chars/chars";
+import {Archivist, Mark, Player, Simna} from "../../../characters/chars";
 import {legend} from "../../../interfaces/interfaces";
 import toStory from "../../../functions/toStory";
 import {backgroundsScene3} from "../../../../data/backgrounds";
@@ -88,6 +88,7 @@ const Sc2 = toStory((): legend[] => {
             id: 1,
             speaker: Player.name,
             text: "Не здесь. Приходи сегодня вечером в трактир “Морской Гусь”. Я там сейчас остановился. Там и поговорим.",
+            nochoice: "Scene4"
         },
     ]
 })

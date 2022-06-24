@@ -1,4 +1,4 @@
-import {Dispatch, FC, Ref, SetStateAction, useEffect, useState} from "react";
+import {FC, useEffect, useState} from "react";
 import StoreStory from "../mobX/stores/StoreStory";
 import getIntervalTimeBySymbol from "../functions/getIntervalTimeBySymbol";
 import StoreSettings from "../mobX/stores/StoreSettings";
@@ -11,7 +11,7 @@ interface TypingProps {
 //timer хранит в себе все props
 const TypingText: FC<TypingProps> = ({text}) => {
     const [typeText, setTypeText] = useState<string>("")
-    const [index, setIndex] = useState<number>(-1)
+    const [index, setIndex] = useState<number>(0)
 
     useEffect(() => {
         StoreStory.setComplete(false)
@@ -20,7 +20,7 @@ const TypingText: FC<TypingProps> = ({text}) => {
     }, [text])
 
     useEffect(() => {
-        if ((typeText.length < text.length || typeText !== text) && text !== "") {
+        if ((typeText.length < text.length || typeText !== text) && text !== "" && !StoreSettings.getMomentPrinting()) {
             if (!!text[index]) {
                 const interval = getIntervalTimeBySymbol(text[index - 1])
                 setTimeout(() => {
@@ -29,6 +29,7 @@ const TypingText: FC<TypingProps> = ({text}) => {
                 }, interval)
             }
         } else {
+            // debugger
             setIndex(0)
             setTypeText(text)
             StoreStory.setComplete(true)

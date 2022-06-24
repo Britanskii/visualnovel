@@ -1,10 +1,10 @@
 import s from "./portrait.module.sass"
 
-import background from "../../res/backgrounds/menu/main.jpg"
+import background from "../../res/menu/main.jpg"
 
 import {CSSProperties} from 'react'
 
-import rotate from "../../res/menu/rotate.json"
+import rotate from "../../res/jsons/rotate.json"
 import Lottie from 'react-lottie';
 
 const Portrait = () => {

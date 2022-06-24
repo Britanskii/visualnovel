@@ -19,8 +19,11 @@ import screenOrientationModule from "./functions/getScreenOrientation";
 import Portrait from "./portrait/Portrait";
 import StartStory from "./stories/chapter1/StartStory";
 import StoreSettings from "./mobX/stores/StoreSettings";
+import {FullScreen, useFullScreenHandle} from "react-full-screen";
 
 const Game: FC = observer(() => {
+
+    const handle = useFullScreenHandle()
 
     const loadingComplete = StoreGame.getImagesLoad() === load.COMPLETE
 
@@ -31,16 +34,22 @@ const Game: FC = observer(() => {
     const isFullscreen = StoreSettings.getIsFullscreen()
 
     //Вынести в отдельную логику
-    const width = window.innerWidth
-    const height = width / 16 * 9
+    let width = window.innerWidth
+    let height = width / 16 * 9
 
-    const styleFullscreen =  isFullscreen ? {width, height} : {}
+    if (height > window.innerHeight) {
+        height = window.innerHeight
+        width = height / 9 * 16
+    }
+
+    const styleFullscreen = isFullscreen ? {width, height} : {}
 
     return (
         <>
             {isPortrait && <Portrait/>}
-            <div style={styleFullscreen} className={`${s.game} ${classAdaptive} ${isFullscreen ? s.game__fullscreen : ""}`}>
-                <Preloader loadingComplete = {loadingComplete} />
+            <div style={styleFullscreen}
+                 className={`${s.game} ${classAdaptive} ${isFullscreen ? s.game__fullscreen : ""}`}>
+                <Preloader loadingComplete={loadingComplete}/>
                 <Control/>
                 <Grafic/>
             </div>

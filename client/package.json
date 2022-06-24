@@ -22,6 +22,7 @@
     "normalize.css": "^8.0.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-full-screen": "^1.1.1",
     "react-lottie": "^1.2.3",
     "react-parallax-mouse": "^1.6.1",
     "react-scripts": "^5.0.1",

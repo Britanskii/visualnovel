@@ -51,6 +51,12 @@ export const backgroundsScene3: bgConstants = {
     archive_security,
 }
 
+export const backgroundsScene4: bgConstants = {
+    black,
+
+    tavern,
+}
+
 export const backgroundsChapter1: bgConstants = {
     prolouge3,
 

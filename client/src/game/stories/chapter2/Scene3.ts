@@ -1,9 +1,7 @@
-import {typeDialogbox} from "../../interfaces/enums";
-import {Archivist, Mark, Player, Simna} from "../../chars/chars";
+import {Archivist, Mark, Player, Simna} from "../../characters/chars";
 import Sc1 from "./shieldChoice/Sc1";
 import Sc2 from "./shieldChoice/Sc2";
-import {choiceI, legend, storyI} from "../../interfaces/interfaces";
-import StoreStory from "../../mobX/stores/StoreStory";
+import {choiceI, legend} from "../../interfaces/interfaces";
 import toStory from "../../functions/toStory";
 import {backgroundsScene3} from "../../../data/backgrounds";
 
@@ -14,11 +12,11 @@ const Scene3 = toStory((): legend[] => {
     const shieldChoice: choiceI[] = [
         {
             text: 'Игнорировать',
-            story: Sc1()
+            story: "Sc1"
         },
         {
             text: 'Вступиться за Симну',
-            story: Sc2()
+            story: "Sc2"
         }
     ]
 

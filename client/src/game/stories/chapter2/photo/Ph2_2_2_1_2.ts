@@ -1,4 +1,4 @@
-import {Mark} from "../../../chars/chars";
+import {Mark} from "../../../characters/chars";
 import {legend} from "../../../interfaces/interfaces";
 import toStory from "../../../functions/toStory";
 

@@ -1,4 +1,4 @@
-import {Archivist, Mark, Simna} from "../chars/chars";
+import {Archivist, Mark, Simna} from "../characters/chars";
 
 
 const getCharacterIdByIamge = (image: string): string => {

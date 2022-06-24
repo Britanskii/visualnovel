@@ -1,4 +1,4 @@
-import {Mark, Player} from "../../chars/chars";
+import {Mark, Player} from "../../characters/chars";
 import Scene3 from "../chapter2/Scene3";
 import {legend, storyI} from "../../interfaces/interfaces";
 import toStory from "../../functions/toStory";
@@ -35,7 +35,7 @@ const StartStory2 = toStory((): legend[] => {
         {
             id: 2,
             text: "Это оказалось проще, чем подумалось в начале. Может не так уж и сложно будет найти профессора.",
-            nochoice: Scene3()
+            nochoice: "Scene3"
         },
     ]
 })

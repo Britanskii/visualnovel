@@ -1,10 +1,11 @@
-import {FC, useEffect, useState} from "react";
+import React, {FC} from "react";
 
 import s from './choices.module.sass'
 import {observer} from "mobx-react-lite";
 import StoreStory from "../mobX/stores/StoreStory";
-import {toJS} from "mobx";
 import useGetAdaptiveClass from "../hooks/useGetAdaptiveClass";
+import Button from "../components/button/Button";
+import allStories from "../../data/allStories";
 
 
 const Choices: FC = observer(() => {
@@ -22,14 +23,13 @@ const Choices: FC = observer(() => {
             {
                 visible ? choices!.map(({text, story}, id) => {
 
-                    const onChoice = () => setStory(story)
+                    //@ts-ignore
+                    const onChoice = () => setStory(allStories[story]())
 
                     return (
-                        <div key={id}
-                             onClick={onChoice}
-                             className={s.choices__select}>
+                        <Button key={id} color="choice" onClick={onChoice}>
                             {text}
-                        </div>
+                        </Button>
                     )
                 }) : null
             }
