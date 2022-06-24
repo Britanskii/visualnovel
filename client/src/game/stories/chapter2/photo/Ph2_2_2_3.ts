@@ -1,4 +1,4 @@
-import {Mark, Player} from "../../../characters/chars";
+import {Mark, Player} from "../../../characters/characters";
 import {legend} from "../../../interfaces/interfaces";
 import toStory from "../../../functions/toStory";
 
@@ -14,6 +14,7 @@ const Ph2_2_2_3 = toStory((): legend[] => {
             id: 1,
             speaker: Player.name,
             text: "Замётано, дружище!  [Ещё некоторое время мы с Марком побеседовали и договорились, что я встречусь с Симной (та самая?) завтра.]",
+            nochoice: "Scene4"
         }
     ]
 })

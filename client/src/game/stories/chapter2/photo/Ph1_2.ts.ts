@@ -1,5 +1,5 @@
 
-import {Mark} from "../../../characters/chars";
+import {Mark} from "../../../characters/characters";
 import Ph2 from "./Ph2";
 import Ph1_2_1 from "./Ph1_2_1";
 import {choiceI, legend, storyI} from "../../../interfaces/interfaces";

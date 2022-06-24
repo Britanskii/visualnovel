@@ -1,4 +1,4 @@
-import {Mark} from "../../../characters/chars";
+import {Mark} from "../../../characters/characters";
 import Ph2_2_2_3 from "./Ph2_2_2_3";
 import Ph2_2_2_2_2 from "./Ph2_2_2_2_2";
 import {choiceI, legend} from "../../../interfaces/interfaces";

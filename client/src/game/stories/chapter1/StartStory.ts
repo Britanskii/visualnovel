@@ -1,5 +1,5 @@
 import {typeDialogbox} from "../../interfaces/enums";
-import {Mark, Player} from "../../characters/chars";
+import {Mark, Player} from "../../characters/characters";
 import Nc1 from "./nameChoice/Nc1";
 import Nc2 from "./nameChoice/Nc2";
 import Nc3 from "./nameChoice/Nc3";
@@ -26,8 +26,6 @@ const StartStory = toStory( (): legend[] => {
             story: "Nc3"
         },
     ]
-
-    console.log(Nc1.name)
 
     return [
         {

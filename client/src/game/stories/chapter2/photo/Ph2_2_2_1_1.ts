@@ -1,4 +1,4 @@
-import {Mark, Player} from "../../../characters/chars";
+import {Mark, Player} from "../../../characters/characters";
 import {legend, storyI} from "../../../interfaces/interfaces";
 import toStory from "../../../functions/toStory";
 
@@ -23,6 +23,7 @@ const Ph2_2_2_1_1 = toStory((): legend[] => {
             id: 1,
             speaker: Player.name,
             text: "[Марк не стал больше слушать каких бы то ни было объяснений и молча указал на дверь.]",
+            nochoice: "Scene4"
         },
     ]
 })

@@ -22,6 +22,14 @@ import Ph2_2_2_1_1 from "../game/stories/chapter2/photo/Ph2_2_2_1_1";
 import Ph1_2 from "../game/stories/chapter2/photo/Ph1_2.ts";
 import {allStories as allStoriesI} from "../game/interfaces/interfaces";
 import Scene4 from "../game/stories/scene4/Scene4";
+import Tc2 from "../game/stories/scene4/trueChoice/Tc2";
+import Tc1 from "../game/stories/scene4/trueChoice/Tc1";
+import Scene4_1 from "../game/stories/scene4/Scene4_1";
+import Wc1 from "../game/stories/scene4/whenChoice/Wc1";
+import Hc2 from "../game/stories/scene4/helpChoice/Hc2";
+import Hc1 from "../game/stories/scene4/helpChoice/Hc1";
+import Hc3 from "../game/stories/scene4/helpChoice/Hc3";
+
 
 
 const allStories: allStoriesI = {
@@ -47,7 +55,14 @@ const allStories: allStoriesI = {
     Sc2,
     Scene3,
     Scene3_1,
-    Scene4
+    Scene4,
+    Scene4_1,
+    Tc1,
+    Tc2,
+    Wc1,
+    Hc1,
+    Hc2,
+    Hc3,
 }
 
 export default allStories

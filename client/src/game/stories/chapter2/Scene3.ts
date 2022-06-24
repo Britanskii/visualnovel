@@ -1,4 +1,4 @@
-import {Archivist, Mark, Player, Simna} from "../../characters/chars";
+import {Archivist, Mark, Player, Simna} from "../../characters/characters";
 import Sc1 from "./shieldChoice/Sc1";
 import Sc2 from "./shieldChoice/Sc2";
 import {choiceI, legend} from "../../interfaces/interfaces";

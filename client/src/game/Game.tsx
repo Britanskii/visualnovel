@@ -1,4 +1,4 @@
-import {FC, useEffect} from "react";
+import {FC} from "react";
 
 import s from './game.module.sass'
 
@@ -15,38 +15,22 @@ import {game, load} from "./interfaces/enums";
 import useGetAdaptiveClass from "./hooks/useGetAdaptiveClass";
 import Menu from "./menu/Menu";
 import Preloader from "./preloader/Preloader";
-import screenOrientationModule from "./functions/getScreenOrientation";
-import Portrait from "./portrait/Portrait";
-import StartStory from "./stories/chapter1/StartStory";
 import StoreSettings from "./mobX/stores/StoreSettings";
-import {FullScreen, useFullScreenHandle} from "react-full-screen";
+import {useFullScreenHandle} from "react-full-screen";
+import calcFullscreen from "./functions/calcFullscreen";
 
 const Game: FC = observer(() => {
-
-    const handle = useFullScreenHandle()
 
     const loadingComplete = StoreGame.getImagesLoad() === load.COMPLETE
 
     const classAdaptive = useGetAdaptiveClass(s, "game")
 
-    const isPortrait = screenOrientationModule().direction === "portrait"
-
     const isFullscreen = StoreSettings.getIsFullscreen()
 
-    //Вынести в отдельную логику
-    let width = window.innerWidth
-    let height = width / 16 * 9
-
-    if (height > window.innerHeight) {
-        height = window.innerHeight
-        width = height / 9 * 16
-    }
-
-    const styleFullscreen = isFullscreen ? {width, height} : {}
+    const styleFullscreen = isFullscreen ? calcFullscreen(): {}
 
     return (
         <>
-            {isPortrait && <Portrait/>}
             <div style={styleFullscreen}
                  className={`${s.game} ${classAdaptive} ${isFullscreen ? s.game__fullscreen : ""}`}>
                 <Preloader loadingComplete={loadingComplete}/>

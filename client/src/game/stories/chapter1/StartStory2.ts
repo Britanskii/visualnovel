@@ -1,4 +1,4 @@
-import {Mark, Player} from "../../characters/chars";
+import {Mark, Player} from "../../characters/characters";
 import Scene3 from "../chapter2/Scene3";
 import {legend, storyI} from "../../interfaces/interfaces";
 import toStory from "../../functions/toStory";

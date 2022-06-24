@@ -66,7 +66,7 @@ interface storyI {
 }
 
 interface legend {
-    id: number,
+    id?: number,
     characters?: string[],
     speaker?: string,
     text?: string,

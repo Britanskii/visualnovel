@@ -1,4 +1,4 @@
-import {Archivist, Mark, Player, Simna} from "../../../characters/chars";
+import {Archivist, Mark, Player, Simna} from "../../../characters/characters";
 import {legend} from "../../../interfaces/interfaces";
 import toStory from "../../../functions/toStory";
 import {backgroundsScene3} from "../../../../data/backgrounds";
