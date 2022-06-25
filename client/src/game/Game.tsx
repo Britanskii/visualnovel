@@ -1,4 +1,4 @@
-import {FC} from "react";
+import {CSSProperties, FC} from "react";
 
 import s from './game.module.sass'
 
@@ -16,7 +16,6 @@ import useGetAdaptiveClass from "./hooks/useGetAdaptiveClass";
 import Menu from "./menu/Menu";
 import Preloader from "./preloader/Preloader";
 import StoreSettings from "./mobX/stores/StoreSettings";
-import {useFullScreenHandle} from "react-full-screen";
 import calcFullscreen from "./functions/calcFullscreen";
 
 const Game: FC = observer(() => {

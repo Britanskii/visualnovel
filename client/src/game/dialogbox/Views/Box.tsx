@@ -10,12 +10,15 @@ import {game} from "../../interfaces/enums";
 import useGetAdaptiveClass from "../../hooks/useGetAdaptiveClass";
 import StoreGame from "../../mobX/stores/StoreGame";
 import StoreStory from "../../mobX/stores/StoreStory";
+import calcFullscreen from "../../functions/calcFullscreen";
+import StoreSettings from "../../mobX/stores/StoreSettings";
 
 
 // @ts-ignore
 const Box: FC = ({onNext, speaker, text}) => {
 
     const classAdaptive = useGetAdaptiveClass(s, "dialogbox")
+    const fontStyle = {}
 
     const onOpenMenu = (event: React.MouseEvent<HTMLDivElement>) => {
         event.stopPropagation()
@@ -32,6 +35,15 @@ const Box: FC = ({onNext, speaker, text}) => {
         const lastSave = allSaves[allSaves.length - 1]
 
         if (!!lastSave) StoreStory.loadStory(lastSave)
+    }
+
+    //development
+    if (StoreSettings.getIsFullscreen()) {
+        const {width} =  calcFullscreen()
+        if (width < 720) {
+            //@ts-ignore
+            fontStyle.fontSize = width / 45
+        }
     }
 
 
@@ -53,7 +65,7 @@ const Box: FC = ({onNext, speaker, text}) => {
                     <div className={`${s.dialogbox__line} ${s.dialogbox__line_small}`}/>
                 </div>
             </div>
-            <pre className={s.dialogbox__body}>
+            <pre style={fontStyle} className={s.dialogbox__body}>
                 <TypingText text={text}/>
             </pre>
         </div>
