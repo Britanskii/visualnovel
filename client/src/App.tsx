@@ -1,4 +1,4 @@
-import {FC} from 'react'
+import {FC, useEffect} from 'react'
 
 import 'normalize.css'
 import s from './app.module.sass'

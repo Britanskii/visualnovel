@@ -21,6 +21,6 @@ const Button = ({children, onClick, className, disabled, color}: ButtonProps) =>
     )
 }
 
-Button.defaultProps = {color: "menu"}
+Button.defaultProps = {color: "menu", className: ""}
 
 export default Button

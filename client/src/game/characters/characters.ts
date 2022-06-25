@@ -1,4 +1,4 @@
-import createCharacter from "../hooks/createChar";
+import createCharacter from "../hooks/createCharacter";
 import {character} from "../interfaces/interfaces";
 
 

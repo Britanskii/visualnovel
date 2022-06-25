@@ -2,8 +2,11 @@ import {legend} from "../../../interfaces/interfaces";
 import toStory from "../../../functions/toStory";
 import {backgroundsScene4} from "../../../../data/backgrounds";
 import {Player, Stick} from "../../../characters/characters";
+import StoreChoices from "../../../mobX/stores/StoreChoices";
 
 const Hc3 = toStory((): legend[] => {
+
+    const nochoice = StoreChoices.helpSimna ? "Scene5A" : "Scene5"
 
     return [
         {
@@ -12,7 +15,9 @@ const Hc3 = toStory((): legend[] => {
         },
         {
             speaker: Player.name,
-            text: "Пфф. Мелкий избалованный засранец."
+            characters: [],
+            text: "Пфф. Мелкий избалованный засранец.",
+            nochoice
         }
     ]
 })

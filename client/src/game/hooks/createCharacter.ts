@@ -2,7 +2,7 @@ import data from "../../data/characters";
 import {character} from "../interfaces/interfaces";
 // import 'animate.css'
 
-const createChar = (char: string): character => {
+const createCharacter = (char: string): character => {
 
     const character = data[char]
 
@@ -47,9 +47,9 @@ const createChar = (char: string): character => {
             id,
             main, happy, angry, horny, shy, surprised, think,
             name: character.name,
-            fullname: character.fullname
+            unknown: character.unknown
         }
     )
 }
 
-export default createChar
+export default createCharacter

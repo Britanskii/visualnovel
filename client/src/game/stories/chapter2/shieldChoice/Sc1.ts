@@ -2,8 +2,11 @@ import {Mark} from "../../../characters/characters";
 import Scene3_1 from "../Scene3_1";
 import {legend} from "../../../interfaces/interfaces";
 import toStory from "../../../functions/toStory";
+import StoreChoices from "../../../mobX/stores/StoreChoices";
 
 const Sc1 = toStory((): legend[] => {
+
+    StoreChoices.helpSimna = false
 
     return [
         {

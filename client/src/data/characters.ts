@@ -14,6 +14,9 @@ import simnaMain from "../res/chars/simna/main.webp"
 import stickMain from "../res/chars/stick/main.webp"
 
 import archivistMain from "../res/chars/archivist/main.webp"
+
+import hostessMain from "../res/chars/hostess/main.webp"
+
 import {dataRawCharI} from "../game/interfaces/interfaces";
 
 
@@ -27,14 +30,12 @@ const data: dataRawCharI = {
     },
     Hostess: {
         id: "hostess",
-        fullname: "Аска",
-        name: "Хозяйка таверны",
+        unknown: "Хозяйка таверны",
+        name: "Аска",
         color: "#FFF",
         fontFamily: "Times New Roman",
         images: {
-            main: RinMain,
-            happy: RinHappy,
-            angry: RinAngry,
+            main: hostessMain
         }
     },
     Mark: {

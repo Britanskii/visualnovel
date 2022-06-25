@@ -7,6 +7,8 @@ import archive_outside from "../res/backgrounds/scene3/archive_outside.jpg";
 import archive_security from "../res/backgrounds/scene3/archive_outside_security.jpg";
 
 import prolouge3 from "../res/backgrounds/prolouge/3.jpg";
+import diary from "../res/backgrounds/prolouge/diary.jpg"
+import city from "../res/backgrounds/prolouge/city.jpg"
 import lavronda from "../res/backgrounds/chapter1/lavronda.png";
 import lavronda2 from "../res/backgrounds/chapter1/lavronda2.png";
 import lavronda3 from "../res/backgrounds/chapter1/lavronda3.png";
@@ -22,7 +24,8 @@ import ships from "../res/backgrounds/chapter1/ships.png";
 import ship from "../res/backgrounds/chapter1/ship.png";
 import ship_attack from "../res/backgrounds/chapter1/ship_attack.png";
 
-import city from "../res/backgrounds/chapter1/sity.png";
+//OldCity
+// import city from "../res/backgrounds/chapter1/sity.png";
 
 import z from "../res/backgrounds/chapter1/z.png";
 
@@ -36,6 +39,9 @@ import attack from "../res/backgrounds/chapter1/attack.png";
 import attack2 from "../res/backgrounds/chapter1/attack_2.jpg";
 
 import tavern from "../res/backgrounds/tavern.jpg";
+
+import fish from "../res/backgrounds/scene5/fish.jpg"
+
 import {bgConstants} from "../game/interfaces/interfaces";
 
 
@@ -57,6 +63,14 @@ export const backgroundsScene4: bgConstants = {
     tavern,
 }
 
+export const backgroundsScene5: bgConstants = {
+    black,
+
+    tavern,
+
+    fish,
+}
+
 export const backgroundsChapter1: bgConstants = {
     prolouge3,
 
@@ -76,6 +90,8 @@ export const backgroundsChapter1: bgConstants = {
     ship_attack,
 
     city,
+
+    diary,
 
     z,
 

@@ -8,7 +8,7 @@ interface charsI {
 
 interface rawCharI {
     "id": string,
-    "fullname"?: string,
+    "unknown"?: string,
     "name"?: string,
     "color"?: string,
     "fontFamily"?: string,
@@ -37,7 +37,7 @@ interface character {
     think?: function,
     name: string | undefined,
     id: string,
-    fullname: string | undefined
+    unknown?: string | undefined
 }
 
 interface dataRawSpineChar {

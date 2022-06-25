@@ -6,6 +6,8 @@ import {choiceI, legend, localSave, storyI, save} from "../../interfaces/interfa
 import LocalSave from "../entities/LocalSave";
 import {log} from "util";
 import allStories from "../../../data/allStories";
+import Scene5A from "../../stories/scene5/Scene5A";
+import Scene4 from "../../stories/scene4/Scene4";
 
 class StoreStory {
 
@@ -34,6 +36,7 @@ class StoreStory {
 
     initStoryDefault = () => {
         const storyDefault = StartStory()
+        // const storyDefault = Scene5A()
         // const storyDefault = Scene3()
 
         return this.initStory(storyDefault, 0, storyDefault.legend[0])

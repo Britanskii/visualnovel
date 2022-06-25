@@ -2,10 +2,13 @@ import {Archivist, Mark, Player, Simna} from "../../../characters/characters";
 import {legend} from "../../../interfaces/interfaces";
 import toStory from "../../../functions/toStory";
 import {backgroundsScene3} from "../../../../data/backgrounds";
+import StoreChoices from "../../../mobX/stores/StoreChoices";
 
 const Sc2 = toStory((): legend[] => {
 
     const backgrounds = backgroundsScene3
+
+    StoreChoices.helpSimna = true
 
     return [
         {

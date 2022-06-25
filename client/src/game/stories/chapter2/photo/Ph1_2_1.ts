@@ -15,6 +15,7 @@ const Ph1_2_1 = toStory((): legend[] => {
             id: 1,
             speaker: Player.name,
             text: "Пойдёт.",
+            nochoice: "Scene4"
         }
     ]
 })

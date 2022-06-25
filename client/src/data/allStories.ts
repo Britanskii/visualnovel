@@ -29,6 +29,19 @@ import Wc1 from "../game/stories/scene4/whenChoice/Wc1";
 import Hc2 from "../game/stories/scene4/helpChoice/Hc2";
 import Hc1 from "../game/stories/scene4/helpChoice/Hc1";
 import Hc3 from "../game/stories/scene4/helpChoice/Hc3";
+import Scene5 from "../game/stories/scene5/Scene5";
+import Pc5_2 from "../game/stories/scene5/Pc5/Pc5_2";
+import Pc5_1 from "../game/stories/scene5/Pc5/Pc5_1";
+import Mc1 from "../game/stories/scene5/Mc/Mc1";
+import Wc5_2 from "../game/stories/scene5/Wc5/Wc5_2";
+import Wc5_1 from "../game/stories/scene5/Wc5/Wc5_1";
+import Mc2 from "../game/stories/scene5/Mc/Mc2";
+import Scene5A from "../game/stories/scene5/Scene5A";
+import Hc5_1 from "../game/stories/scene5/Hc5/Hc5_1";
+import Hc5_2 from "../game/stories/scene5/Hc5/Hc5_2";
+import Scene5_1_1_2 from "../game/stories/scene5/Scene5_1_1_2";
+import Gc5_2 from "../game/stories/scene5/Gc5/Gc5_2";
+import Gc5_1 from "../game/stories/scene5/Gc5/Gc5_1";
 
 
 
@@ -63,6 +76,19 @@ const allStories: allStoriesI = {
     Hc1,
     Hc2,
     Hc3,
+    Scene5,
+    Mc1,
+    Mc2,
+    Pc5_1,
+    Pc5_2,
+    Wc5_1,
+    Wc5_2,
+    Scene5A,
+    Scene5_1_1_2,
+    Gc5_1,
+    Gc5_2,
+    Hc5_1,
+    Hc5_2,
 }
 
 export default allStories
