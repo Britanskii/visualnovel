@@ -3,6 +3,7 @@ import toStory from  "../../../functions/toStory";
 import {backgroundsScene5} from "../../../../data/backgrounds";
 import {Player, Simna} from "../../../characters/characters";
 import StoreChoices from "../../../mobX/stores/StoreChoices";
+import Scene7B2 from "../../scene7B2/Scene7B2";
 
 const Gc5_1 = toStory((): legend[] => {
 
@@ -26,6 +27,7 @@ const Gc5_1 = toStory((): legend[] => {
         {
             speaker: Simna.name,
             text: "За успешное окончание приключения!",
+            nochoice: "Scene7B1"
         }
     ]
 })

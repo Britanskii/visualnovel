@@ -30,6 +30,7 @@ const Gc5_2 = toStory((): legend[] => {
         {
             speaker: Simna.name,
             text: "Тогда по рукам!",
+            nochoice: "Scene7B2"
         }
     ]
 })
