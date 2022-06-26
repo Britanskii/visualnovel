@@ -30,7 +30,7 @@ const StartStory = toStory( (): legend[] => {
     return [
         {
             id: 1,
-            background: backgrounds.black,
+            background: [backgrounds.black, backgrounds.archive_angry],
             text: "Вначале была планета",
             choice: [],
             dialogbox: typeDialogbox.CENTER,

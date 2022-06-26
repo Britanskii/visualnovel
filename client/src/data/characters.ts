@@ -28,6 +28,13 @@ const data: dataRawCharI = {
         fontFamily: "Times New Roman",
         images: {}
     },
+    Setting: {
+        id: "setting",
+        name: "Окружение",
+        color: "#FFF",
+        fontFamily: "Times New Roman",
+        images: {}
+    },
     Hostess: {
         id: "hostess",
         unknown: "Хозяйка таверны",
@@ -78,6 +85,13 @@ const data: dataRawCharI = {
         images: {
             main: stickMain
         }
+    },
+    Strangers: {
+        id: "strangers",
+        name: "Незнакомцы",
+        color: "#FFF",
+        fontFamily: "Times New Roman",
+        images: {}
     }
 }
 

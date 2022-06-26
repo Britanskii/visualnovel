@@ -8,6 +8,7 @@ import {log} from "util";
 import allStories from "../../../data/allStories";
 import Scene5A from "../../stories/scene5/Scene5A";
 import Scene4 from "../../stories/scene4/Scene4";
+import Scene7B1 from "../../stories/scene7B1/Scene7B1";
 
 class StoreStory {
 
@@ -35,8 +36,8 @@ class StoreStory {
     }
 
     initStoryDefault = () => {
-        const storyDefault = StartStory()
-        // const storyDefault = Scene5A()
+        // const storyDefault = StartStory()
+        const storyDefault = Scene7B1()
         // const storyDefault = Scene3()
 
         return this.initStory(storyDefault, 0, storyDefault.legend[0])
@@ -96,7 +97,7 @@ class StoreStory {
         this.background = src
     }
 
-    getBackground = (): string => {
+    getBackground = (): string | [] => {
         return this.currentStory.background!
     }
 

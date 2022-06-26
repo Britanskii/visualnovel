@@ -41,15 +41,15 @@ const Sc2 = toStory((): legend[] => {
             id: 2,
             characters: [],
             text: "",
-            background: backgrounds.archive_angry
+            background: [backgrounds.archive, backgrounds.archive_angry]
         },
         {
             id: 2,
-            background: backgrounds.archive_out
+            background: [backgrounds.archive_close, backgrounds.archive_out]
         },
         {
             id: 2,
-            background: backgrounds.archive_security
+            background: [backgrounds.archive_outside, backgrounds.archive_security]
         },
         {
             speaker: Player.name,

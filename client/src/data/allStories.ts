@@ -42,6 +42,25 @@ import Hc5_2 from "../game/stories/scene5/Hc5/Hc5_2";
 import Scene5_1_1_2 from "../game/stories/scene5/Scene5_1_1_2";
 import Gc5_2 from "../game/stories/scene5/Gc5/Gc5_2";
 import Gc5_1 from "../game/stories/scene5/Gc5/Gc5_1";
+import Ic7B1_1 from "../game/stories/scene7B1/Ic7B1/Ic7B1_1";
+import Ic7B1_2 from "../game/stories/scene7B1/Ic7B1/Ic7B1_2";
+import Dc7B1_1 from "../game/stories/scene7B1/Dc7B1/Dc7B1_1";
+import Oc7B1_2 from "../game/stories/scene7B1/Oc7B1/Oc7B1_2";
+import Oc7B1_1 from "../game/stories/scene7B1/Oc7B1/Oc7B1_1";
+import Bc7B1_1 from "../game/stories/scene7B1/Bc7B1/Bc7B1_1";
+import Dc7B1_2 from "../game/stories/scene7B1/Dc7B1/Dc7B1_2";
+import BC7B1_2 from "../game/stories/scene7B1/Bc7B1/BC7B1_2";
+import Lc7B1_2 from "../game/stories/scene7B1/Lc7B1/Lc7B1_2";
+import Cc7B1_2 from "../game/stories/scene7B1/Cc7B1/Cc7B1_2";
+import Lc7B1_1 from "../game/stories/scene7B1/Lc7B1/Lc7B1_1";
+import Cc7B1_1 from "../game/stories/scene7B1/Cc7B1/Cc7B1_1";
+import Mc7B1_2 from "../game/stories/scene7B1/Mc7B1/Mc7B1_2";
+import Mc7B1_1 from "../game/stories/scene7B1/Mc7B1/Mc7B1_1";
+import Scene7B1_8 from "../game/stories/scene7B1/Scene7B1_8";
+import Scene7B1 from "../game/stories/scene7B1/Scene7B1";
+import Ac7B1_1 from "../game/stories/scene7B1/Ac7B1/Ac7B1_1";
+import Ac7B1_2 from "../game/stories/scene7B1/Ac7B1/Ac7B1_2";
+import Scene7B1_9 from "../game/stories/scene7B1/Scene7B1_9";
 
 
 
@@ -89,6 +108,25 @@ const allStories: allStoriesI = {
     Gc5_2,
     Hc5_1,
     Hc5_2,
+    Ac7B1_1,
+    Ac7B1_2,
+    Bc7B1_1,
+    BC7B1_2,
+    Cc7B1_1,
+    Cc7B1_2,
+    Dc7B1_1,
+    Dc7B1_2,
+    Ic7B1_1,
+    Ic7B1_2,
+    Lc7B1_1,
+    Lc7B1_2,
+    Mc7B1_1,
+    Mc7B1_2,
+    Oc7B1_1,
+    Oc7B1_2,
+    Scene7B1,
+    Scene7B1_8,
+    Scene7B1_9,
 }
 
 export default allStories

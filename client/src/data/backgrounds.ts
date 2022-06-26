@@ -1,10 +1,11 @@
 import black from "../res/backgrounds/black.jpg";
 import archive from "../res/backgrounds/scene3/archive.jpg";
-import archive_mark from "../res/backgrounds/scene3/archive_mark.jpg";
-import archive_angry from "../res/backgrounds/scene3/archive_angry.jpg";
-import archive_out from "../res/backgrounds/scene3/archive_out.jpg";
+import archive_mark from "../res/backgrounds/scene3/elements/mark.webp";
+import archive_angry from "../res/backgrounds/scene3/elements/angry.webp";
+import archive_close from "../res/backgrounds/scene3/archive_close.jpg";
+import archive_out from "../res/backgrounds/scene3/elements/out.webp";
+import archive_security from "../res/backgrounds/scene3/elements/security.webp";
 import archive_outside from "../res/backgrounds/scene3/archive_outside.jpg";
-import archive_security from "../res/backgrounds/scene3/archive_outside_security.jpg";
 
 import prolouge3 from "../res/backgrounds/prolouge/3.jpg";
 import diary from "../res/backgrounds/prolouge/diary.jpg"
@@ -23,6 +24,11 @@ import parlament from "../res/backgrounds/chapter1/parlament.png";
 import ships from "../res/backgrounds/chapter1/ships.png";
 import ship from "../res/backgrounds/chapter1/ship.png";
 import ship_attack from "../res/backgrounds/chapter1/ship_attack.png";
+
+import archive_desk from "../res/backgrounds/scene7/archive_desk.jpg"
+import archive_night from "../res/backgrounds/scene7/archive_night.jpg"
+import archive_outside_night_close from "../res/backgrounds/scene7/archive_outside_night_close.jpg"
+import archive_outside_night_open from "../res/backgrounds/scene7/archive_outside_night_open.jpg"
 
 //OldCity
 // import city from "../res/backgrounds/chapter1/sity.png";
@@ -50,11 +56,11 @@ export const backgroundsScene3: bgConstants = {
 
     archive,
     archive_mark,
-
     archive_angry,
+    archive_close,
     archive_out,
     archive_outside,
-    archive_security,
+    archive_security
 }
 
 export const backgroundsScene4: bgConstants = {
@@ -69,6 +75,15 @@ export const backgroundsScene5: bgConstants = {
     tavern,
 
     fish,
+}
+
+export const backgroundsScene7: bgConstants = {
+    black,
+
+    archive_desk,
+    archive_night,
+    archive_outside_night_close,
+    archive_outside_night_open
 }
 
 export const backgroundsChapter1: bgConstants = {

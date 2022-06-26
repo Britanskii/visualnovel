@@ -29,7 +29,7 @@ const Scene3 = toStory((): legend[] => {
         },
         {
             id: 2,
-            background: backgrounds.archive_mark,
+            background: [backgrounds.archive, backgrounds.archive_mark],
             text: "А в архиве… не людно. Марк нашёлся очень быстро - сидел прямо напротив входа.",
         },
         {
