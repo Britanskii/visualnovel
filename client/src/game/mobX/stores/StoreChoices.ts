@@ -7,7 +7,8 @@ class StoreChoices {
         // = nameChoice.ROBOT
     helpSimna!: boolean
         // = true
-    withSimna: boolean = false
+    withSimna!: boolean
+        // = false
 
 }
 
