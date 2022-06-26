@@ -12,6 +12,7 @@ const Scene7B2 = toStory((): legend[] => {
     return [
         {
             choice: [],
+            characters: [],
             speaker: Player.name,
             text: "Так, ключи у меня есть, спасибо Симне, инструкции я получил, охрана отсутствует (так главный архивариус пожелал. Денег ему видите ли лишних жалко), можно и делом заняться.",
             background: backgrounds.archive_outside_night_close
