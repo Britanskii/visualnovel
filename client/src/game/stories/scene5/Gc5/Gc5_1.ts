@@ -2,10 +2,13 @@ import {choiceI, legend} from "../../../interfaces/interfaces";
 import toStory from  "../../../functions/toStory";
 import {backgroundsScene5} from "../../../../data/backgrounds";
 import {Player, Simna} from "../../../characters/characters";
+import StoreChoices from "../../../mobX/stores/StoreChoices";
 
 const Gc5_1 = toStory((): legend[] => {
 
     const backgrounds = backgroundsScene5
+
+    StoreChoices.withSimna = true
 
     return [
         {

@@ -2,7 +2,7 @@ import {legend} from "../../../interfaces/interfaces";
 import {Simna} from "../../../characters/characters";
 import toStory from "../../../functions/toStory";
 
-const BC7B1_2 = toStory((): legend[] => {
+const Bc7B1_2 = toStory((): legend[] => {
 
     //const backgrounds =
 
@@ -24,4 +24,4 @@ const BC7B1_2 = toStory((): legend[] => {
     ]
 })
 
-export default BC7B1_2
+export default Bc7B1_2

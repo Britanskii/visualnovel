@@ -49,7 +49,7 @@ import Oc7B1_2 from "../game/stories/scene7B1/Oc7B1/Oc7B1_2";
 import Oc7B1_1 from "../game/stories/scene7B1/Oc7B1/Oc7B1_1";
 import Bc7B1_1 from "../game/stories/scene7B1/Bc7B1/Bc7B1_1";
 import Dc7B1_2 from "../game/stories/scene7B1/Dc7B1/Dc7B1_2";
-import BC7B1_2 from "../game/stories/scene7B1/Bc7B1/BC7B1_2";
+import Bc7B1_2 from "../game/stories/scene7B1/Bc7B1/Bc7B1_2";
 import Lc7B1_2 from "../game/stories/scene7B1/Lc7B1/Lc7B1_2";
 import Cc7B1_2 from "../game/stories/scene7B1/Cc7B1/Cc7B1_2";
 import Lc7B1_1 from "../game/stories/scene7B1/Lc7B1/Lc7B1_1";
@@ -61,6 +61,10 @@ import Scene7B1 from "../game/stories/scene7B1/Scene7B1";
 import Ac7B1_1 from "../game/stories/scene7B1/Ac7B1/Ac7B1_1";
 import Ac7B1_2 from "../game/stories/scene7B1/Ac7B1/Ac7B1_2";
 import Scene7B1_9 from "../game/stories/scene7B1/Scene7B1_9";
+import Scene7_strangers from "../game/stories/scene7/Scene7_strangers";
+import Scene7B1_2 from "../game/stories/scene7B1/Scene7B1_2";
+import Scene7B2_1 from "../game/stories/scene7B2/Scene7B2_1";
+import Scene7B2 from "../game/stories/scene7B2/Scene7B2";
 
 
 
@@ -111,7 +115,7 @@ const allStories: allStoriesI = {
     Ac7B1_1,
     Ac7B1_2,
     Bc7B1_1,
-    BC7B1_2,
+    Bc7B1_2,
     Cc7B1_1,
     Cc7B1_2,
     Dc7B1_1,
@@ -127,6 +131,10 @@ const allStories: allStoriesI = {
     Scene7B1,
     Scene7B1_8,
     Scene7B1_9,
+    Scene7_strangers,
+    Scene7B1_2,
+    Scene7B2_1,
+    Scene7B2,
 }
 
 export default allStories
