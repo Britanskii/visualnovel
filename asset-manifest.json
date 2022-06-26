@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.8a2fcb84.css",
-    "main.js": "./static/js/main.bd7afd71.js",
+    "main.css": "./static/css/main.163e1b6b.css",
+    "main.js": "./static/js/main.0274c9aa.js",
     "static/media/ship_attack.png": "./static/media/ship_attack.c42ea1a4f1c885f3e858.png",
     "static/media/ship.png": "./static/media/ship.8d91b9e59913f88a3f14.png",
     "static/media/light4.png": "./static/media/light4.1e9a8faa221ed75dcfee.png",
@@ -14,20 +14,16 @@
     "static/media/lavronda3.png": "./static/media/lavronda3.a608d7e3e09e66d4a3af.png",
     "static/media/light2.png": "./static/media/light2.cfd44fb1acb4002e16ac.png",
     "static/media/lavronda.png": "./static/media/lavronda.8d13e3582809e84b1da9.png",
-    "static/media/archive_angry.jpg": "./static/media/archive_angry.d5b8778420eae659d6d3.jpg",
     "static/media/lavronda4.png": "./static/media/lavronda4.613054405f0c9be5517b.png",
     "static/media/light.png": "./static/media/light.c69f861cad42f9ab943d.png",
     "static/media/z.png": "./static/media/z.977d3d9dc5293c436e11.png",
     "static/media/main.jpg": "./static/media/main.6dce88dd0c98eff0e904.jpg",
-    "static/media/archive_mark.jpg": "./static/media/archive_mark.7cc67983ffb89d9e6fb1.jpg",
     "static/media/archive.jpg": "./static/media/archive.a6d1499787e9e7c1c6da.jpg",
     "static/media/shy.webp": "./static/media/shy.df3a646f13f3401f373f.webp",
     "static/media/happy.webp": "./static/media/happy.efb3d2981e4d66c305dc.webp",
     "static/media/main.webp": "./static/media/main.deee150969069f99ecd7.webp",
     "static/media/surprised.webp": "./static/media/surprised.7e890741b3eeb1287494.webp",
-    "static/media/angry.webp": "./static/media/angry.e57a5f3c16b32d6d47ce.webp",
-    "static/media/archive_outside_security.jpg": "./static/media/archive_outside_security.83373372eeafb0a47d4a.jpg",
-    "static/media/archive_out.jpg": "./static/media/archive_out.0cd305f3670bc3b93110.jpg",
+    "static/media/angry.webp": "./static/media/angry.86618bb771b6642dbf6a.webp",
     "static/media/think.webp": "./static/media/think.1e2e8d70e0f9b13cc92f.webp",
     "static/media/tavern.jpg": "./static/media/tavern.8f8a4276f1b8afc47f93.jpg",
     "static/media/archive_outside.jpg": "./static/media/archive_outside.c6a8101fffe5eb0869d5.jpg",
@@ -36,9 +32,17 @@
     "static/media/water_3.jpg": "./static/media/water_3.050fecf7b4d92ce5058c.jpg",
     "static/media/city.jpg": "./static/media/city.3baa984b46c37c7eaa46.jpg",
     "static/media/water.jpg": "./static/media/water.3b2e1ff7a91c79ed7817.jpg",
+    "static/media/archive_close.jpg": "./static/media/archive_close.b2d715c19ed5ce8bc205.jpg",
     "static/media/3.jpg": "./static/media/3.3762a559b1205cda205e.jpg",
+    "static/media/archive_night.jpg": "./static/media/archive_night.08d0d748063118ae3a69.jpg",
     "static/media/diary.jpg": "./static/media/diary.e3390b6cae52f7de04a4.jpg",
     "static/media/fish.jpg": "./static/media/fish.da9565fa34fb4f9451d0.jpg",
+    "static/media/archive_desk.jpg": "./static/media/archive_desk.b960bf0eaa054f89c305.jpg",
+    "static/media/archive_outside_night_close.jpg": "./static/media/archive_outside_night_close.7d5a76adcfd5542625c6.jpg",
+    "static/media/archive_outside_night_open.jpg": "./static/media/archive_outside_night_open.579449802fd5d8363d60.jpg",
+    "static/media/security.webp": "./static/media/security.044d66cab8b399bd0bcc.webp",
+    "static/media/out.webp": "./static/media/out.a8315f92af9fe7e5074e.webp",
+    "static/media/mark.webp": "./static/media/mark.8bb02f69b991cc40f018.webp",
     "static/media/logo.svg": "./static/media/logo.73a6880ae924aee1f4c9aa987f992cdc.svg",
     "static/media/save.svg": "./static/media/save.ea2f09ff5fb5f79a6d55101a3a620231.svg",
     "static/media/garbage.svg": "./static/media/garbage.7f84107c5aeb171cb5ea0163e269aa49.svg",
@@ -46,11 +50,11 @@
     "index.html": "./index.html",
     "static/media/load.svg": "./static/media/load.884ead5220fd64b852508c0c92d8b947.svg",
     "static/media/arrow.svg": "./static/media/arrow.0259bff8a6114af78957f6215fad546a.svg",
-    "main.8a2fcb84.css.map": "./static/css/main.8a2fcb84.css.map",
-    "main.bd7afd71.js.map": "./static/js/main.bd7afd71.js.map"
+    "main.163e1b6b.css.map": "./static/css/main.163e1b6b.css.map",
+    "main.0274c9aa.js.map": "./static/js/main.0274c9aa.js.map"
   },
   "entrypoints": [
-    "static/css/main.8a2fcb84.css",
-    "static/js/main.bd7afd71.js"
+    "static/css/main.163e1b6b.css",
+    "static/js/main.0274c9aa.js"
   ]
 }
