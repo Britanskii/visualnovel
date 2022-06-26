@@ -27,7 +27,7 @@ const backgrounds = backgroundsScene5
             background: backgrounds.tavern
         },
         {
-            speaker: Hostess.name,
+            speaker: Hostess.unknown,
             text: "Да, да. Продолжай верить во всякую чепуху, болтливая девчонка. (уходит)"
         },
         {

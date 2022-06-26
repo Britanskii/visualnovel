@@ -18,7 +18,7 @@ const Mc7B1_1 = toStory((): legend[] => {
         {
             speaker: Simna.name,
             text: "[приближение] Уговорил.",
-            nochoice: "Scene7B1_9"
+            nochoice: "Scene7B1_8"
         },
     ]
 })
