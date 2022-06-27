@@ -19,12 +19,14 @@ import stickMain from "../res/chars/stick/main.webp"
 
 const data: dataRawCharI = {
     Player: {
+        id: "player",
         name: "Исследователь",
         "color": "#FFF",
         "fontFamily": "Times New Roman",
         "images": {}
     },
     "Hostess": {
+        id: "hostess",
         "fullname": "Аска",
         "name": "Хозяйка таверны",
         "color": "#FFF",
@@ -36,6 +38,7 @@ const data: dataRawCharI = {
         }
     },
     Mark: {
+        id: "mark",
         name: "Марк",
         color: "#FFF",
         fontFamily: "Times New Roman",
@@ -49,6 +52,7 @@ const data: dataRawCharI = {
         }
     },
     Simna: {
+        id: "simna",
         name: "Симна",
         color: "#FFF",
         fontFamily: "Times New Roman",
@@ -57,6 +61,7 @@ const data: dataRawCharI = {
         }
     },
     Archivist: {
+        id: "archivist",
         name: "Главный архивариус",
         color: "#FFF",
         fontFamily: "Times New Roman",

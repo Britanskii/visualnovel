@@ -19,6 +19,12 @@ const createChar = (char: string): character => {
                 return character.images.angry;
             case 'HORNY':
                 return character.images.horny;
+            case 'SHY':
+                return character.images.shy;
+            case 'SURPRISED':
+                return character.images.surprised;
+            case 'THINK':
+                return character.images.think;
             default:
                 new Error('No emo selected');
                 break;
@@ -29,27 +35,19 @@ const createChar = (char: string): character => {
     const happy = onChangeEmotion('HAPPY');
     const angry = onChangeEmotion('ANGRY');
     const horny = onChangeEmotion('HORNY');
+    const shy = onChangeEmotion('SHY');
+    const surprised = onChangeEmotion('SURPRISED');
+    const think = onChangeEmotion('THINK');
 
-    const actions = {
-        'move': {
-            'leftIn': 'animate__animated animate__bounceInLeft',
-            'rightIn': 'animate__animated animate__bounceInRight',
-            'leftOut': 'animate__animated animate__bounceOutLeft',
-            'rightOut': 'animate__animated animate__bounceOutRight',
-        },
-        'emo': {
-            'flirt': 'animate__animated animate__heartBeat',
-            'jump': 'animate__animated animate__bounce',
-        }
-    }
+    const id = character.id
 
 
     return (
         {
-            main, happy, angry, horny,
+            id,
+            main, happy, angry, horny, shy, surprised, think,
             name: character.name,
-            fullname: character.fullname,
-            actions
+            fullname: character.fullname
         }
     )
 }

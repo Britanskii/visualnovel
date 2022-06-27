@@ -16,8 +16,6 @@ const Background: FC = observer(() => {
         setBackgroundsActive(background)
     }, [backgroundActive])
 
-    console.log(backgroundActive)
-
     return (
         <>
             {backgroundsActive}

@@ -7,7 +7,8 @@ interface charsI {
 }
 
 interface rawCharI {
-    "fullname"?: string
+    "id": string,
+    "fullname"?: string,
     "name"?: string,
     "color"?: string,
     "fontFamily"?: string,
@@ -27,13 +28,16 @@ interface dataRawCharI {
 }
 
 interface character {
-    main: function,
-    happy: function,
-    angry: function,
-    horny: function,
+    main?: function,
+    happy?: function,
+    angry?: function,
+    horny?: function,
+    shy?: function,
+    surprised?: function,
+    think?: function,
     name: string | undefined,
-    fullname: string | undefined,
-    actions: {}
+    id: string,
+    fullname: string | undefined
 }
 
 interface dataRawSpineChar {
@@ -69,15 +73,15 @@ interface choiceI {
     story: storyI[]
 }
 
-interface save {
+interface localSave {
     story: storyI[],
     currentStory: storyI,
     id: number
 }
 
-interface saveGame {
-    gameState: stateGame,
-    saves: save[]
+interface save {
+    state: localSave
+    saves: localSave[]
 }
 
 interface bgConstants {

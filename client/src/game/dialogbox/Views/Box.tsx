@@ -6,6 +6,7 @@ import TypingText from "../TypingText";
 import {stateGame} from "../../interfaces/enums";
 import useGetAdaptiveClass from "../../hooks/useGetAdaptiveClass";
 import StoreGame from "../../stores/StoreGame";
+import StoreStory from "../../stores/StoreStory";
 
 
 // @ts-ignore
@@ -17,12 +18,14 @@ const Box: FC = ({onNext, speaker, text, timer, setTimer}) => {
         StoreGame.setStateGame(stateGame.MENU)
     }
 
+    const onFastSave = () => StoreStory.setLocalSave(true)
+
     return (
         <div onClick={onNext} className={`${s.dialogbox} ${classAdaptive} ${text.length === 0 ? s.dialogbox__hide : ""}`}>
             <div className={s.dialogbox__header}>
                 <div className={s.dialogbox__navigation}>
                     <div onClick={onOpenMenu} className={s.dialogbox__menu}>МЕНЮ</div>
-                    {/*<div className={s.dialogbox__menu}>СОХРАНИТЬ</div>*/}
+                    {/*<div onClick={onFastSave} className={s.dialogbox__menu}>СОХРАНИТЬ</div>*/}
                 </div>
                 {/*<img onClick={onSave} className={s.dialogbox__save} src={save} alt="save"/>*/}
                 <div className={s.dialogbox__lines}>

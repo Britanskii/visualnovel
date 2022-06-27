@@ -3,7 +3,7 @@ import {makeAutoObservable, toJS} from "mobx";
 import StartStory from "../stories/chapter1/StartStory";
 import {backgroundsChapter1, typeDialogbox} from "../interfaces/enums";
 import Scene3 from "../stories/chapter2/Scene3";
-import {choiceI, storyI, save, saveGame} from "../interfaces/interfaces";
+import {choiceI, storyI, save} from "../interfaces/interfaces";
 import StoreGame from "./StoreGame";
 
 class StoreStory {
@@ -34,7 +34,8 @@ class StoreStory {
     }
 
     initStorySave = () => {
-        const {story, id, currentStory} = this.getLocalSave()
+        const save = this.getLocalSave().state
+        const {story, id, currentStory} = save
 
         this.initStory(story, id, currentStory)
     }
@@ -129,17 +130,14 @@ class StoreStory {
         return <storyI[]>this.currentStory.nochoice!
     }
 
-    getLocalSave = (): save => {
-        return JSON.parse(<string>localStorage.getItem("story"))
-    }
+    getLocalSave = () => JSON.parse(<string>localStorage.getItem("story"))
 
-    setLocalSave = () => {
-        const localSave: save = {story: this.getStory(), id: this.getStoryPosition(), currentStory: this.currentStory}
+    setLocalSave = (fastSave: boolean) => {
+        const state = {story: this.getStory(), id: this.getStoryPosition(), currentStory: this.currentStory}
 
-        // const save = localStorage.getItem("gameState")
-        // console.log(save)
-        // const saveGame: saveGame = {gameState: StoreGame.getStateGame(), saves: }
-        // localStorage.setItem("gameState", JSON.stringify(localSave))
+        const saves = !this.getLocalSave() ? this.getLocalSave().saves : []
+
+        const localSave: save = fastSave ?  {state, saves: [...saves, state]} : {state, saves}
 
         localStorage.setItem("story", JSON.stringify(localSave))
     }
@@ -161,7 +159,7 @@ class StoreStory {
             this.storyPosition += 1
 
             this.setCurrentStory(this.storyPosition)
-            this.setLocalSave()
+            this.setLocalSave(false)
         }
     }
 
