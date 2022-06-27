@@ -1,5 +1,6 @@
 export enum game {
     MENU,
+    SETTINGS,
     GAME
 }
 

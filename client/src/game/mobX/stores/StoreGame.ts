@@ -6,6 +6,7 @@ class StoreGame {
     protected  _parallax: boolean = true
     protected _stateGame: game = game.MENU
     protected _imagesLoad: load = load.INITIAL
+    protected _isPicture: boolean = false
 
     constructor() {
         makeAutoObservable(this)
@@ -28,6 +29,12 @@ class StoreGame {
 
     setImagesLoad = (state: load) => {
         this._imagesLoad = state
+    }
+
+    getIsPicture = () => this._isPicture
+
+    setIsPicture = (boolean: boolean) => {
+        this._isPicture = boolean
     }
 }
 

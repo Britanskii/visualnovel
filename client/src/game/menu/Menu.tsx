@@ -1,4 +1,4 @@
-import {FC, useState} from "react";
+import {FC, useEffect, useState} from "react";
 
 import s from "./menu.module.sass"
 
@@ -25,11 +25,19 @@ enum stateWindow {
 }
 
 const Menu: FC = observer(() => {
-    const isMenu = StoreGame.getStateGame() === game.MENU
+    const [stateWindowMenu, setStateWindowMenu] = useState(stateWindow.MENU)
+    const isMenu = StoreGame.getStateGame() === game.MENU || StoreGame.getStateGame() === game.SETTINGS
 
     const classAdaptive = useGetAdaptiveClass(s, "menu")
 
-    const [menuWindow, setWindow] = useState<stateWindow>(stateWindow.MENU)
+
+    // useEffect(() => {
+    //     const stateWindowMenu: stateWindow = StoreGame.getStateGame() === game.MENU ? stateWindow.MENU : stateWindow.SETTINGS
+    //
+    //     setStateWindowMenu(stateWindowMenu)
+    // }, [isMenu])
+
+    const [menuWindow, setWindow] = useState<stateWindow>(stateWindowMenu)
 
     useImagesOnLoad([logo, background])
 

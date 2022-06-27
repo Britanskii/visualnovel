@@ -33,13 +33,17 @@ const Dialogbox: FC = observer(() => {
     const onNext = () => {
         const isNoChoice = getIsNoChoice()
 
-        if (StoreStory.getComplete() && !StoreStory.getIsChoice()) {
-            setNextLegend()
-            if (isNoChoice) {
-                setStory(getNoChoice())
-            }
+        if (StoreGame.getIsPicture()) {
+            StoreGame.setIsPicture(false)
         } else {
-            StoreStory.setComplete(true)
+            if (StoreStory.getComplete() && !StoreStory.getIsChoice()) {
+                setNextLegend()
+                if (isNoChoice) {
+                    setStory(getNoChoice())
+                }
+            } else {
+                StoreStory.setComplete(true)
+            }
         }
     }
 
