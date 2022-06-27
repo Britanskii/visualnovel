@@ -1,11 +1,9 @@
-import {Mark, Player} from "../../chars/chars";
+import {Mark, Player} from "../../characters/characters";
 import Scene3 from "../chapter2/Scene3";
-import {backgroundsChapter1} from "../../interfaces/enums";
-import {storyI} from "../../interfaces/interfaces";
+import {legend, storyI} from "../../interfaces/interfaces";
+import toStory from "../../functions/toStory";
 
-const StartStory2 = (): storyI[] => {
-
-    const backgrounds = backgroundsChapter1
+const StartStory2 = toStory((): legend[] => {
 
     return [
         {
@@ -37,9 +35,9 @@ const StartStory2 = (): storyI[] => {
         {
             id: 2,
             text: "Это оказалось проще, чем подумалось в начале. Может не так уж и сложно будет найти профессора.",
-            nochoice: Scene3()
+            nochoice: "Scene3"
         },
     ]
-}
+})
 
 export default StartStory2

@@ -1,0 +1,44 @@
+@import "../../styles/constants"
+
+.buttonDropdown
+	margin-top: 15px
+	display: flex
+	flex-direction: column
+	height: 30%
+	&__speeds
+		transition: $transitionFast
+		display: flex
+		flex-direction: column
+		height: 0
+		opacity: 0
+		visibility: hidden
+		&_open
+			visibility: visible
+			opacity: 1
+			height: 158px
+	&__speed
+		font-size: $fontSizeHD
+		transition: $transitionFast
+		margin-top: 10px
+		cursor: pointer
+		&:not(:first-child)
+			margin-top: 20px
+		&:hover, &_active
+			text-shadow: 0 0 10px #007EFF, 0 0 10px #007EFF, 0 0 10px #007EFF
+			transform: scale(1.15)
+
+.buttonDropdown__mobile
+	.buttonDropdown
+		&__speeds
+			position: relative
+			left: 50%
+			transform: translateX(-50%)
+			width: fit-content
+			flex-direction: row
+			&_open
+				height: 30px
+		&__speed
+			margin-top: 12px
+			font-size: $fontSizeMOBILE
+			&:not(:last-child)
+				margin-right: 15px

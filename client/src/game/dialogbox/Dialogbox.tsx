@@ -2,28 +2,28 @@ import {FC, useEffect, useState} from "react";
 
 import s from './dialogbox.module.sass'
 import {observer} from "mobx-react-lite";
-import StoreStory from "../stores/StoreStory";
+import StoreStory from "../mobX/stores/StoreStory";
 
 // @ts-ignore
 import save from "../../res/icons/save.svg"
 import Strings from "./Views/Strings";
 import Box from "./Views/Box";
-import {stateGame, typeDialogbox} from "../interfaces/enums";
+import {game, typeDialogbox} from "../interfaces/enums";
 import {keyboardKey} from "@testing-library/user-event";
-import StoreGame from "../stores/StoreGame";
+import StoreGame from "../mobX/stores/StoreGame";
 
 const Dialogbox: FC = observer(() => {
-    const [timer, setTimer] = useState<NodeJS.Timer>()
-
     const {
         getText,
         getTypeDialogBox,
         setTypeDialogBox,
         incStoryPosition,
         getSpeaker,
+        getIsNoChoice,
+        setBackgrounds,
         getNoChoice,
-        setStory,
-        setBackgorunds
+        setNextLegend,
+        setStory
     } = StoreStory
 
     const speaker = getSpeaker()
@@ -31,14 +31,19 @@ const Dialogbox: FC = observer(() => {
     const type: typeDialogbox = getTypeDialogBox()
 
     const onNext = () => {
-        if (timer === undefined && StoreGame.getStateGame() !== stateGame.MENU) {
-            incStoryPosition()
-            if (getNoChoice() !== undefined) {
-                setStory(getNoChoice())
-            }
+        const isNoChoice = getIsNoChoice()
+
+        if (StoreGame.getIsPicture()) {
+            StoreGame.setIsPicture(false)
         } else {
-            clearInterval(timer as NodeJS.Timeout)
-            setTimer(undefined)
+            if (StoreStory.getComplete() && !StoreStory.getIsChoice()) {
+                setNextLegend()
+                if (isNoChoice) {
+                    setStory(getNoChoice())
+                }
+            } else {
+                StoreStory.setComplete(true)
+            }
         }
     }
 
@@ -71,10 +76,9 @@ const Dialogbox: FC = observer(() => {
 
             {type === typeDialogbox.BOX ?
                 // @ts-ignore
-                <Box onNext={onNext} speaker={speaker} text={text} timer={timer} setTimer={setTimer}/>
+                <Box onNext={onNext} speaker={speaker} text={text}/>
                 // @ts-ignore
-                : <Strings onNext={onNext}  speaker={speaker} text={text} timer={timer}
-                           setTimer={setTimer} center = {typeDialogbox.CENTER === type}/>
+                : <Strings onNext={onNext}  speaker={speaker} text={text} center = {typeDialogbox.CENTER === type}/>
             }
         </>
     )

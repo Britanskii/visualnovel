@@ -1,4 +1,4 @@
-import {stateGame} from "./enums";
+import {game} from "./enums";
 
 
 interface charsI {
@@ -8,7 +8,7 @@ interface charsI {
 
 interface rawCharI {
     "id": string,
-    "fullname"?: string,
+    "unknown"?: string,
     "name"?: string,
     "color"?: string,
     "fontFamily"?: string,
@@ -37,7 +37,7 @@ interface character {
     think?: function,
     name: string | undefined,
     id: string,
-    fullname: string | undefined
+    unknown?: string | undefined
 }
 
 interface dataRawSpineChar {
@@ -56,26 +56,38 @@ interface rawSpineChar {
     }
 }
 
+interface allStories {
+    [key]: storyI
+}
+
 interface storyI {
-    id: number,
-    characters?: function[],
+    backgrounds: string[]
+    legend: legend[]
+}
+
+interface legend {
+    id?: number,
+    characters?: string[],
     speaker?: string,
     text?: string,
     actions?: []
     choice?: choiceI[]
-    nochoice?: storyI[] | storyI
+    nochoice?: string
     background?: any
     dialogbox?: typeDialogbox
 }
 
 interface choiceI {
     text: string,
-    story: storyI[]
+    story: string,
+    choice?: () => void
 }
 
 interface localSave {
-    story: storyI[],
-    currentStory: storyI,
+    story: storyI,
+    currentStory: legend,
+    date: date,
+    storyPosition: number,
     id: number
 }
 

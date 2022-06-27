@@ -1,21 +1,19 @@
-import {backgroundsScene3} from "../../../interfaces/enums";
-import {Mark, Player} from "../../../chars/chars";
+import {Mark, Player} from "../../../characters/characters";
 import Ph2_1 from "./Ph2_1";
 import Ph2_2 from "./Ph2_2";
-import {choiceI, storyI} from "../../../interfaces/interfaces";
+import {choiceI, legend, storyI} from "../../../interfaces/interfaces";
+import toStory from "../../../functions/toStory";
 
-const Ph2 = (): storyI[] => {
-
-    const backgrounds = backgroundsScene3
+const Ph2 = toStory((): legend[] => {
 
     const photoChoice: choiceI[] = [
         {
             text: "Эм… Ладно.",
-            story: Ph2_1()
+            story: "Ph2_1"
         },
         {
             text: "А если нет денег?",
-            story: Ph2_2()
+            story: "Ph2_2"
         }
     ]
 
@@ -28,6 +26,6 @@ const Ph2 = (): storyI[] => {
             choice: photoChoice
         }
     ]
-}
+})
 
 export default Ph2
