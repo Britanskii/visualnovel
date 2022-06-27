@@ -1,35 +1,38 @@
-import {backgroundsChapter1, typeDialogbox} from "../../interfaces/enums";
-import {Mark, Player} from "../../chars/chars";
-import First from "./nameChoice/First";
-import Second from "./nameChoice/Second";
-import Third from "./nameChoice/Third";
-import {choiceI, storyI} from "../../interfaces/interfaces";
+import {typeDialogbox} from "../../interfaces/enums";
+import {Mark, Player} from "../../characters/characters";
+import Nc1 from "./nameChoice/Nc1";
+import Nc2 from "./nameChoice/Nc2";
+import Nc3 from "./nameChoice/Nc3";
+import {choiceI, legend, storyI} from "../../interfaces/interfaces";
+import StoreStory from "../../mobX/stores/StoreStory";
+import toStory from "../../functions/toStory";
+import {backgroundsChapter1} from "../../../data/backgrounds";
 
+const backgrounds = backgroundsChapter1
 
-const StartStory = (): storyI[] => {
-
-    const backgrounds = backgroundsChapter1
+const StartStory = toStory( (): legend[] => {
 
     const nameChoice: choiceI[] = [
         {
             text: 'Журналист с Терры.',
-            story: First()
+            story: "Nc1"
         },
         {
             text: 'Искатель сокровищ.',
-            story: Second()
+            story: "Nc2"
         },
         {
             text: 'Робот-пришелец из космоса для спасения Ливронды.',
-            story: Third()
+            story: "Nc3"
         },
     ]
 
     return [
         {
             id: 1,
-            background: backgrounds.black,
+            background: [backgrounds.black, backgrounds.archive_angry],
             text: "Вначале была планета",
+            choice: [],
             dialogbox: typeDialogbox.CENTER,
         },
         {
@@ -182,7 +185,7 @@ const StartStory = (): storyI[] => {
         },
         {
             id: 31,
-            text: "Встать на пути хотя бы одного из этих бедствий равносильно самоубийству. А уж если они атакуют одновременно, то порою даже горда не выдерживают натиска и рассыпаются, медленно погружаясь в глубины бездны. Что остаётся жителям планеты?\n",
+            text: "Встать на пути хотя бы одного из этих бедствий равносильно самоубийству. А уж если они атакуют одновременно, то порою даже города не выдерживают натиска и рассыпаются, медленно погружаясь в глубины бездны. Что остаётся жителям планеты?\n",
             background: backgrounds.ship_attack
         },
         {
@@ -220,10 +223,11 @@ const StartStory = (): storyI[] => {
         {
             id: 38,
             text: "Но что если… чисто теоретически… у меня есть дневник некоего неизвестного ныне профессора, который утверждает, что такое бедственное положение планеты полезно Корпорации.",
+            background: backgrounds.diary
         },
         {
             id: 38,
-            text: "Что она искусственно поддерживает около апокалиптическую ситуацию и что на самом деле это можно изменить… \n",
+            text: "Что она искусственно поддерживает около апокалиптическую ситуацию и что на самом деле это можно изменить…",
         },
         {
             id: 35,
@@ -286,6 +290,6 @@ const StartStory = (): storyI[] => {
             choice: nameChoice
         },
     ]
-}
+}, backgrounds)
 
 export default StartStory

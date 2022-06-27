@@ -1,7 +1,7 @@
 import {FC} from "react";
 
 import s from "../dialogbox.module.sass"
-import StoreStory from "../../stores/StoreStory";
+import StoreStory from "../../mobX/stores/StoreStory";
 import useGetAdaptiveClass from "../../hooks/useGetAdaptiveClass";
 
 

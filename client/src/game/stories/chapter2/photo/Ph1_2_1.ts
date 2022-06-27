@@ -1,12 +1,10 @@
-import {backgroundsScene3} from "../../../interfaces/enums";
-import {Mark, Player} from "../../../chars/chars";
+import {Mark, Player} from "../../../characters/characters";
 import Ph2 from "./Ph2";
 import Ph1_2 from "./Ph1_2.ts";
-import {storyI} from "../../../interfaces/interfaces";
+import {legend, storyI} from "../../../interfaces/interfaces";
+import toStory from "../../../functions/toStory";
 
-const Ph1_2_1 = (): storyI[] => {
-
-    const backgrounds = backgroundsScene3
+const Ph1_2_1 = toStory((): legend[] => {
 
     return [
         {
@@ -17,8 +15,9 @@ const Ph1_2_1 = (): storyI[] => {
             id: 1,
             speaker: Player.name,
             text: "Пойдёт.",
+            nochoice: "Scene4"
         }
     ]
-}
+})
 
 export default Ph1_2_1

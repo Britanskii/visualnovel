@@ -11,7 +11,12 @@ import markThink from "../res/chars/mark/think.webp"
 
 import simnaMain from "../res/chars/simna/main.webp"
 
+import stickMain from "../res/chars/stick/main.webp"
+
 import archivistMain from "../res/chars/archivist/main.webp"
+
+import hostessMain from "../res/chars/hostess/main.webp"
+
 import {dataRawCharI} from "../game/interfaces/interfaces";
 
 
@@ -19,20 +24,25 @@ const data: dataRawCharI = {
     Player: {
         id: "player",
         name: "Исследователь",
-        "color": "#FFF",
-        "fontFamily": "Times New Roman",
-        "images": {}
+        color: "#FFF",
+        fontFamily: "Times New Roman",
+        images: {}
     },
-    "Hostess": {
+    Setting: {
+        id: "setting",
+        name: "Окружение",
+        color: "#FFF",
+        fontFamily: "Times New Roman",
+        images: {}
+    },
+    Hostess: {
         id: "hostess",
-        "fullname": "Аска",
-        "name": "Хозяйка таверны",
-        "color": "#FFF",
-        "fontFamily": "Times New Roman",
-        "images": {
-            "main": RinMain,
-            "happy": RinHappy,
-            "angry": RinAngry,
+        unknown: "Хозяйка таверны",
+        name: "Аска",
+        color: "#FFF",
+        fontFamily: "Times New Roman",
+        images: {
+            main: hostessMain
         }
     },
     Mark: {
@@ -66,6 +76,22 @@ const data: dataRawCharI = {
         images: {
             main: archivistMain
         }
+    },
+    Stick: {
+        id: "stick",
+        name: "Стик",
+        color: "#FFF",
+        fontFamily: "Times New Roman",
+        images: {
+            main: stickMain
+        }
+    },
+    Strangers: {
+        id: "strangers",
+        name: "Незнакомцы",
+        color: "#FFF",
+        fontFamily: "Times New Roman",
+        images: {}
     }
 }
 
