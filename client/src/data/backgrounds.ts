@@ -29,6 +29,9 @@ import archive_desk from "../res/backgrounds/scene7/archive_desk.jpg"
 import archive_night from "../res/backgrounds/scene7/archive_night.jpg"
 import archive_outside_night_close from "../res/backgrounds/scene7/archive_outside_night_close.jpg"
 import archive_outside_night_open from "../res/backgrounds/scene7/archive_outside_night_open.jpg"
+import archive_close_scrolls from "../res/backgrounds/scene3/archive_close_scrolls.jpg"
+import archive_close_mark from "../res/backgrounds/scene3/archive_close_mark.jpg"
+import archive_close_mark_scrolls from "../res/backgrounds/scene3/archive_close_mark_scrolls.jpg"
 
 //OldCity
 // import city from "../res/backgrounds/chapter1/sity.png";
@@ -84,6 +87,21 @@ export const backgroundsScene7: bgConstants = {
     archive_night,
     archive_outside_night_close,
     archive_outside_night_open
+}
+export const backgroundsScene8: bgConstants = {
+    black,
+
+    archive,
+    archive_close,
+    archive_outside,
+    archive_outside_night_close,
+    archive_outside_night_open,
+    archive_desk,
+    archive_night,
+    archive_close_scrolls,
+    archive_close_mark,
+    archive_close_mark_scrolls,
+    archive_mark
 }
 
 export const backgroundsChapter1: bgConstants = {

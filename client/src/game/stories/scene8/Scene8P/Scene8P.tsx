@@ -1,10 +1,10 @@
-import {Hostess, Mark, Player, Strangers} from "../../characters/characters";
-import {legend} from "../../interfaces/interfaces";
-import toStory from "../../functions/toStory";
-import StoreChoices from "../../mobX/stores/StoreChoices";
-import {backgroundsScene7, backgroundsScene8} from "../../../data/backgrounds";
+import {Hostess, Mark, Player, Strangers} from "../../../characters/characters";
+import {legend} from "../../../interfaces/interfaces";
+import toStory from "../../../functions/toStory";
+import StoreChoices from "../../../mobX/stores/StoreChoices";
+import {backgroundsScene7, backgroundsScene8} from "../../../../data/backgrounds";
 
-const Scene8 = toStory((): legend[] => {
+const Scene8P = toStory((): legend[] => {
 
     const backgrounds = backgroundsScene8
 
@@ -41,4 +41,4 @@ const Scene8 = toStory((): legend[] => {
     ]
 })
 
-export default Scene8
+export default Scene8P

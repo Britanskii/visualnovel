@@ -3,7 +3,7 @@ import {backgroundsScene8} from "../../../../../../data/backgrounds";
 import {legend} from "../../../../../interfaces/interfaces";
 import toStory from "../../../../../functions/toStory";
 
-const Ac8P_2_1 = toStory((): legend[] => {
+const Ac8P_2_1_1 = toStory((): legend[] => {
 
     const backgrounds = backgroundsScene8
 
@@ -11,7 +11,7 @@ const Ac8P_2_1 = toStory((): legend[] => {
         {
             speaker: Mark.name,
             characters: [Mark.main],
-            text: "Кажется больше нигде их и не используют. По крайней мере я не сталкивался. Быть может на других Сигмах, в том же департаменте стражи, или… не знаю, в мэрии?",
+            text: "Я не пойму, ты нас за кого принимаешь вообще? За аборигенов, которые умеют только говном и палками пользоваться?",
             background: backgrounds.archive_close
         },
         {
@@ -22,4 +22,4 @@ const Ac8P_2_1 = toStory((): legend[] => {
     ]
 })
 
-export default Ac8P_2_1
+export default Ac8P_2_1_1

@@ -1,7 +1,7 @@
-import {Mark, Player} from "../../../../../characters/characters";
-import {backgroundsScene8} from "../../../../../../data/backgrounds";
-import {legend} from "../../../../../interfaces/interfaces";
-import toStory from "../../../../../functions/toStory";
+import {backgroundsScene8} from "../../../../../data/backgrounds";
+import {legend} from "../../../../interfaces/interfaces";
+import {Mark} from "../../../../characters/characters";
+import toStory from "../../../../functions/toStory";
 
 const Ac8P_2_3 = toStory((): legend[] => {
 

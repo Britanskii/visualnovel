@@ -1,9 +1,10 @@
-import {Mark, Player} from "../../../../characters/characters";
-import {backgroundsScene8} from "../../../../../data/backgrounds";
-import {legend} from "../../../../interfaces/interfaces";
-import toStory from "../../../../functions/toStory";
+import {Mark, Player} from "../../../../../characters/characters";
+import {backgroundsScene8} from "../../../../../../data/backgrounds";
+import {legend} from "../../../../../interfaces/interfaces";
+import toStory from "../../../../../functions/toStory";
 
-const Ac8P_2_3 = toStory((): legend[] => {
+
+const Ac8P_2_3_1 = toStory((): legend[] => {
 
     const backgrounds = backgroundsScene8
 
@@ -18,4 +19,4 @@ const Ac8P_2_3 = toStory((): legend[] => {
     ]
 })
 
-export default Ac8P_2_3
+export default Ac8P_2_3_1

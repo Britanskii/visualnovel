@@ -65,6 +65,7 @@ import Scene7B1_2 from "../game/stories/scene7B1/Scene7B1_2";
 import Scene7B2_1 from "../game/stories/scene7B2/Scene7B2_1";
 import Scene7B2 from "../game/stories/scene7B2/Scene7B2";
 import Bc7B1_2 from "../game/stories/scene7B1/Bc7B1/BC7B1_2";
+import Scene8P from "../game/stories/scene8/Scene8P/Scene8P";
 
 
 
@@ -135,6 +136,7 @@ const allStories: allStoriesI = {
     Scene7B1_2,
     Scene7B2_1,
     Scene7B2,
+    Scene8: Scene8P
 }
 
 export default allStories

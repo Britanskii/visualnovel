@@ -10,6 +10,7 @@ import Scene5A from "../../stories/scene5/Scene5A";
 import Scene4 from "../../stories/scene4/Scene4";
 import Scene7B1 from "../../stories/scene7B1/Scene7B1";
 import Scene7B2 from "../../stories/scene7B2/Scene7B2";
+import Scene8P from "../../stories/scene8/Scene8P/Scene8P";
 
 class StoreStory {
 
@@ -37,8 +38,8 @@ class StoreStory {
     }
 
     initStoryDefault = () => {
-        const storyDefault = StartStory()
-        // const storyDefault = Scene7B2()
+        // const storyDefault = StartStory()
+        const storyDefault = Scene8P()
         // const storyDefault = Scene3()
 
         return this.initStory(storyDefault, 0, storyDefault.legend[0])
