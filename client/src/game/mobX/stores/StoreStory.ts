@@ -38,8 +38,8 @@ class StoreStory {
     }
 
     initStoryDefault = () => {
-        // const storyDefault = StartStory()
-        const storyDefault = Scene8P()
+        const storyDefault = StartStory()
+        // const storyDefault = Scene8P()
         // const storyDefault = Scene3()
 
         return this.initStory(storyDefault, 0, storyDefault.legend[0])

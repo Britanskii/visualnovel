@@ -7,6 +7,7 @@ import {choiceI, legend, storyI} from "../../interfaces/interfaces";
 import StoreStory from "../../mobX/stores/StoreStory";
 import toStory from "../../functions/toStory";
 import {backgroundsChapter1} from "../../../data/backgrounds";
+import tavern_aska from "../../../res/backgrounds/tavern_aska.webp";
 
 const backgrounds = backgroundsChapter1
 
@@ -247,7 +248,7 @@ const StartStory = toStory( (): legend[] => {
             speaker: Mark.name,
             text: "Нуу, я бы сказал, что ты любитель фантастики. Вот ты кто. Невозможно обратить последствия такого масштаба.",
             characters: [Mark.main],
-            background: backgrounds.tavern
+            background: [backgrounds.tavern, backgrounds.tavern_aska]
         },
         {
             id: 36,

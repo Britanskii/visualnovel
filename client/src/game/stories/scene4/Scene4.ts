@@ -4,6 +4,7 @@ import {backgroundsScene3, backgroundsScene4} from "../../../data/backgrounds";
 import StoreChoices from "../../mobX/stores/StoreChoices";
 import {nameChoice} from "../../interfaces/choices";
 import {Player, Stick} from "../../characters/characters";
+import background from "../../background/Background";
 
 const Scene4 = toStory((): legend[] => {
 
@@ -41,7 +42,7 @@ const Scene4 = toStory((): legend[] => {
             characters: [Stick.main],
             speaker: Stick.name,
             text: `Эгей! Привет, ${Player.name}!`,
-            background: backgrounds.tavern
+            background: [backgrounds.tavern, backgrounds.tavern_aska]
         },
         {
             speaker: Player.name,

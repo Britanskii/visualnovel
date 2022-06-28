@@ -34,6 +34,7 @@ const backgrounds = backgroundsScene5
             speaker: Simna.name,
             characters: [Simna.main],
             text: `Привет ${Player.name}! Ещё раз спасибо за то, что заступился за меня! Это было так… мужественно с твоей стороны!`,
+            background: [backgrounds.tavern,backgrounds.tavern_aska],
             choice: masculinityChoice
         }
     ]

@@ -33,6 +33,7 @@ import archive_close_scrolls from "../res/backgrounds/scene3/archive_close_scrol
 import archive_close_mark from "../res/backgrounds/scene3/archive_close_mark.jpg"
 import archive_close_mark_scrolls from "../res/backgrounds/scene3/archive_close_mark_scrolls.jpg"
 
+
 //OldCity
 // import city from "../res/backgrounds/chapter1/sity.png";
 
@@ -48,6 +49,8 @@ import attack from "../res/backgrounds/chapter1/attack.png";
 import attack2 from "../res/backgrounds/chapter1/attack_2.jpg";
 
 import tavern from "../res/backgrounds/tavern.jpg";
+import tavern_aska from "../res/backgrounds/tavern_aska.webp";
+
 
 import fish from "../res/backgrounds/scene5/fish.jpg"
 
@@ -70,14 +73,19 @@ export const backgroundsScene4: bgConstants = {
     black,
 
     tavern,
+    tavern_aska,
 }
 
 export const backgroundsScene5: bgConstants = {
     black,
 
     tavern,
+    tavern_aska,
 
     fish,
+
+
+
 }
 
 export const backgroundsScene7: bgConstants = {
@@ -140,4 +148,5 @@ export const backgroundsChapter1: bgConstants = {
     black,
 
     tavern,
+    tavern_aska,
 }

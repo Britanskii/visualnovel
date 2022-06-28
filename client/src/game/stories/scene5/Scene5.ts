@@ -40,7 +40,6 @@ const backgrounds = backgroundsScene5
         },
         {
             speaker: Player.name,
-            //development Добавить потом имя игрока
             text: `Аска. Я запомню. Зови меня ${Player.name}`
         },
         {
