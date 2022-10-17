@@ -6,8 +6,9 @@ import Game from "./game/Game";
 import {FullScreen, useFullScreenHandle} from "react-full-screen";
 import StoreSettings from "./game/mobX/stores/StoreSettings";
 import Portrait from "./game/portrait/Portrait";
-//@ts-ignore У данного плагина отсутствуют типы
+//@ts-ignore plugin types do not exist
 import ReactOrientation from 'react-orientation'
+import Border from "./game/border/Border";
 
 const App: FC = () => {
 
@@ -21,6 +22,7 @@ const App: FC = () => {
                 <Portrait/>
             </ReactOrientation>
             <Game/>
+            <Border/>
         </FullScreen>
     )
 }
