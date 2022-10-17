@@ -1,0 +1,41 @@
+@import "src/game/styles/constants"
+
+.button
+	position: relative
+	transition: .3s transform ease
+	display: flex
+	text-align: center
+	justify-content: center
+	align-items: center
+	font-size: $fontSizeHD
+	padding: 11.5px
+	cursor: pointer
+	user-select: none
+	line-height: 1
+	color: white
+	&__menu
+		background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, $menu 15%, $menu  85%, rgba(255, 255, 255, 0) 100%)
+	&__choice
+		width: 100%
+		background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, $choice 15%, $choice 85%, rgba(255, 255, 255, 0) 100%)
+	&:hover
+		transform: scale(1.05)
+		background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #008550 15%, #008550 85%, rgba(255, 255, 255, 0) 100%)
+
+	&_disabled
+		&:hover
+			transform: initial
+			background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, $menu 15%, $menu  85%, rgba(255, 255, 255, 0) 100%)
+			cursor: default
+
+.button__mobile
+	font-size: $fontSizeMOBILE
+	padding: 10px
+	&.button
+		&__menu
+			&:hover
+				background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, $menu 15%, $menu  85%, rgba(255, 255, 255, 0) 100%)
+		&__choice
+			&:hover
+				background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, $choice 15%, $choice 85%, rgba(255, 255, 255, 0) 100%)
+
